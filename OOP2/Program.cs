@@ -8,13 +8,15 @@ namespace OOP2
 	public class Program
 	{
 
-		MqttClient client = new Nmqtt.MqttClient("test.mosquitto.org", 1883, "Nmqtt_quickstart");
+		public MqttClient client = new Nmqtt.MqttClient("test.mosquitto.org", 1883, "Nmqtt_quickstart");
 
 		public static void Main(string[] args)
 		{
 
 
-			IObservable<MqttRecivedMessage<byte[]> observable = client.ListenTo("Nmqtt_quickstart_topic", MqttQos.AtMostOnce);
+			byte[] msgData = new byte[] { 1, 2, 3 };
+
+			this.client.PublishMessage ("bobby/chop/1/status/lol", msgData);
 
 			GayKevin kevin = new GayKevin (2, 1);
 
