@@ -24,7 +24,7 @@ namespace OOP2
 			this.width = w;
 
 			// MARTINS DAD IS GAY
-
+			// L2P NOOB HAHHAAHHAHA
 		}
 
 	}
