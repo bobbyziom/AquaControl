@@ -3,3 +3,4 @@
 /Users/Bobby/Documents/AAU MED4/AquaControl/OOP2/bin/Debug/OOP2.exe
 /Users/Bobby/Documents/AAU MED4/AquaControl/OOP2/obj/x86/Debug/OOP2.exe
 /Users/Bobby/Documents/AAU MED4/AquaControl/OOP2/obj/x86/Debug/OOP2.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/OOP2/bin/Debug/Nmqtt.dll
