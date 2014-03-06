@@ -16,6 +16,8 @@ namespace OOP2
 			var client = new Nmqtt.MqttClient("test.mosquitto.org", 1883, "Nmqtt_quickstart");
 			ConnectionState connectionState = client.Connect();
 
+			Console.WriteLine (connectionState);
+
 			// set up subscription
 			IObservable<MqttReceivedMessage<byte[]>> observation = client.ListenTo("Nmqtt_quickstart_topic", MqttQos.AtMostOnce);
 
@@ -27,7 +29,6 @@ namespace OOP2
 
 			// print data sent to console
 			Console.WriteLine ("  data sent!");
-
 
 
 		}
