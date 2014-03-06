@@ -28,6 +28,10 @@ namespace OOP2
 			this.penisSize = 21515;
 
 			this.fisse;
+
+			// LOL DU ER en fag
+
+			this.largeCock;
 		}
 
 	}
