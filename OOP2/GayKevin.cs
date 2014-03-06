@@ -30,7 +30,7 @@ namespace OOP2
 			this.penisSize = 21515;
 
 			this.fisseSize = 2;
-
+			this.penisSize = 2;
 			// LOL DU ER en fag
 
 			this.largeCock = 10000022;
