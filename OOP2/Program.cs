@@ -10,7 +10,7 @@ namespace OOP2
 		public static void Main(string[] args)
 		{
 
-			GayKevin kevin = new GayKevin (3, 5);
+			GayKevin kevin = new GayKevin (2, 1);
 
 			Console.Write ("HEJ KEVIN! Din penis er " + kevin.penisSize + "mm lang, og " + kevin.width + "mm bred.. noob!");
 
