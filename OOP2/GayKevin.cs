@@ -23,6 +23,8 @@ namespace OOP2
 			this.penisSize = penis;
 			this.width = w;
 
+			// MARTINS DAD IS GAY
+
 		}
 
 	}
