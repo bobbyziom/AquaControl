@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="Nmqtt">
       <HintPath>..\..\nmqtt\nMQTT\bin\Debug\Nmqtt.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
 </Project>
