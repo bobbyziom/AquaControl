@@ -35,7 +35,7 @@ namespace OOP2
 
 			this.largeCock = 10000022;
 
-			this.WhaleDick;
+			//this.WhaleDick;
 
 
 		}
