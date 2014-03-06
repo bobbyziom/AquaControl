@@ -35,4 +35,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="GayKevin.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Nmqtt">
+      <HintPath>..\..\nmqtt\nMQTT\bin\Debug\Nmqtt.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
