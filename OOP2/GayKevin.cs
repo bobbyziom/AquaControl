@@ -10,6 +10,8 @@ namespace OOP2
 
 		public int penisSize;
 		public int width;
+		public int largeCock;
+		public int fisseSize;
 
 		public GayKevin () {
 
@@ -27,11 +29,13 @@ namespace OOP2
 			// L2P NOOB HAHHAAHHAHA
 			this.penisSize = 21515;
 
-			this.fisse;
+			this.fisseSize = 2;
 
 			// LOL DU ER en fag
 
-			this.largeCock;
+			this.largeCock = 10000022;
+
+
 		}
 
 	}
