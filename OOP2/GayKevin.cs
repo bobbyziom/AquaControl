@@ -26,6 +26,8 @@ namespace OOP2
 			// MARTINS DAD IS GAY
 			// L2P NOOB HAHHAAHHAHA
 			this.penisSize = 21515;
+
+			this.fisse;
 		}
 
 	}
