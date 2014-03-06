@@ -16,10 +16,10 @@ namespace OOP2
 			var client = new Nmqtt.MqttClient("test.mosquitto.org", 1883, "Nmqtt_quickstart");
 			ConnectionState connectionState = client.Connect();
 
+			MqttReceivedMessage<byte[]> hest = new MqttReceivedMessage();
+
 			// set up subscription
-			IObservable<MqttRecivedMessage<byte[]> observation = client.ListenTo("Nmqtt_quickstart_topic", MqttQos.AtMostOnce);
-
-
+			IObservable<hest> observation = client.ListenTo("Nmqtt_quickstart_topic", MqttQos.AtMostOnce);
 
 			// making data to send
 			byte[] msgData = new byte[] { 1, 2, 3 };
