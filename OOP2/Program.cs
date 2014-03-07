@@ -30,7 +30,7 @@ namespace OOP2
 			// print data sent to console
 			Console.WriteLine ("  data sent!");
 
-			// hej mads
+			// hej bobby
 
 
 		}
