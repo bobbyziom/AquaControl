@@ -1,5 +1,0 @@
-C:\Users\Kevin\Documents\GitHub\AquaControl\OOP2\obj\x86\Debug\OOP2.csprojResolveAssemblyReference.cache
-C:\Users\Kevin\Documents\GitHub\AquaControl\OOP2\obj\x86\Debug\OOP2.exe
-C:\Users\Kevin\Documents\GitHub\AquaControl\OOP2\bin\Debug\OOP2.exe
-C:\Users\Kevin\Documents\GitHub\AquaControl\OOP2\bin\Debug\OOP2.pdb
-C:\Users\Kevin\Documents\GitHub\AquaControl\OOP2\obj\x86\Debug\OOP2.pdb
