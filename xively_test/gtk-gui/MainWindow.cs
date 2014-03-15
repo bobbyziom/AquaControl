@@ -46,8 +46,7 @@ public partial class MainWindow
 	private global::Gtk.Label label29;
 	private global::Gtk.Label label30;
 	private global::Gtk.Button getDataButton;
-	private global::Gtk.Label apiKey;
-	private global::Gtk.Entry APIentry;
+	private global::Gtk.Button prefButton;
 
 	protected virtual void Build ()
 	{
@@ -441,33 +440,25 @@ public partial class MainWindow
 		w42.Expand = false;
 		w42.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.apiKey = new global::Gtk.Label ();
-		this.apiKey.Name = "apiKey";
-		this.apiKey.LabelProp = global::Mono.Unix.Catalog.GetString ("API KEY:");
-		this.vbox1.Add (this.apiKey);
-		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.apiKey]));
-		w43.Position = 10;
+		this.prefButton = new global::Gtk.Button ();
+		this.prefButton.CanFocus = true;
+		this.prefButton.Name = "prefButton";
+		this.prefButton.UseUnderline = true;
+		this.prefButton.Label = global::Mono.Unix.Catalog.GetString ("Preferences");
+		this.vbox1.Add (this.prefButton);
+		global::Gtk.Box.BoxChild w43 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.prefButton]));
+		w43.Position = 12;
 		w43.Expand = false;
 		w43.Fill = false;
-		// Container child vbox1.Gtk.Box+BoxChild
-		this.APIentry = new global::Gtk.Entry ();
-		this.APIentry.CanFocus = true;
-		this.APIentry.Name = "APIentry";
-		this.APIentry.IsEditable = true;
-		this.APIentry.InvisibleChar = '●';
-		this.vbox1.Add (this.APIentry);
-		global::Gtk.Box.BoxChild w44 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.APIentry]));
-		w44.Position = 11;
-		w44.Expand = false;
-		w44.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 456;
-		this.DefaultHeight = 364;
+		this.DefaultHeight = 382;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.getDataButton.Clicked += new global::System.EventHandler (this.OnButtonGetDataClicked);
+		this.prefButton.Clicked += new global::System.EventHandler (this.OnPrefButtonClicked);
 	}
 }
