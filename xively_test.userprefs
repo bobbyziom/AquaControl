@@ -1,9 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="xively_test/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="xively_test/SubWindows/G1.cs">
     <Files>
-      <File FileName="xively_test/Program.cs" Line="1" Column="1" />
-      <File FileName="xively_test/MainWindow.cs" Line="13" Column="19" />
+      <File FileName="xively_test/Program.cs" Line="11" Column="39" />
+      <File FileName="xively_test/MainWindow.cs" Line="21" Column="19" />
+      <File FileName="xively_test/XivelyData.cs" Line="39" Column="1" />
+      <File FileName="xively_test/SubWindows/G1.cs" Line="29" Column="1" />
+      <File FileName="xively_test/SubWindows/Preferences.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

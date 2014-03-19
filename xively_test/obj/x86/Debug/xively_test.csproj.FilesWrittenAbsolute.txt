@@ -5,3 +5,10 @@
 /Users/Bobby/Projects/xively_test/xively_test/obj/x86/Debug/xively_test.exe
 /Users/Bobby/Projects/xively_test/xively_test/obj/x86/Debug/xively_test.exe.mdb
 /Users/Bobby/Projects/xively_test/xively_test/bin/Debug/Newtonsoft.Json.dll
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/obj/x86/Debug/xively_test.gtk-gui.gui.stetic
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/bin/Debug/xively_test.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/bin/Debug/xively_test.exe
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/obj/x86/Debug/xively_test.exe
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/obj/x86/Debug/xively_test.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/xively_test/bin/Debug/Newtonsoft.Json.dll

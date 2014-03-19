@@ -1,6 +1,7 @@
 ﻿using System;
 using Gtk;
 using System.Net;
+using System.Timers;
 using System.IO;
 using Newtonsoft.Json;
 using xively_test;
@@ -9,10 +10,17 @@ public partial class MainWindow: Gtk.Window
 {
 
 	Preferences pref = new Preferences ();
+	G1 AIR_TEMP = new G1 ();
+	Timer update;
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
+
+		update = new Timer (10000);
+		update.Start ();
+		update.AutoReset = true;
+		update.Elapsed += new ElapsedEventHandler(TickHandler);
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -21,6 +29,12 @@ public partial class MainWindow: Gtk.Window
 		a.RetVal = true;
 	}
 
+	private void TickHandler(object sender, EventArgs e)
+	{
+		Console.WriteLine ();
+	}
+
+
 	protected void OnButtonGetDataClicked (object sender, EventArgs e)
 	{
 
@@ -28,6 +42,7 @@ public partial class MainWindow: Gtk.Window
 			// create web request to xively
 			WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/1742736382.json");
 			// add api key, for verification
+
 
 			Console.WriteLine (pref.APIKey);
 			request.Headers.Add ("X-ApiKey", pref.APIKey);
@@ -45,6 +60,8 @@ public partial class MainWindow: Gtk.Window
 			// collect and store data 
 			XivelyData info = JsonConvert.DeserializeObject<XivelyData> (responseFromServer);
 			// write data streams and values to console
+
+
 
 			label1.Text = info.datastreams [0].id + ": ";
 			label2.Text = info.datastreams [0].current_value;
@@ -94,5 +111,10 @@ public partial class MainWindow: Gtk.Window
 	protected void OnPrefButtonClicked (object sender, EventArgs e)
 	{
 		pref.Visible = true;
+	}
+
+	protected void OnButton5Clicked (object sender, EventArgs e)
+	{
+		AIR_TEMP.Visible = true;
 	}
 }

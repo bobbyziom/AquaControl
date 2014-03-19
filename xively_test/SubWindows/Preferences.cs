@@ -17,9 +17,11 @@ namespace xively_test
 
 		protected void OnButton2Clicked (object sender, EventArgs e)
 		{
+			APIentry.Text = "docgCPCcgxGctvGhTYls4db6vZCwHeOhvP9XQVAshiRs0Osw";
 			APIKey = APIentry.Text;
 			APIisSaved = true;
 			savedAPIKey.Text = "using: \n" + APIKey;
+
 		}
 
 		protected void OnCloseClicked (object sender, EventArgs e)

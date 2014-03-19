@@ -54,6 +54,8 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Framework\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -67,12 +69,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XivelyData.cs" />
-    <Compile Include="Preferences.cs" />
     <Compile Include="gtk-gui\xively_test.Preferences.cs" />
+    <Compile Include="SubWindows\Preferences.cs" />
+    <Compile Include="gtk-gui\xively_test.G1.cs" />
+    <Compile Include="SubWindows\G1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Framework\" />
+    <Folder Include="SubWindows\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Framework\Newtonsoft.Json.dll" />
