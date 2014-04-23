@@ -1,6 +1,0 @@
-/Users/Toretty/Projects/ImageImportProject/ImageImportProject/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
-/Users/Toretty/Projects/ImageImportProject/ImageImportProject/obj/x86/Debug/ImageImportProject.gtk-gui.gui.stetic
-/Users/Toretty/Projects/ImageImportProject/ImageImportProject/bin/Debug/ImageImportProject.exe.mdb
-/Users/Toretty/Projects/ImageImportProject/ImageImportProject/bin/Debug/ImageImportProject.exe
-/Users/Toretty/Projects/ImageImportProject/ImageImportProject/obj/x86/Debug/ImageImportProject.exe
-/Users/Toretty/Projects/ImageImportProject/ImageImportProject/obj/x86/Debug/ImageImportProject.exe.mdb

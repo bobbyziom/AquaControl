@@ -1,0 +1,6 @@
+/Users/Bobby/Projects/system_settings_test/system_settings_test/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/Bobby/Projects/system_settings_test/system_settings_test/obj/x86/Debug/system_settings_test.gtk-gui.gui.stetic
+/Users/Bobby/Projects/system_settings_test/system_settings_test/bin/Debug/system_settings_test.exe.mdb
+/Users/Bobby/Projects/system_settings_test/system_settings_test/bin/Debug/system_settings_test.exe
+/Users/Bobby/Projects/system_settings_test/system_settings_test/obj/x86/Debug/system_settings_test.exe
+/Users/Bobby/Projects/system_settings_test/system_settings_test/obj/x86/Debug/system_settings_test.exe.mdb
