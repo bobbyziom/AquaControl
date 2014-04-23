@@ -2,7 +2,7 @@
 using System.Net.NetworkInformation;
 using System.Timers;
 
-namespace oose_testster
+namespace AquaControl
 {
 	public class Connection
 	{
@@ -23,7 +23,7 @@ namespace oose_testster
 		public string TestAdress { get; set; }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="oose_testster.Connection"/> class. </p>
+		/// Initializes a new instance of the <see cref="AquaControl.Connection"/> class. </p>
 		/// Setting default address to: www.google.com </br>
 		/// Checking connection every 60000 ms.
 		/// </summary>
