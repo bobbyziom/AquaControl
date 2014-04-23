@@ -8,13 +8,12 @@ namespace AquaControl
 	{
 
 		private Timer _update;
-		private bool _isAlive;
 
 		/// <summary>
 		/// Gets or sets a value indicating whether program is connected.
 		/// </summary>
 		/// <value><c>true</c> if this instance is connected; otherwise, <c>false</c>.</value>
-		public bool IsConnected { get; set; }
+		public bool IsAlive { get; }
 
 		/// <summary>
 		/// Gets or sets the test ping internet address.
@@ -36,17 +35,6 @@ namespace AquaControl
 			_update.Start ();
 			_update.AutoReset = true;
 			_update.Elapsed += new ElapsedEventHandler(OnTimerTick);
-
-		}
-
-		/// <summary>
-		/// Checks for internet connection.
-		/// </summary>
-		/// <returns><c>true</c>, if connection to internet, <c>false</c> otherwise.</returns>
-		public bool CheckConnection() 
-		{
-
-			return _isAlive;
 
 		}
 
@@ -84,8 +72,10 @@ namespace AquaControl
 		private void OnTimerTick(object sender, EventArgs e)
 		{
 
-			_isAlive = PingHost (TestAdress);
-			Console.WriteLine (_isAlive);
+			IsAlive = PingHost (TestAdress);
+
+			// debug
+			// Console.WriteLine (IsAlive);
 
 		}
 			
