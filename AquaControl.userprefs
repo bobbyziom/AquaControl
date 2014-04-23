@@ -1,11 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="system_settings_test/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Program.cs">
     <Files>
-      <File FileName="system_settings_test/MainWindow.cs" Line="12" Column="2" />
-      <File FileName="system_settings_test/Preferences.cs" Line="1" Column="1" />
-      <File FileName="system_settings_test/ImpCommunication.cs" Line="1" Column="1" />
-      <File FileName="system_settings_test/Program.cs" Line="1" Column="1" />
+      <File FileName="AquaControl/Program.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
