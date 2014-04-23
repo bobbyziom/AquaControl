@@ -4,7 +4,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace oose_testster
+namespace AquaControl
 {
 	public class XivelyData
 	{

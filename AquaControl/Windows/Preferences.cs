@@ -19,19 +19,19 @@ namespace AquaControl
 			impKeyEntry.Text = _settings.ImpKey;
 			xivelyApiKeyEntry.Text = _settings.XivelyApiKey;
 			xivelyFeedIdEntry.Text = _settings.XivelyFeedId;
-		
+
 		}
-			
+
 		protected void OnSaveButtonClicked (object sender, EventArgs e)
 		{
 			// save entryToSave value into system settings
-			if (label9.Text != "") {
+			if (impKeyEntry.Text != "") {
 				_settings.ImpKey = impKeyEntry.Text;
 			}
-			if (label7.Text != "") {
+			if (xivelyApiKeyEntry.Text != "") {
 				_settings.XivelyApiKey = xivelyApiKeyEntry.Text;
 			}
-			if (label8.Text != "") {
+			if (xivelyFeedIdEntry.Text != "") {
 				_settings.XivelyFeedId = xivelyFeedIdEntry.Text;
 			}
 
@@ -40,7 +40,7 @@ namespace AquaControl
 			// display status in statusLael
 			statusLabel.Text = "Stored!";
 		}
-			
+
 	}
 }
 
