@@ -3,6 +3,8 @@ using System.Net;
 
 namespace AquaControl
 {
+
+
 	public class ImpCommunication
 	{
 

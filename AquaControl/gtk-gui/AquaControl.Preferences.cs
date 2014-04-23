@@ -22,6 +22,7 @@ namespace AquaControl
 			this.Name = "AquaControl.Preferences";
 			this.Title = global::Mono.Unix.Catalog.GetString ("Window");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.BorderWidth = ((uint)(15));
 			// Container child AquaControl.Preferences.Gtk.Container+ContainerChild
 			this.vbox1 = new global::Gtk.VBox ();
 			this.vbox1.Name = "vbox1";

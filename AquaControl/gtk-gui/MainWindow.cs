@@ -3,6 +3,9 @@
 
 public partial class MainWindow
 {
+	private global::Gtk.VBox vbox3;
+	private global::Gtk.DrawingArea mainDrawingArea;
+
 	protected virtual void Build ()
 	{
 		global::Stetic.Gui.Initialize (this);
@@ -10,6 +13,18 @@ public partial class MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.AllowShrink = true;
+		// Container child MainWindow.Gtk.Container+ContainerChild
+		this.vbox3 = new global::Gtk.VBox ();
+		this.vbox3.Name = "vbox3";
+		this.vbox3.Spacing = 6;
+		// Container child vbox3.Gtk.Box+BoxChild
+		this.mainDrawingArea = new global::Gtk.DrawingArea ();
+		this.mainDrawingArea.Name = "mainDrawingArea";
+		this.vbox3.Add (this.mainDrawingArea);
+		global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.mainDrawingArea]));
+		w1.Position = 0;
+		this.Add (this.vbox3);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
@@ -17,5 +32,6 @@ public partial class MainWindow
 		this.DefaultHeight = 300;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.mainDrawingArea.ExposeEvent += new global::Gtk.ExposeEventHandler (this.OnMainDrawingAreaExposeEvent);
 	}
 }

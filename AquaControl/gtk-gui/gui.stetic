@@ -11,15 +11,30 @@
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="AllowShrink">True</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <placeholder />
+      <widget class="Gtk.VBox" id="vbox3">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.DrawingArea" id="mainDrawingArea">
+            <property name="MemberName" />
+            <signal name="ExposeEvent" handler="OnMainDrawingAreaExposeEvent" />
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
   <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="400 300">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Window</property>
     <property name="WindowPosition">CenterOnParent</property>
+    <property name="BorderWidth">15</property>
     <child>
       <widget class="Gtk.VBox" id="vbox1">
         <property name="MemberName" />
