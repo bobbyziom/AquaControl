@@ -74,8 +74,6 @@ namespace AquaControl
 			// SPECIFIC COLOR	
 			PHcolorR = 1-(PHValue/7);
 			PHcolorB = PHValue/7-1;	
-			Console.WriteLine (PHcolorR+" "+PHcolorB);
-
 
 			// FADE IN
 			if (fadecolor < 0.3) {	
