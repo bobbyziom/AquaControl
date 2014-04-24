@@ -6,6 +6,7 @@ namespace AquaControl
 	{
 
 		private float _textAlpha = 0.5f;
+		private bool _isClicked = false;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.PreferencesWidget"/> class.
@@ -61,6 +62,13 @@ namespace AquaControl
 
 			_textAlpha = 0.9f;
 
+			if (_isClicked) {
+
+				new Preferences ();
+				_isClicked = false;
+
+			}
+
 		}
 
 		public override void OnNoHoverAction()
@@ -71,6 +79,8 @@ namespace AquaControl
 			B = 0.4f;
 
 			_textAlpha = 0.5f;
+
+			_isClicked = false;
 
 		}
 
@@ -83,7 +93,7 @@ namespace AquaControl
 		{
 			PressAction ();
 		}
-			
+
 		public override void OnWidgetClickActionTopLeft ()
 		{
 			PressAction ();
@@ -96,7 +106,9 @@ namespace AquaControl
 
 		private void PressAction() 
 		{
-			new Preferences ();
+
+			_isClicked = true;
+
 		}
 			
 	}

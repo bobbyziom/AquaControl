@@ -40,6 +40,8 @@ namespace AquaControl
 			_dataGetter.Enabled = true;
 			_dataGetter.AutoReset = true;
 
+			Collect ();
+
 		}
 
 		/// <summary>
@@ -48,6 +50,16 @@ namespace AquaControl
 		/// <param name="source">Source.</param>
 		/// <param name="e">E.</param>
 		private static void OnUpdate(object source, ElapsedEventArgs e) 
+		{
+
+			Collect ();
+
+		}
+
+		/// <summary>
+		/// Collect the data.
+		/// </summary>
+		private static void Collect()
 		{
 
 			if (!DataIsReceived) {
