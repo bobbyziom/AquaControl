@@ -1,0 +1,6 @@
+C:\Users\Kevin\Documents\GitHub\AquaControl\AquaControl\bin\Debug\AquaControl.exe
+C:\Users\Kevin\Documents\GitHub\AquaControl\AquaControl\bin\Debug\AquaControl.pdb
+C:\Users\Kevin\Documents\GitHub\AquaControl\AquaControl\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Kevin\Documents\GitHub\AquaControl\AquaControl\obj\x86\Debug\AquaControl.csprojResolveAssemblyReference.cache
+C:\Users\Kevin\Documents\GitHub\AquaControl\AquaControl\obj\x86\Debug\AquaControl.exe
+C:\Users\Kevin\Documents\GitHub\AquaControl\AquaControl\obj\x86\Debug\AquaControl.pdb

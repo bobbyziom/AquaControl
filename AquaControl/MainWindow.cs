@@ -34,7 +34,7 @@ public partial class MainWindow: Gtk.Window
 		WidgetContainer.AssignWidgetSpace (9);
 		WidgetConstruct.ConstructWidgets ();
 
-		_updater = new Timer (10);
+		_updater = new Timer (1000);
 		_updater.Elapsed += new ElapsedEventHandler(OnUpdate);
 		_updater.Enabled = true;
 		_updater.AutoReset = true;
