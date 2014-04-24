@@ -9,7 +9,6 @@ public partial class MainWindow: Gtk.Window
 {
 
 	DrawAssembly _DrawingAssembly;
-	UpdateParameters UpdateMachine;
 
 	public string apiKey = "PCwlL9WXyvGafdpdCY9R2PhTJIwstlwv8KncOHFsTSUC7jDr";
 	public string feedId = "1590545863";
@@ -25,24 +24,26 @@ public partial class MainWindow: Gtk.Window
 	{
 
 		Build ();
-		Connection.StartCheck ();
 
 		_DrawingAssembly = new DrawAssembly ();
-		UpdateMachine = new UpdateParameters ();
-		//		kevinsGraph = new graphClass ();
 
+		// Start internet connectivity periodic check
+		Connection.StartCheck ();
+
+		// Create widgets
 		WidgetContainer.AssignWidgetSpace (9);
 		WidgetConstruct.ConstructWidgets ();
 
+		// initiate user settings
+		UserSettings.Initiate ();
+
+		// Setup main update timer
 		_updater = new Timer (10);
 		_updater.Elapsed += new ElapsedEventHandler(OnUpdate);
 		_updater.Enabled = true;
 		_updater.AutoReset = true;
 
-		// initiate user settings
-		UserSettings.Initiate ();
-
-		// event handlers and mask for drawing area
+		// Setup events 
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
 		mainDrawingArea.AddEvents ((int)EventMask.AllEventsMask);
 
@@ -63,7 +64,7 @@ public partial class MainWindow: Gtk.Window
 	protected void OnMainDrawingAreaExposeEvent (object o, ExposeEventArgs args)
 	{
 
-		UpdateMachine.UpdateContext (mainDrawingArea.GdkWindow, this.Allocation.Width, this.Allocation.Height, ref _DrawingAssembly);
+		UpdateParameters.UpdateContext (mainDrawingArea.GdkWindow, this.Allocation.Width, this.Allocation.Height, ref _DrawingAssembly);
 
 		_DrawingAssembly.DrawBackground ();
 		_DrawingAssembly.DrawFramework (); 
@@ -75,6 +76,7 @@ public partial class MainWindow: Gtk.Window
 	protected void OnUpdate(object source, ElapsedEventArgs e)
 	{
 
+		// refresh main drawing area
 		mainDrawingArea.QueueDraw ();
 
 		for (int i = 0; i < WidgetContainer.TotalWidgetCount; i++) {
@@ -91,7 +93,7 @@ public partial class MainWindow: Gtk.Window
 		_clicked = true;
 
 		// debug
-		Console.WriteLine ("clicked");
+		//Console.WriteLine ("clicked");
 
 	}
 		
@@ -103,8 +105,8 @@ public partial class MainWindow: Gtk.Window
 		_cursorX = args.Event.X;
 		_cursorY = args.Event.Y;
 
-		Console.WriteLine ("X pos: " + _cursorX);
-		Console.WriteLine ("Y pos: " + _cursorY);
+		//Console.WriteLine ("X pos: " + _cursorX);
+		//Console.WriteLine ("Y pos: " + _cursorY);
 
 		_clicked = false;
 

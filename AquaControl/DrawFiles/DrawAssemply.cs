@@ -10,9 +10,9 @@ namespace AquaControl
 
 		private float _contentHeight1;
 		private float _contentWidth1;
-	
 		private Gdk.Window mainDrawingArea2;
 		private int frameSize = 3;
+
 		public int[,,] FrameCoordinates = new int[3,3,2];
 
 		/// <summary>
