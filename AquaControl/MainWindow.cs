@@ -8,8 +8,6 @@ using Gdk;
 public partial class MainWindow: Gtk.Window
 {
 
-
-
 	DrawAssembly _DrawingAssembly;
 	UpdateParameters UpdateMachine;
 
@@ -21,7 +19,6 @@ public partial class MainWindow: Gtk.Window
 	private double _cursorY;
 
 	private Timer _updater;
-
 
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
