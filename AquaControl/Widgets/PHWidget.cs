@@ -25,12 +25,23 @@ namespace AquaControl
 			surface.CurveTo(X-100, Y-10, X-60, Y+10, X-30, Y-10);
 			surface.CurveTo(X-30, Y-10, X, Y+10, X+30, Y-10);
 			surface.CurveTo(X+30, Y-10, X+60, Y+10, X+100, Y-10);
-
-			//surface.Rectangle (X-(Radius/2), Y-(Radius/2), 150, Radius);
 			surface.SetSourceRGB (0.1, 0.1, 0.2);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
-			surface.ShowText ("PH");
 			surface.Fill ();
+
+			surface.SetSourceRGBA (1, 1, 1, 0.3);
+			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
+			surface.CurveTo (X - 100, Y, X, Y+30, X + 100, Y);
+			surface.Fill ();
+
+			surface.SetSourceRGBA (1, 1, 1, 0.1);
+			surface.MoveTo (X-32, Y+50);
+			surface.SetFontSize (50);
+			surface.ShowText ("PH");
+
+			//surface.Arc (X, Y, Radius, 0, Math.PI * 1);
+			surface.Fill();
+
 
 		}
 	}
