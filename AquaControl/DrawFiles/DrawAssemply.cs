@@ -106,8 +106,11 @@ namespace AquaControl
 					}
 				}
 			}
-				
 
+			// HER SKULLE GRAFEN GERNE VIRKE -.-
+			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (mainDrawingArea2)) {
+				newGraph.Draw (SurfaceGraph, 0, 0);
+			}
 
 		}
 	}
