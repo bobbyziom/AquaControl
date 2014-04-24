@@ -76,11 +76,15 @@
     <Compile Include="DatapointObject.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="TestObject.cs" />
+    <Compile Include="DrawFiles\DrawAssemply.cs" />
+    <Compile Include="DrawFiles\drawObject.cs" />
+    <Compile Include="UpdateParameters.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Windows\" />
     <Folder Include="Frameworks\" />
+    <Folder Include="DrawFiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Frameworks\Newtonsoft.Json.dll" />
