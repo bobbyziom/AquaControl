@@ -31,7 +31,7 @@ namespace AquaControl
 
 			surface.SetSourceRGBA (1, 1, 1, 0.3);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
-			surface.CurveTo (X - 100, Y, X, Y+30, X + 100, Y);
+			surface.CurveTo (X - 100, Y, X, Y+100, X + 100, Y);
 			surface.Fill ();
 
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
