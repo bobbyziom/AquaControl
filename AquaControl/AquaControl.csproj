@@ -73,6 +73,9 @@
     <Compile Include="XivelyData.cs" />
     <Compile Include="Windows\Preferences.cs" />
     <Compile Include="gtk-gui\AquaControl.Preferences.cs" />
+    <Compile Include="DatapointObject.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="TestObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Cairo;
 
-namespace oose_testster
+namespace AquaControl
 {
 	public class DatapointObject
 	{

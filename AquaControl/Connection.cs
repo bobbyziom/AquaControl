@@ -2,7 +2,7 @@
 using System.Net.NetworkInformation;
 using System.Timers;
 
-namespace oose_testster
+namespace AquaControl
 {
 	public static class Connection
 	{

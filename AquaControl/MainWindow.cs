@@ -13,7 +13,8 @@ public partial class MainWindow: Gtk.Window
 	{
 		Build ();
 
-		new Preferences ();
+		Connection.StartCheck ();
+
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -27,13 +28,7 @@ public partial class MainWindow: Gtk.Window
 	{
 		Cairo.Context surface = Gdk.CairoHelper.Create (mainDrawingArea.GdkWindow);
 
-		surface.SetSourceRGB (0.1,0.1,0.1);
-		surface.Rectangle (0, 0, Allocation.Width, Allocation.Height);
-		surface.Fill ();
 
-
-		//surface.Arc (Allocation.Width / 2, Allocation.Height / 2, Allocation.Width / 2, Math.PI, Math.PI * 2);
-		//surface.Stroke ();
 
 
 

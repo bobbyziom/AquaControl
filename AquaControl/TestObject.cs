@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace oose_testster
+namespace AquaControl
 {
 	public class TestObject : DatapointObject
 	{
