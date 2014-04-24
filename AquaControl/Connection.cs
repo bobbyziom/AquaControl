@@ -2,36 +2,36 @@
 using System.Net.NetworkInformation;
 using System.Timers;
 
-namespace AquaControl
+namespace oose_testster
 {
-	public class Connection
+	public static class Connection
 	{
 
-		private Timer _update;
+		private static Timer _update;
 
 		/// <summary>
 		/// Gets or sets a value indicating whether program is connected.
 		/// </summary>
 		/// <value><c>true</c> if this instance is connected; otherwise, <c>false</c>.</value>
-		public bool IsAlive { get; }
+		public static bool IsAlive { get; set; }
 
 		/// <summary>
 		/// Gets or sets the test ping internet address.
 		/// </summary>
 		/// <value>The test adrdess.</value>
-		public string TestAdress { get; set; }
+		public static string TestAdress { get; set; }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="AquaControl.Connection"/> class. </p>
+		/// Initializes a new instance of the <see cref="oose_testster.Connection"/> class. </p>
 		/// Setting default address to: www.google.com </br>
 		/// Checking connection every 60000 ms.
 		/// </summary>
-		public Connection() 
+		public static void StartCheck() 
 		{
 
 			TestAdress = "www.google.com";
 
-			_update = new Timer (10000);
+			_update = new Timer (2000);
 			_update.Start ();
 			_update.AutoReset = true;
 			_update.Elapsed += new ElapsedEventHandler(OnTimerTick);
@@ -69,13 +69,25 @@ namespace AquaControl
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">E.</param>
-		private void OnTimerTick(object sender, EventArgs e)
+		private static void OnTimerTick(object sender, EventArgs e)
 		{
 
 			IsAlive = PingHost (TestAdress);
 
+			// widget test
+//			Random random = new Random();
+//			int randomNumber = random.Next(0, 100);
+//
+//			Console.WriteLine ("Random number: " + randomNumber);
+//
+//			if (randomNumber > 50) {
+//				IsAlive = true;
+//			} else {
+//				IsAlive = false;
+//			}
+
 			// debug
-			// Console.WriteLine (IsAlive);
+			Console.WriteLine (IsAlive);
 
 		}
 			
