@@ -17,6 +17,9 @@ public partial class MainWindow: Gtk.Window
 		Build ();
 		Connection.StartCheck ();
 
+		_DrawingAssembly = new DrawAssembly ();
+		UpdateMachine = new UpdateParameters ();
+
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -33,5 +36,6 @@ public partial class MainWindow: Gtk.Window
 
 		_DrawingAssembly.DrawBackground ();
 		_DrawingAssembly.DrawFramework (); 
+
 	}
 }
