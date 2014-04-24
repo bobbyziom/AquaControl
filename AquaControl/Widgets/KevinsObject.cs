@@ -13,6 +13,7 @@ namespace AquaControl
 		private double[] GraphData;
 		private int totalDataPoints;
 
+
 		/// <summary>
 		/// Gets or sets the graphic spacing between each data point in the x direction 
 		/// </summary>
@@ -95,8 +96,8 @@ namespace AquaControl
 
 					Console.WriteLine (y);
 
-					p1 = new PointD (0 + (i * x_scale_ratio), y - 10 - (GraphData [i] - smallestValue) * y_scale_ratio);
-					p2 = new PointD (0 + (k * x_scale_ratio), y - 10 - (GraphData [k] - smallestValue) * y_scale_ratio);
+					p1 = new PointD (_x + (i * x_scale_ratio), _y - 10 - (GraphData [i] - smallestValue) * y_scale_ratio);
+					p2 = new PointD (_x + (k * x_scale_ratio), _y - 10 - (GraphData [k] - smallestValue) * y_scale_ratio);
 
 					cr.MoveTo (p1);
 					cr.LineTo (p2);
@@ -127,6 +128,13 @@ namespace AquaControl
 
 			return smallestValue;
 
+		}
+
+		public void KevinCoordinates( int x , int y) {
+
+			_x = x;
+
+			_y = y;
 		}
 
 

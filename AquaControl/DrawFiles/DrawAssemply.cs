@@ -11,6 +11,8 @@ namespace AquaControl
 {
 	public class DrawAssembly {
 
+		KevinsObject newGraph = new KevinsObject();
+
 		private float _contentHeight1;
 		private float _contentWidth1;
 		private Gdk.Window mainDrawingArea2;
@@ -79,20 +81,20 @@ namespace AquaControl
 				RowStart = 0;	
 				RowJump = 0; 	
 				RowStop = 1;        
-				graphClass.KevinCoordinates (FrameCoordinates [3, 0, 0], FrameCoordinates [3, 0, 1]);		
+				newGraph.KevinCoordinates (FrameCoordinates [3, 0, 0], FrameCoordinates [3, 0, 1]);		
 			}
 
 			if (graphPosition == (int)SECTIONS.MID) {		
 				RowStart = 0;	
 				RowJump = 1; 	
 				RowStop = 0;
-				graphClass.KevinCoordinates (FrameCoordinates [2, 0, 0], FrameCoordinates [2, 0, 1]);	
+				newGraph.KevinCoordinates (FrameCoordinates [2, 0, 0], FrameCoordinates [2, 0, 1]);	
 			}
 			if (graphPosition == (int)SECTIONS.TOP) {		
 				RowStart = 1;	
 				RowJump = 0; 	
 				RowStop = 0;	
-				graphClass.KevinCoordinates (FrameCoordinates [1, 0, 0], FrameCoordinates [1, 0, 1]);	
+				newGraph.KevinCoordinates (FrameCoordinates [1, 0, 0], FrameCoordinates [1, 0, 1]);	
 			}
 				
 
