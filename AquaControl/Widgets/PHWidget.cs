@@ -34,6 +34,8 @@ namespace AquaControl
 			surface.CurveTo (X - 100, Y, X, Y+100, X + 100, Y);
 			surface.Fill ();
 
+			//XivelyData data = XivelyData.GetCurrentData (apiKey, feedId);
+
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.MoveTo (X-32, Y+50);
 			surface.SetFontSize (50);
