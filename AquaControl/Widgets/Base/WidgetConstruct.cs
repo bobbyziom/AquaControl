@@ -20,6 +20,9 @@ namespace AquaControl
 			//DatapointObject graph = new KevinsObject ();
 			//WidgetContainer.PutWidget (graph);
 
+			DatapointObject PHwater = new PHWidget ();
+			WidgetContainer.PutWidget (PHwater);
+
 		}
 
 	}
