@@ -75,9 +75,25 @@ namespace AquaControl
 			int RowJump = 0;
 			int RowStop = 0;
 
-			if (graphPosition == (int)SECTIONS.BOT) {		RowStart = 0;	RowJump = 0; 	RowStop = 1;}
-			if (graphPosition == (int)SECTIONS.MID) {		RowStart = 0;	RowJump = 1; 	RowStop = 0;}
-			if (graphPosition == (int)SECTIONS.TOP) {		RowStart = 1;	RowJump = 0; 	RowStop = 0;}
+			if (graphPosition == (int)SECTIONS.BOT) {		
+				RowStart = 0;	
+				RowJump = 0; 	
+				RowStop = 1;        
+				graphClass.KevinCoordinates (FrameCoordinates [3, 0, 0], FrameCoordinates [3, 0, 1]);		
+			}
+
+			if (graphPosition == (int)SECTIONS.MID) {		
+				RowStart = 0;	
+				RowJump = 1; 	
+				RowStop = 0;
+				graphClass.KevinCoordinates (FrameCoordinates [2, 0, 0], FrameCoordinates [2, 0, 1]);	
+			}
+			if (graphPosition == (int)SECTIONS.TOP) {		
+				RowStart = 1;	
+				RowJump = 0; 	
+				RowStop = 0;	
+				graphClass.KevinCoordinates (FrameCoordinates [1, 0, 0], FrameCoordinates [1, 0, 1]);	
+			}
 				
 
 			for (int Xframes = 0; Xframes < frameSize; Xframes++) {
@@ -88,12 +104,7 @@ namespace AquaControl
 					}
 				}
 			}
-
-			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (mainDrawingArea2)) {
-
-				// START HERE KEVIN
-
-			}
+				
 
 
 		}
