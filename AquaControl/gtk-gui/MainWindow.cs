@@ -33,5 +33,6 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.mainDrawingArea.ExposeEvent += new global::Gtk.ExposeEventHandler (this.OnMainDrawingAreaExposeEvent);
+		this.mainDrawingArea.MotionNotifyEvent += new global::Gtk.MotionNotifyEventHandler (this.OnMainDrawingAreaMotionNotifyEvent);
 	}
 }

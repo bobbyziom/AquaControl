@@ -81,6 +81,7 @@
     <Compile Include="UpdateParameters.cs" />
     <Compile Include="graphClass.cs" />
     <Compile Include="KevinsObject.cs" />
+    <Compile Include="WidgetContainer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

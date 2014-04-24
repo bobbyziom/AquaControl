@@ -21,6 +21,7 @@
           <widget class="Gtk.DrawingArea" id="mainDrawingArea">
             <property name="MemberName" />
             <signal name="ExposeEvent" handler="OnMainDrawingAreaExposeEvent" />
+            <signal name="MotionNotifyEvent" handler="OnMainDrawingAreaMotionNotifyEvent" />
           </widget>
           <packing>
             <property name="Position">0</property>

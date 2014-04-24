@@ -56,22 +56,25 @@ namespace AquaControl
 						FrameCoordinates [xPos, yPos, 0] = (int)_contentWidth1 / frameSize * yPos+((int)_contentWidth1 / frameSize/2);
 						FrameCoordinates [xPos, yPos, 1] = (int)_contentHeight1 / frameSize * xPos+((int)_contentHeight1 / frameSize/2);
 
-						Console.WriteLine (FrameCoordinates [xPos, yPos, 0] + " " + FrameCoordinates [xPos, yPos, 1]);
+						//Console.WriteLine (FrameCoordinates [xPos, yPos, 0] + " " + FrameCoordinates [xPos, yPos, 1]);
 					}
 				}
 			}
 				
+			int a = 0;
 			for (int Yframes = 0; Yframes < frameSize; Yframes++) {
 				for (int Xframes = 0; Xframes < frameSize; Xframes++) {
 
 					using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (mainDrawingArea2)) {
+					
 
-						//Widget.draw (SurfaceWidget, FrameCoordinates [Yframes, Xframes, 0], FrameCoordinates [Yframes, Xframes, 1]);
-
-						SurfaceWidget.SetSourceRGB (0.1, 0.8, 0.0);
-						SurfaceWidget.Arc (FrameCoordinates [Yframes, Xframes, 0], FrameCoordinates [Yframes, Xframes, 1], 20, 0, 2 * Math.PI);
-						SurfaceWidget.StrokePreserve ();
-						SurfaceWidget.Fill ();
+						WidgetContainer.widgetArray [a].Draw (SurfaceWidget, FrameCoordinates [Yframes, Xframes, 0], FrameCoordinates [Yframes, Xframes, 1]);
+						//myWidget.Draw (SurfaceWidget, FrameCoordinates [Yframes, Xframes, 0], FrameCoordinates [Yframes, Xframes, 1]);
+						a++;
+//						SurfaceWidget.SetSourceRGB (0.1, 0.8, 0.0);
+//						SurfaceWidget.Arc (FrameCoordinates [Yframes, Xframes, 0], FrameCoordinates [Yframes, Xframes, 1], 20, 0, 2 * Math.PI);
+//						SurfaceWidget.StrokePreserve ();
+//						SurfaceWidget.Fill ();
 					}
 				}
 			}

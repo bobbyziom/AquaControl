@@ -19,6 +19,7 @@ namespace AquaControl {
 			drawingAssembly = new DrawAssembly ();
 			drawingAssembly.UpdateDrawingContext (mainDrawingArea, _contentWidth, _contentHeight);
 
+
 			}
 	}
 }
