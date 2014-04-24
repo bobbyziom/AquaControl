@@ -39,15 +39,10 @@ namespace AquaControl
 
 		double _r, _g, _b;
 	
-
-		Context cr;
-
-
-
+		Context graphSurface;
 
 		public graphClass ()
 		{
-		
 			x_scale_ratio = 20;
 			y_scale_ratio = 50;
 
@@ -56,9 +51,7 @@ namespace AquaControl
 			_b = 0;
 
 			_historicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
-
 			Console.WriteLine (totalDataPoints);
-
 		}
 
 		public void drawGraph(int dataStreamIndex){ // value has to be between 1 and 9
@@ -70,22 +63,15 @@ namespace AquaControl
 				int graph_dataP = _historicData.datastreams [dataStreamIndex].datapoints.Count;
 				totalDataPoints = graph_dataP;
 
-
-
 				GraphData = new double[totalDataPoints];
 
 				for (int i = 0; i < totalDataPoints; i++) {
 
 					GraphData [i] = Convert.ToDouble (_historicData.datastreams [dataStreamIndex].datapoints [i].value);
-
-
 				}
-
-
-		
-				cr.LineWidth = 3;
-				cr.SetSourceRGB (_r, _g, _b);
-
+					
+				graphSurface.LineWidth = 3;
+				graphSurface.SetSourceRGB (_r, _g, _b);
 
 				findSmallestValue(GraphData);
 
@@ -100,15 +86,13 @@ namespace AquaControl
 					p1 = new PointD (0 + (i * x_scale_ratio), _y - 10 - (GraphData [i] - smallestValue) * y_scale_ratio);
 					p2 = new PointD (0 + (k * x_scale_ratio), _y - 10 - (GraphData [k] - smallestValue) * y_scale_ratio);
 
-					cr.MoveTo (p1);
-					cr.LineTo (p2);
-		
+					graphSurface.MoveTo (p1);
+					graphSurface.LineTo (p2);
 				}
-				
-				cr.Stroke ();
-
+				graphSurface.Stroke ();
 			}
 		}
+
 		/// <summary>
 		/// Finds the smallest value amongst the data points.
 		/// </summary>
@@ -125,9 +109,7 @@ namespace AquaControl
 					}
 				}
 			}
-
 			return smallestValue;
-
 		}
 
 		private void swap(ref int a, ref int b){
@@ -146,7 +128,7 @@ namespace AquaControl
 		
 			_x = W;
 			_y = H;
-			cr = Gdk.CairoHelper.Create(drawingArea);
+			graphSurface = Gdk.CairoHelper.Create(drawingArea);
 		}
 
 		public void clearDrawArea(Gdk.Window drawingAreaR){

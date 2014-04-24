@@ -28,7 +28,7 @@ public partial class MainWindow: Gtk.Window
 		Connection.StartCheck ();
 
 		// Create widgets
-		WidgetContainer.AssignWidgetSpace (9);
+		WidgetContainer.AssignWidgetSpace (6);
 		WidgetConstruct.ConstructWidgets ();
 
 		// initiate user settings

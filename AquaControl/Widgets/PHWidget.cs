@@ -80,7 +80,7 @@ namespace AquaControl
 			// FADE IN
 			if (fadecolor < 0.4) {	
 				fadecolor += 0.01f; 
-				phTextShow =  Convert.ToString(PHValue);
+				phTextShow =  Convert.ToString(PHValue/100);
 			}
 
 		}
