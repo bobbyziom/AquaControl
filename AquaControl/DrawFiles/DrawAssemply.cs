@@ -13,10 +13,9 @@ namespace AquaControl
 		private Gdk.Window mainDrawingArea2;
 		private int frameSize = 3;
 		public int[,,] FrameCoordinates = new int[3,3,2];
-		public float BgColorR = 0.2;
-		public float BgColorG = 0.2;
-		public float BgColorB = 0.2;
-
+		public float BgColorR = 0.2f;
+		public float BgColorG = 0.2f;
+		public float BgColorB = 0.2f;
 
 		/// <summary>
 		/// Updates data from Update Parameters and sends it to DrawAssembly
