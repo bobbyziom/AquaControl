@@ -75,19 +75,20 @@
     <Compile Include="gtk-gui\AquaControl.Preferences.cs" />
     <Compile Include="DatapointObject.cs" />
     <Compile Include="Connection.cs" />
-    <Compile Include="TestObject.cs" />
     <Compile Include="DrawFiles\DrawAssemply.cs" />
     <Compile Include="DrawFiles\drawObject.cs" />
     <Compile Include="UpdateParameters.cs" />
     <Compile Include="graphClass.cs" />
     <Compile Include="KevinsObject.cs" />
     <Compile Include="WidgetContainer.cs" />
+    <Compile Include="Widgets\TestObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Windows\" />
     <Folder Include="Frameworks\" />
     <Folder Include="DrawFiles\" />
+    <Folder Include="Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Frameworks\Newtonsoft.Json.dll" />
