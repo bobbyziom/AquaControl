@@ -7,6 +7,24 @@ namespace AquaControl
 	{
 	
 		/// <summary>
+		/// Gets or sets the red.
+		/// </summary>
+		/// <value>The red.</value>
+		public float R { get; set; }
+
+		/// <summary>
+		/// Gets or sets the green.
+		/// </summary>
+		/// <value>The green.</value>
+		public float G { get; set; }
+
+		/// <summary>
+		/// Gets or sets the blue.
+		/// </summary>
+		/// <value>The bblue.</value>
+		public float B { get; set; }
+
+		/// <summary>
 		/// Gets or sets widget width.
 		/// </summary>
 		/// <value>The width.</value>
@@ -67,30 +85,26 @@ namespace AquaControl
 					OnWidgetClickActionButtomLeft ();
 					clicked = false;
 				}
-			}
-			// action lower right
-			if (x >= X && x < X + Radius && y >= Y && y < Y + Radius) {
+			} else if (x >= X && x < X + Radius && y >= Y && y < Y + Radius) { // action lower right
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionButtomRight ();
 					clicked = false;
 				}
-			} 
-			// action upper left
-			if (x >= X - Radius && x < X && y <= Y && y > Y - Radius) {
+			} else if (x >= X - Radius && x < X && y <= Y && y > Y - Radius) { // action upper left
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionTopLeft ();
 					clicked = false;
 				}
-			} 
-			// action upper right
-			if (x >= X && x < X + Radius && y <= Y && y > Y - Radius) {
+			} else if (x >= X && x < X + Radius && y <= Y && y > Y - Radius) { // action upper right
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionTopRight ();
 					clicked = false;
 				}
+			} else {
+				OnNoHoverAction ();
 			}
 				
 		}
@@ -116,7 +130,18 @@ namespace AquaControl
 		public virtual void OnHoverAction() 
 		{
 
+			// hover
 			//Console.WriteLine ("Hover!!!");
+
+		}
+
+		/// <summary>
+		/// Raises the no hover action event.
+		/// </summary>
+		public virtual void OnNoHoverAction () 
+		{
+
+			// no hover 
 
 		}
 

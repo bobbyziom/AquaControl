@@ -118,8 +118,8 @@ namespace AquaControl
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 400;
-			this.DefaultHeight = 300;
+			this.DefaultWidth = 408;
+			this.DefaultHeight = 246;
 			this.Show ();
 			this.save.Clicked += new global::System.EventHandler (this.OnSaveButtonClicked);
 		}

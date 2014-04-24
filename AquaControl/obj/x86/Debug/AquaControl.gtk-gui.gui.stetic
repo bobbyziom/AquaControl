@@ -31,7 +31,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="400 300">
+  <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="408 246">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Window</property>
     <property name="WindowPosition">CenterOnParent</property>
