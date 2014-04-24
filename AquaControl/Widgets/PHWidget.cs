@@ -17,13 +17,11 @@ namespace AquaControl
 
 		}
 
-		public override void Draw (Cairo.Context surface, int x, int y)
-		{
+		public override void Draw (Cairo.Context surface, int x, int y){
 
 			X = x;
 			Y = y;
 		
-
 			surface.CurveTo(X-100, Y-10, X-60, Y+10, X-30, Y-10);
 			surface.CurveTo(X-30, Y-10, X, Y+10, X+30, Y-10);
 			surface.CurveTo(X+30, Y-10, X+60, Y+10, X+100, Y-10);
@@ -31,6 +29,7 @@ namespace AquaControl
 			//surface.Rectangle (X-(Radius/2), Y-(Radius/2), 150, Radius);
 			surface.SetSourceRGB (0.1, 0.1, 0.2);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
+			surface.ShowText ("PH");
 			surface.Fill ();
 
 		}
