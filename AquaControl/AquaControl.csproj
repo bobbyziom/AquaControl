@@ -79,6 +79,7 @@
     <Compile Include="DrawFiles\DrawAssemply.cs" />
     <Compile Include="DrawFiles\drawObject.cs" />
     <Compile Include="UpdateParameters.cs" />
+    <Compile Include="graphClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

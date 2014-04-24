@@ -4,7 +4,7 @@ using Cairo;
 using Gdk;
 
 
-namespace kevin_graph
+namespace AquaControl
 {
 
 
