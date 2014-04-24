@@ -25,7 +25,7 @@ namespace AquaControl
 
 			for (int i = 0; i < 9; i++) {
 
-				widgetArray [i] = new TestObject ();
+				widgetArray [i] = new PHWidget ();
 
 			}
 

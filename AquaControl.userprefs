@@ -1,17 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/PHWidget.cs">
     <Files>
       <File FileName="AquaControl/Program.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/MainWindow.cs" Line="35" Column="38" />
-      <File FileName="AquaControl/ImpCommunication.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/UserSettings.cs" Line="19" Column="17" />
-      <File FileName="AquaControl/Windows/Preferences.cs" Line="9" Column="3" />
-      <File FileName="AquaControl/Connection.cs" Line="5" Column="22" />
-      <File FileName="AquaControl/DatapointObject.cs" Line="102" Column="1" />
-      <File FileName="AquaControl/TestObject.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/graphClass.cs" Line="11" Column="25" />
-      <File FileName="AquaControl/KevinsObject.cs" Line="1" Column="14" />
+      <File FileName="AquaControl/MainWindow.cs" Line="65" Column="3" />
+      <File FileName="AquaControl/WidgetContainer.cs" Line="24" Column="43" />
+      <File FileName="AquaControl/Widgets/PHWidget.cs" Line="22" Column="4" />
+      <File FileName="AquaControl/DatapointObject.cs" Line="30" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

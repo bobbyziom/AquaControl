@@ -82,6 +82,7 @@
     <Compile Include="KevinsObject.cs" />
     <Compile Include="WidgetContainer.cs" />
     <Compile Include="Widgets\TestObject.cs" />
+    <Compile Include="Widgets\PHWidget.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
