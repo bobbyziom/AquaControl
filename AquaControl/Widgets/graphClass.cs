@@ -7,11 +7,10 @@ using Gdk;
 namespace AquaControl
 {
 
-
 	public class graphClass
 	{
-		private string xivelyDataApiKey = "PCwlL9WXyvGafdpdCY9R2PhTJIwstlwv8KncOHFsTSUC7jDr";
-		private string feedid = "1590545863";
+
+		XivelyData _historicData;
 	
 
 		private double[] GraphData;
@@ -52,11 +51,11 @@ namespace AquaControl
 			x_scale_ratio = 20;
 			y_scale_ratio = 50;
 
-
 			_r = 0;
 			_g = 1;
 			_b = 0;
 
+			_historicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
 
 			Console.WriteLine (totalDataPoints);
 
@@ -65,12 +64,10 @@ namespace AquaControl
 		public void drawGraph(int dataStreamIndex){ // value has to be between 1 and 9
 		 
 
-			XivelyData newData = XivelyData.GetHistoricData (xivelyDataApiKey, feedid, "6hours", "500");
-
-			if (dataStreamIndex > newData.datastreams.Count) {
+			if (dataStreamIndex > _historicData.datastreams.Count) {
 				Console.WriteLine ("Datastream Not Found");
 			} else {
-				int graph_dataP = newData.datastreams [dataStreamIndex].datapoints.Count;
+				int graph_dataP = _historicData.datastreams [dataStreamIndex].datapoints.Count;
 				totalDataPoints = graph_dataP;
 
 
@@ -79,7 +76,7 @@ namespace AquaControl
 
 				for (int i = 0; i < totalDataPoints; i++) {
 
-					GraphData [i] = Convert.ToDouble (newData.datastreams [dataStreamIndex].datapoints [i].value);
+					GraphData [i] = Convert.ToDouble (_historicData.datastreams [dataStreamIndex].datapoints [i].value);
 
 
 				}

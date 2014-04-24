@@ -85,7 +85,7 @@
     <Compile Include="Widgets\PreferencesWidget.cs" />
     <Compile Include="Widgets\InternetAvailableObject.cs" />
     <Compile Include="Widgets\Base\BaseObject.cs" />
-    <Compile Include="CurrentData.cs" />
+    <Compile Include="Networking\CurrentData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

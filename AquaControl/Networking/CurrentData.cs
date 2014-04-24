@@ -42,6 +42,11 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Raises the update event.
+		/// </summary>
+		/// <param name="source">Source.</param>
+		/// <param name="e">E.</param>
 		private static void OnUpdate(object source, ElapsedEventArgs e) 
 		{
 
@@ -55,6 +60,11 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Gets the current value by identifier string.
+		/// </summary>
+		/// <returns>The current value by identifier string.</returns>
+		/// <param name="id">Identifier.</param>
 		public static string GetCurrentValueByIdString(string id)
 		{
 
@@ -74,6 +84,11 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Gets the current value by identifier float.
+		/// </summary>
+		/// <returns>The current value by identifier float.</returns>
+		/// <param name="id">Identifier.</param>
 		public static float GetCurrentValueByIdFloat(string id)
 		{
 
@@ -93,6 +108,11 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Gets the current value by identifier int.
+		/// </summary>
+		/// <returns>The current value by identifier int.</returns>
+		/// <param name="id">Identifier.</param>
 		public static int GetCurrentValueByIdInt(string id)
 		{
 
@@ -111,6 +131,8 @@ namespace AquaControl
 			return value;
 
 		}
+
+
 
 	}
 }
