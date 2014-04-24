@@ -47,10 +47,8 @@ namespace AquaControl
 			x_scale_ratio = 20;
 			y_scale_ratio = 50;
 
+			SelectingColor (); // Selects a color based on dataStreamIndex
 
-			_r = 0;
-			_g = 1;
-			_b = 0;
 
 
 
@@ -135,6 +133,84 @@ namespace AquaControl
 			_x = x;
 
 			_y = y;
+		}
+
+		public void SelectingColor(){
+
+			switch (dataStreamIndex) {
+
+			case 0:
+				_r = 0;
+				_g = 1;
+				_b = 0;
+				break;
+
+			case 1:
+
+				_r = 1;
+				_g = 1;
+				_b = 0;
+				break;
+
+			case 2:
+
+				_r = 1;
+				_g = 0;
+				_b = 0;
+				break;
+
+			case 3: 
+
+				_r = 0;
+				_g = 1;
+				_b = 1;
+				break;
+
+			case 4:
+
+				_r = 0;
+				_g = 0;
+				_b = 1;
+				break;
+
+			case 5:
+
+				_r = 0.5;
+				_g = 1;
+				_b = 0;
+				break;
+
+			case 6:
+
+				_r = 1;
+				_g = 0.5;
+				_b = 0;
+				break;
+
+			case 7:
+
+				_r = 0.5;
+				_g = 1;
+				_b = 1;
+				break;
+
+			case 8:
+
+				_r = 0;
+				_g = 0.5;
+				_b = 0.5;
+				break;
+
+			case 9:
+
+				_r = 0;
+				_g = 0;
+				_b = 0;
+				break;
+
+			};
+
+
 		}
 
 
