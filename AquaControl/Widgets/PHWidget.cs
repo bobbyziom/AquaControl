@@ -76,7 +76,7 @@ namespace AquaControl
 			PHcolorB = PHValue/7-1;	
 
 			// FADE IN
-			if (fadecolor < 0.3) {	
+			if (fadecolor < 0.4) {	
 				fadecolor += 0.01f; 
 				phTextShow =  Convert.ToString(PHValue);
 			}
