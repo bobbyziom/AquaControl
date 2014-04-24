@@ -39,6 +39,7 @@ namespace AquaControl
 				surface1.SetSourceRGB (0.2, 0.3, 0.2);
 				surface1.Rectangle (0, 0, _contentWidth1, _contentHeight1);
 				surface1.Fill ();
+
 			}
 		}
 

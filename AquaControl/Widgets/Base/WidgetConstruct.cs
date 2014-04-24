@@ -17,10 +17,8 @@ namespace AquaControl
 			DatapointObject hest3 = new TestObject ();
 			WidgetContainer.PutWidget (hest3);
 
-			DatapointObject graph = new KevinsObject ();
-			WidgetContainer.PutWidget (graph);
-
-
+			//DatapointObject graph = new KevinsObject ();
+			//WidgetContainer.PutWidget (graph);
 
 		}
 
