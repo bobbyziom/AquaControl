@@ -5,8 +5,11 @@ using AquaControl;
 using System.Timers;
 using Gdk;
 
+
 public partial class MainWindow: Gtk.Window
 {
+
+
 
 	DrawAssembly _DrawingAssembly;
 
@@ -15,6 +18,8 @@ public partial class MainWindow: Gtk.Window
 	private double _cursorY;
 
 	private Timer _updater;
+
+
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
@@ -110,4 +115,7 @@ public partial class MainWindow: Gtk.Window
 		_clicked = false;
 
 	}
+
+
+
 }

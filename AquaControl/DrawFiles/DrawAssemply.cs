@@ -25,9 +25,11 @@ namespace AquaControl
 		/// <param name="height">Height.</param>
 		public void UpdateDrawingContext(Gdk.Window context2, float width, float height)
 		{
+
 			mainDrawingArea2 = context2;
 			_contentHeight1 = height;
 			_contentWidth1 = width; 
+
 		}
 
 		/// <summary>
@@ -54,6 +56,7 @@ namespace AquaControl
 						// Puts a coordinate into the FrameCoordinate array
 						FrameCoordinates [xPos, yPos, 0] = (int)_contentWidth1 / frameSize * yPos+((int)_contentWidth1 / frameSize/2);
 						FrameCoordinates [xPos, yPos, 1] = (int)_contentHeight1 / frameSize * xPos+((int)_contentHeight1 / frameSize/2);
+
 					}
 				}
 			}

@@ -29,15 +29,7 @@ namespace AquaControl
 			X = x;
 			Y = y;
 
-			if (CurrentData.DataIsReceived) {
-				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
-					if (CurrentData.Data.datastreams [i].id == "ph") {
-
-						PHValue = (float)Convert.ToDouble (CurrentData.Data.datastreams [i].current_value);
-
-					}
-				}
-			}
+			PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
 		
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
@@ -104,7 +96,6 @@ namespace AquaControl
 			phTextShow = "PH";
 			textMoveX = -55;
 			textMoveY = 30;
-
 
 		}
 

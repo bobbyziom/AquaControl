@@ -9,6 +9,12 @@ namespace AquaControl
 		public static Timer _dataGetter;
 
 		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="AquaControl.CurrentData"/> data stored.
+		/// </summary>
+		/// <value><c>true</c> if data stored; otherwise, <c>false</c>.</value>
+		public static bool DataStored { get; set; }
+
+		/// <summary>
 		/// Gets a value indicating whether this <see cref="AquaControl.CurrentData"/> data is received.
 		/// </summary>
 		/// <value><c>true</c> if data is received; otherwise, <c>false</c>.</value>
@@ -27,6 +33,7 @@ namespace AquaControl
 		{
 
 			DataIsReceived = false;
+			DataStored = false;
 
 			_dataGetter = new Timer (10000);
 			_dataGetter.Elapsed += new ElapsedEventHandler(OnUpdate);
@@ -41,9 +48,67 @@ namespace AquaControl
 			if (!DataIsReceived) {
 				Data = XivelyData.GetCurrentData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId);
 				DataIsReceived = true;
+				DataStored = true;
 			} else {
 				DataIsReceived = false;
 			}
+
+		}
+
+		public static string GetCurrentValueByIdString(string id)
+		{
+
+			string value = "No data";
+		
+			if (CurrentData.DataStored) {
+				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
+					if (CurrentData.Data.datastreams [i].id == id) {
+
+						value = CurrentData.Data.datastreams [i].current_value;
+
+					}
+				}
+			}
+
+			return value;
+
+		}
+
+		public static float GetCurrentValueByIdFloat(string id)
+		{
+
+			float value = 0.0f;
+
+			if (CurrentData.DataStored) {
+				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
+					if (CurrentData.Data.datastreams [i].id == id) {
+
+						value = (float)Convert.ToDouble(CurrentData.Data.datastreams [i].current_value);
+
+					}
+				}
+			}
+
+			return value;
+
+		}
+
+		public static int GetCurrentValueByIdInt(string id)
+		{
+
+			int value = 0;
+
+			if (CurrentData.DataStored) {
+				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
+					if (CurrentData.Data.datastreams [i].id == id) {
+
+						value = Convert.ToInt32(CurrentData.Data.datastreams [i].current_value);
+
+					}
+				}
+			}
+
+			return value;
 
 		}
 
