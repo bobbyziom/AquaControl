@@ -85,6 +85,24 @@ namespace AquaControl
 			}
 
 		}
+
+
+		/// <summary>
+		/// Checks all widget hover.
+		/// </summary>
+		/// <param name="x">The x coordinate.</param>
+		/// <param name="y">The y coordinate.</param>
+		/// <param name="clicked">Clicked.</param>
+		public static void CheckAllWidgetHover(double x, double y, ref bool clicked) 
+		{
+
+			for (int i = 0; i < TotalWidgetCount; i++) {
+				widgetArray[i].CheckMouseHover (x, y, ref clicked);
+			}
+
+		}
+
+
 	}
 
 }

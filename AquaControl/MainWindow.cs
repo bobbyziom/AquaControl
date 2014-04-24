@@ -9,8 +9,6 @@ using Gdk;
 public partial class MainWindow: Gtk.Window
 {
 
-
-
 	DrawAssembly _DrawingAssembly;
 
 	private bool _clicked = false;
@@ -18,8 +16,6 @@ public partial class MainWindow: Gtk.Window
 	private double _cursorY;
 
 	private Timer _updater;
-
-
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
@@ -79,13 +75,10 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnUpdate(object source, ElapsedEventArgs e)
 	{
-
-		// refresh main drawing area
+	
 		mainDrawingArea.QueueDraw ();
 
-		for (int i = 0; i < WidgetContainer.TotalWidgetCount; i++) {
-			WidgetContainer.widgetArray[i].CheckMouseHover (_cursorX, _cursorY, ref _clicked);
-		}
+		WidgetContainer.CheckAllWidgetHover (_cursorX, _cursorY, ref _clicked);
 
 	}
 
@@ -96,8 +89,6 @@ public partial class MainWindow: Gtk.Window
 
 		_clicked = true;
 
-		// debug
-		//Console.WriteLine ("clicked");
 
 	}
 		
@@ -109,10 +100,10 @@ public partial class MainWindow: Gtk.Window
 		_cursorX = args.Event.X;
 		_cursorY = args.Event.Y;
 
+		_clicked = false;
+
 		//Console.WriteLine ("X pos: " + _cursorX);
 		//Console.WriteLine ("Y pos: " + _cursorY);
-
-		_clicked = false;
 
 	}
 
