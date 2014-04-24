@@ -68,22 +68,22 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ImpCommunication.cs" />
-    <Compile Include="UserSettings.cs" />
-    <Compile Include="XivelyData.cs" />
     <Compile Include="Windows\Preferences.cs" />
     <Compile Include="gtk-gui\AquaControl.Preferences.cs" />
-    <Compile Include="DatapointObject.cs" />
-    <Compile Include="Connection.cs" />
     <Compile Include="DrawFiles\DrawAssemply.cs" />
     <Compile Include="DrawFiles\drawObject.cs" />
-    <Compile Include="UpdateParameters.cs" />
-    <Compile Include="graphClass.cs" />
-    <Compile Include="KevinsObject.cs" />
-    <Compile Include="WidgetContainer.cs" />
     <Compile Include="Widgets\TestObject.cs" />
     <Compile Include="Widgets\PHWidget.cs" />
-    <Compile Include="WidgetConstruct.cs" />
+    <Compile Include="System\UserSettings.cs" />
+    <Compile Include="System\Connection.cs" />
+    <Compile Include="Networking\ImpCommunication.cs" />
+    <Compile Include="Networking\XivelyData.cs" />
+    <Compile Include="DrawFiles\UpdateParameters.cs" />
+    <Compile Include="Widgets\KevinsObject.cs" />
+    <Compile Include="Widgets\graphClass.cs" />
+    <Compile Include="Widgets\Base\DatapointObject.cs" />
+    <Compile Include="Widgets\Base\WidgetConstruct.cs" />
+    <Compile Include="Widgets\Base\WidgetContainer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -91,6 +91,9 @@
     <Folder Include="Frameworks\" />
     <Folder Include="DrawFiles\" />
     <Folder Include="Widgets\" />
+    <Folder Include="System\" />
+    <Folder Include="Networking\" />
+    <Folder Include="Widgets\Base\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Frameworks\Newtonsoft.Json.dll" />
