@@ -4,9 +4,7 @@ namespace AquaControl
 {
 	public partial class Preferences : Gtk.Window
 	{
-
-		UserSettings _settings;
-
+	
 		/// <summary>
 		/// Initializes a new instance of the settings window.
 		/// </summary>
@@ -14,11 +12,9 @@ namespace AquaControl
 		{
 			this.Build ();
 
-			_settings = new UserSettings ();
-
-			impKeyEntry.Text = _settings.ImpKey;
-			xivelyApiKeyEntry.Text = _settings.XivelyApiKey;
-			xivelyFeedIdEntry.Text = _settings.XivelyFeedId;
+			impKeyEntry.Text = UserSettings.ImpKey;
+			xivelyApiKeyEntry.Text = UserSettings.XivelyApiKey;
+			xivelyFeedIdEntry.Text = UserSettings.XivelyFeedId;
 
 		}
 
@@ -26,16 +22,16 @@ namespace AquaControl
 		{
 			// save entryToSave value into system settings
 			if (impKeyEntry.Text != "") {
-				_settings.ImpKey = impKeyEntry.Text;
+				UserSettings.ImpKey = impKeyEntry.Text;
 			}
 			if (xivelyApiKeyEntry.Text != "") {
-				_settings.XivelyApiKey = xivelyApiKeyEntry.Text;
+				UserSettings.XivelyApiKey = xivelyApiKeyEntry.Text;
 			}
 			if (xivelyFeedIdEntry.Text != "") {
-				_settings.XivelyFeedId = xivelyFeedIdEntry.Text;
+				UserSettings.XivelyFeedId = xivelyFeedIdEntry.Text;
 			}
 
-			_settings.Save ();
+			UserSettings.Save ();
 
 			// display status in statusLael
 			statusLabel.Text = "Stored!";
