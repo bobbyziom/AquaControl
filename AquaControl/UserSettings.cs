@@ -3,33 +3,33 @@ using System.Configuration;
 
 namespace AquaControl
 {
-	public class UserSettings
+	public static class UserSettings
 	{
 		// config variable
-		Configuration config;
+		private static Configuration config;
 
 		/// <summary>
 		/// Gets or sets the xively API key.
 		/// </summary>
 		/// <value>The xively API key.</value>
-		public string XivelyApiKey { get; set; }
+		public static string XivelyApiKey { get; set; }
 
 		/// <summary>
 		/// Gets or sets the imp key.
 		/// </summary>
 		/// <value>The imp key.</value>
-		public string ImpKey { get; set; }
+		public static string ImpKey { get; set; }
 
 		/// <summary>
 		/// Gets or sets the xively feed id.
 		/// </summary>
 		/// <value>The xively feed id.</value>
-		public string XivelyFeedId { get; set; }
+		public static string XivelyFeedId { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="system_settings_test.UserSettings"/> class.
 		/// </summary>
-		public UserSettings ()
+		public static void Initiate ()
 		{
 			// find the config file and set it to config variable
 			config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -42,7 +42,7 @@ namespace AquaControl
 		/// <summary>
 		/// Save current settings.
 		/// </summary>
-		public void Save() 
+		public static void Save() 
 		{
 			// clear current user settings 
 			config.AppSettings.Settings.Clear ();
@@ -64,7 +64,7 @@ namespace AquaControl
 		/// <summary>
 		/// Get settings from user configuration files and store them.
 		/// </summary>
-		private void StoreSettings() 
+		private static void StoreSettings() 
 		{
 
 			KeyValueConfigurationCollection collection = config.AppSettings.Settings;

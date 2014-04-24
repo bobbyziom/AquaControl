@@ -39,6 +39,8 @@ public partial class MainWindow: Gtk.Window
 		_updater.Enabled = true;
 		_updater.AutoReset = true;
 
+		// initiate user settings
+		UserSettings.Initiate ();
 
 		// event handlers and mask for drawing area
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
