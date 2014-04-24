@@ -8,19 +8,19 @@ namespace AquaControl
 		public static void ConstructWidgets ()
 		{
 
-			DatapointObject hest1 = new TestObject ();
+			BaseObject hest1 = new InternetAvailableObject ();
 			WidgetContainer.PutWidget (hest1);
 
-			DatapointObject hest2 = new DatapointObject ();
+			BaseObject hest2 = new BaseObject ();
 			WidgetContainer.PutWidget (hest2);
 
-			DatapointObject hest3 = new TestObject ();
+			BaseObject hest3 = new InternetAvailableObject ();
 			WidgetContainer.PutWidget (hest3);
 
-			DatapointObject pref = new PreferencesWidget ();
+			BaseObject pref = new PreferencesWidget ();
 			WidgetContainer.PutWidget (pref);
 
-			DatapointObject PHwater = new PHWidget ();
+			BaseObject PHwater = new PHWidget ();
 			WidgetContainer.PutWidget (PHwater);
 
 		}

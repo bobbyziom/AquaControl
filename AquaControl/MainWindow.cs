@@ -10,15 +10,11 @@ public partial class MainWindow: Gtk.Window
 
 	DrawAssembly _DrawingAssembly;
 
-	public string apiKey = "PCwlL9WXyvGafdpdCY9R2PhTJIwstlwv8KncOHFsTSUC7jDr";
-	public string feedId = "1590545863";
-
 	private bool _clicked = false;
 	private double _cursorX;
 	private double _cursorY;
 
 	private Timer _updater;
-
 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
@@ -36,6 +32,9 @@ public partial class MainWindow: Gtk.Window
 
 		// initiate user settings
 		UserSettings.Initiate ();
+
+		// starts data gathering
+		CurrentData.StartDataGathering ();
 
 		// Setup main update timer
 		_updater = new Timer (10);

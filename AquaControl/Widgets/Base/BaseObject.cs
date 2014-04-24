@@ -3,7 +3,7 @@ using Cairo;
 
 namespace AquaControl
 {
-	public class DatapointObject
+	public class BaseObject
 	{
 	
 		/// <summary>
@@ -57,15 +57,16 @@ namespace AquaControl
 		/// <summary>
 		/// Initializes a new instance of the <see cref="oose_testster.DatapointObject"/> class.
 		/// </summary>
-		public DatapointObject ()
+		public BaseObject ()
 		{
 
 			Console.WriteLine ("Datapoint Object construcT");
 
-			X = 60;
-			Y = 60;
-
 			Radius = 50;
+
+			R = 0.5f;
+			G = 0.5f;
+			B = 0.5f;
 
 		}
 
@@ -119,6 +120,7 @@ namespace AquaControl
 			X = x;
 			Y = y;
 		
+			surface.SetSourceRGB (R, G, B);
 			surface.Arc (X,Y,Radius,0,Math.PI*2);
 			surface.Stroke ();
 

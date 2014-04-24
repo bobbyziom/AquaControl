@@ -2,7 +2,7 @@
 
 namespace AquaControl
 {
-	public class PreferencesWidget : DatapointObject
+	public class PreferencesWidget : BaseObject
 	{
 
 		private float _textAlpha = 0.5f;
@@ -35,6 +35,10 @@ namespace AquaControl
 	
 			surface.SetSourceRGB (R, G, B);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
+			surface.Fill ();
+
+			surface.SetSourceRGBA (0, 0, 0, 0.5f);
+			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 
 			string widgetText = "Preferences";
@@ -51,8 +55,8 @@ namespace AquaControl
 		public override void OnHoverAction ()
 		{
 
-			R = 0.4f;
-			G = 0.4f;
+			R = 0.1f;
+			G = 0.2f;
 			B = 0.4f;
 
 			_textAlpha = 0.9f;
@@ -62,9 +66,9 @@ namespace AquaControl
 		public override void OnNoHoverAction()
 		{
 
-			R = 0.1f;
+			R = 0.0f;
 			G = 0.2f;
-			B = 0.5f;
+			B = 0.4f;
 
 			_textAlpha = 0.5f;
 

@@ -2,7 +2,7 @@
 
 namespace AquaControl
 {
-	public class PHWidget : DatapointObject
+	public class PHWidget : BaseObject
 	{
 
 		float fadecolor = 0;
@@ -28,6 +28,16 @@ namespace AquaControl
 
 			X = x;
 			Y = y;
+
+			if (CurrentData.DataIsReceived) {
+				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
+					if (CurrentData.Data.datastreams [i].id == "ph") {
+
+						PHValue = (float)Convert.ToDouble (CurrentData.Data.datastreams [i].current_value);
+
+					}
+				}
+			}
 		
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);

@@ -3,7 +3,7 @@ using Cairo;
 
 namespace AquaControl
 {
-	public class KevinsObject:DatapointObject
+	public class KevinsObject:BaseObject
 	{
 
 		private string xivelyDataApiKey = "PCwlL9WXyvGafdpdCY9R2PhTJIwstlwv8KncOHFsTSUC7jDr";

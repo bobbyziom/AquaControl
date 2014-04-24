@@ -10,8 +10,12 @@ namespace AquaControl
 		/// <summary>
 		/// The widget array.
 		/// </summary>
-		public static DatapointObject[] widgetArray;
+		public static BaseObject[] widgetArray;
 
+		/// <summary>
+		/// Gets or sets the total widget count.
+		/// </summary>
+		/// <value>The total widget count.</value>
 		public static int TotalWidgetCount { get; set; }
 
 		/// <summary>
@@ -23,12 +27,12 @@ namespace AquaControl
 
 			TotalWidgetCount = amount;
 
-			widgetArray = new DatapointObject[TotalWidgetCount];
+			widgetArray = new BaseObject[TotalWidgetCount];
 			_isAssigned = new bool[TotalWidgetCount];
 
 			for (int i = 0; i < TotalWidgetCount; i++) {
 
-				widgetArray[i] = new DatapointObject ();
+				widgetArray[i] = new BaseObject ();
 				_isAssigned [i] = false;
 
 			}
@@ -39,7 +43,7 @@ namespace AquaControl
 		/// Puts widget to widget container.
 		/// </summary>
 		/// <param name="o">The widget.</param>
-		public static void PutWidget(DatapointObject o) 
+		public static void PutWidget(BaseObject o) 
 		{
 
 			int putIndex = 0;
@@ -72,7 +76,7 @@ namespace AquaControl
 		
 			if (_isAssigned [index] && index < TotalWidgetCount) {
 
-				widgetArray [index] = new DatapointObject ();
+				widgetArray [index] = new BaseObject ();
 				_isAssigned [index] = false;
 
 			} else {
