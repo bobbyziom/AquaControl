@@ -11,6 +11,8 @@ namespace AquaControl
 {
 	public class DrawAssembly {
 
+		KevinsObject newGraph = new KevinsObject();
+
 		private float _contentHeight1;
 		private float _contentWidth1;
 		private Gdk.Window mainDrawingArea2;
@@ -75,9 +77,25 @@ namespace AquaControl
 			int RowJump = 0;
 			int RowStop = 0;
 
-			if (graphPosition == (int)SECTIONS.BOT) {		RowStart = 0;	RowJump = 0; 	RowStop = 1;}
-			if (graphPosition == (int)SECTIONS.MID) {		RowStart = 0;	RowJump = 1; 	RowStop = 0;}
-			if (graphPosition == (int)SECTIONS.TOP) {		RowStart = 1;	RowJump = 0; 	RowStop = 0;}
+			if (graphPosition == (int)SECTIONS.BOT) {		
+				RowStart = 0;	
+				RowJump = 0; 	
+				RowStop = 1;        
+				newGraph.KevinCoordinates (FrameCoordinates [3, 0, 0], FrameCoordinates [3, 0, 1]);		
+			}
+
+			if (graphPosition == (int)SECTIONS.MID) {		
+				RowStart = 0;	
+				RowJump = 1; 	
+				RowStop = 0;
+				newGraph.KevinCoordinates (FrameCoordinates [2, 0, 0], FrameCoordinates [2, 0, 1]);	
+			}
+			if (graphPosition == (int)SECTIONS.TOP) {		
+				RowStart = 1;	
+				RowJump = 0; 	
+				RowStop = 0;	
+				newGraph.KevinCoordinates (FrameCoordinates [1, 0, 0], FrameCoordinates [1, 0, 1]);	
+			}
 				
 
 			for (int Xframes = 0; Xframes < frameSize; Xframes++) {
@@ -89,12 +107,10 @@ namespace AquaControl
 				}
 			}
 
+			// HER SKULLE GRAFEN GERNE VIRKE -.-
 			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (mainDrawingArea2)) {
-
-				// START HERE KEVIN
-
+				newGraph.Draw (SurfaceGraph, 0, 0);
 			}
-
 
 		}
 	}
