@@ -23,6 +23,9 @@ namespace AquaControl
 			BaseObject PHwater = new PHWidget ();
 			WidgetContainer.PutWidget (PHwater);
 
+			BaseObject graph = new KevinsObject ();
+			WidgetContainer.PutWidget (graph);
+
 		}
 
 	}

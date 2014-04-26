@@ -3,11 +3,10 @@ using Cairo;
 
 namespace AquaControl
 {
-	public class KevinsObject:BaseObject
+	public class KevinsObject : BaseObject
 	{
 
-		private string xivelyDataApiKey = "PCwlL9WXyvGafdpdCY9R2PhTJIwstlwv8KncOHFsTSUC7jDr";
-		private string feedid = "1590545863";
+
 		int dataStreamIndex = 1;
 
 		private double[] GraphData;
@@ -29,70 +28,66 @@ namespace AquaControl
 
 		private double smallestValue;
 
-
-		public double _x { get; set; }
-		public double _y { get; set; }
-
 		PointD p1,p2;
+	
 
-		double _r, _g, _b;
-
-
-		Context cr;
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AquaControl.KevinsObject"/> class.
+		/// </summary>
 		public KevinsObject ()
 		{
 
+			GraphData = new double[10] { 1, 3, 5, 7, 9, 44, 22, 21, 1, 2 };
 
-			x_scale_ratio = 20;
-			y_scale_ratio = 50;
+			x_scale_ratio = 10;
+			y_scale_ratio = 10;
 
 			retrieveData ();
 			findSmallestValue(GraphData);
-			SelectingColor (); // Selects a color based on dataStreamIndex
-
-
-
-
-
+			//SelectingColor (); // Selects a color based on dataStreamIndex
 
 		}
 
-		public override void Draw(Context surface, int x, int y){
-
-				cr = surface;
-				cr.LineWidth = 3;
-				cr.SetSourceRGB (_r, _g, _b);
-
-
+		/// <summary>
+		/// Draw the specified surface.
+		/// </summary>
+		/// <param name="surface">Surface.</param>
+		/// <param name="x">The x coordinate.</param>
+		/// <param name="y">The y coordinate.</param>
+		public override void Draw(Context surface, int x, int y)
+		{
 				
+			surface.LineWidth = 3;
+			surface.SetSourceRGB (B, G, 0.4f);
 
-				Console.WriteLine ("the smallest value is " + smallestValue);
+			Console.WriteLine ("the smallest value is " + smallestValue);
 
-				for (int i = 0; i < totalDataPoints - 1; i++) {
+			for (int i = 0; i < totalDataPoints - 1; i++) {
 
-					int k = i + 1;
+				int k = i + 1;
 
-					Console.WriteLine (y);
+				Console.WriteLine (y);
 
-					p1 = new PointD (_x + (i * x_scale_ratio), _y - 10 - (GraphData [i] - smallestValue) * y_scale_ratio);
-					p2 = new PointD (_x + (k * x_scale_ratio), _y - 10 - (GraphData [k] - smallestValue) * y_scale_ratio);
+				p1 = new PointD (x + (i * x_scale_ratio), y - (GraphData [i] - smallestValue) * y_scale_ratio);
+				p2 = new PointD (x + (k * x_scale_ratio), y - (GraphData [k] - smallestValue) * y_scale_ratio);
 
-					cr.MoveTo (p1);
-					cr.LineTo (p2);
+				surface.MoveTo (p1);
+				surface.LineTo (p2);
 
-				}
+			}
 
-				cr.Stroke ();
+			surface.Stroke ();
 
-
-
-
-
-
+		
 		}
 
-		public double findSmallestValue(Double[] value){
+		/// <summary>
+		/// Finds the smallest value.
+		/// </summary>
+		/// <returns>The smallest value.</returns>
+		/// <param name="value">Value.</param>
+		public double findSmallestValue(Double[] value)
+		{
 
 			smallestValue = value [1];
 
@@ -108,14 +103,12 @@ namespace AquaControl
 
 		}
 
-		public void KevinCoordinates( int x , int y) {
-
-			_x = x;
-
-			_y = y;
-		}
-
-		public void SelectingColor(){
+		/*
+		/// <summary>
+		/// Selectings the color.
+		/// </summary>
+		public void SelectingColor()
+		{
 
 			switch (dataStreamIndex) {
 
@@ -192,65 +185,71 @@ namespace AquaControl
 
 
 		}
+		*/
 
-		public void retrieveData() {
+		/// <summary>
+		/// Retrieves the data.
+		/// </summary>
+		public void retrieveData() 
+		{
 
-			XivelyData newData = XivelyData.GetHistoricData (xivelyDataApiKey, feedid, "6hours", "500");
+			XivelyData newData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
+
 
 			if (dataStreamIndex > newData.datastreams.Count) {
+					
 				Console.WriteLine ("Datastream Not Found");
-			} else {
+
+			} else if (newData.datastreams [dataStreamIndex].datapoints != null) {
+
 				int graph_dataP = newData.datastreams [dataStreamIndex].datapoints.Count;
 				totalDataPoints = graph_dataP;
-
-
-
 				GraphData = new double[totalDataPoints];
 
 				for (int i = 0; i < totalDataPoints; i++) {
 
 					GraphData [i] = Convert.ToDouble (newData.datastreams [dataStreamIndex].datapoints [i].value);
 
-
 				}
 
+			} else {
+				Console.WriteLine ("no datapoints found");
 			}
-
-
+				
 		}
 		/// <summary>
 		/// Clears the graph from drawing Area
 		/// </summary>
-		public void clearGraph(){
-
-				_r = 0;
-				_g = 0;
-				_b = 0;
-
-			// DEN ER SAT TIL [0,0,0] LIGE NU, men den skal sætter til samme farve som drawingAreaBackGround
-			// hvis den er sat til den rigtig farve, så tegner den over det samme graph, DVS. den forsvinder
-
-
-			cr.SetSourceRGB (_r, _g, _b);
-
-			for (int i = 0; i < totalDataPoints - 1; i++) {
-
-				int k = i + 1;
-
-
-				p1 = new PointD (_x + (i * x_scale_ratio), _y - 10 - (GraphData [i] - smallestValue) * y_scale_ratio);
-				p2 = new PointD (_x + (k * x_scale_ratio), _y - 10 - (GraphData [k] - smallestValue) * y_scale_ratio);
-
-				cr.MoveTo (p1);
-				cr.LineTo (p2);
-
-			}
-
-			cr.Stroke ();
-
-
-		}
-
+//		public void clearGraph(){
+//
+//			_r = UserSettings.BgColorR;
+//			_g = UserSettings.BgColorG;
+//			_b = UserSettings.BgColorG;
+//
+//			// DEN ER SAT TIL [0,0,0] LIGE NU, men den skal sætter til samme farve som drawingAreaBackGround
+//			// hvis den er sat til den rigtig farve, så tegner den over det samme graph, DVS. den forsvinder
+//
+//
+//			cr.SetSourceRGB (UserSettings.BgColorR, UserSettings.BgColorG, UserSettings.BgColorG);
+//
+//			for (int i = 0; i < totalDataPoints - 1; i++) {
+//
+//				int k = i + 1;
+//
+//
+//				p1 = new PointD (_x + (i * x_scale_ratio), _y - 10 - (GraphData [i] - smallestValue) * y_scale_ratio);
+//				p2 = new PointD (_x + (k * x_scale_ratio), _y - 10 - (GraphData [k] - smallestValue) * y_scale_ratio);
+//
+//				cr.MoveTo (p1);
+//				cr.LineTo (p2);
+//
+//			}
+//
+//			cr.Stroke ();
+//
+//
+//		}
+//
 	}
 }
 

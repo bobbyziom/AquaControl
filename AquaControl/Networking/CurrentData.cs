@@ -24,10 +24,28 @@ namespace AquaControl
 		public static bool DataIsReceived { get; set; }
 
 		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="AquaControl.CurrentData"/> historic data stored.
+		/// </summary>
+		/// <value><c>true</c> if historic data stored; otherwise, <c>false</c>.</value>
+		public static bool HistoricDataStored { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="AquaControl.CurrentData"/> historic data is received.
+		/// </summary>
+		/// <value><c>true</c> if historic data is received; otherwise, <c>false</c>.</value>
+		public static bool HistoricDataIsReceived { get; set; }
+
+		/// <summary>
 		/// Gets the data.
 		/// </summary>
 		/// <value>The data.</value>
 		public static XivelyData Data { get; set; }
+
+		/// <summary>
+		/// Gets or sets the histroic data.
+		/// </summary>
+		/// <value>The histroic data.</value>
+		public static XivelyData HistroicData { get; set; }
 
 		/// <summary>
 		/// Starts the data gathering.
@@ -37,6 +55,8 @@ namespace AquaControl
 
 			DataIsReceived = false;
 			DataStored = false;
+			HistoricDataIsReceived = false;
+			HistoricDataStored = false;
 
 			CollectTimer = new Timer (10000);
 			CollectTimer.Elapsed += new ElapsedEventHandler(OnUpdate);
@@ -44,6 +64,7 @@ namespace AquaControl
 			CollectTimer.AutoReset = true;
 
 			Collect ();
+			CollectHistoric ();
 
 		}
 
@@ -56,6 +77,16 @@ namespace AquaControl
 		{
 
 			Collect ();
+
+		}
+
+		/// <summary>
+		/// Updates the historic data.
+		/// </summary>
+		public static void UpdateHistoricData()
+		{
+		
+			CollectHistoric ();
 
 		}
 
@@ -76,6 +107,22 @@ namespace AquaControl
 		}
 
 		/// <summary>
+		/// Collects the historic data.
+		/// </summary>
+		private static void CollectHistoric()
+		{
+
+			if (!HistoricDataIsReceived) {
+				HistroicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
+				HistoricDataIsReceived = true;
+				HistoricDataStored = true;
+			} else {
+				HistoricDataIsReceived = false;
+			}
+				
+		}
+
+		/// <summary>
 		/// Gets the current value by identifier string.
 		/// </summary>
 		/// <returns>The current value by identifier string.</returns>
@@ -85,11 +132,11 @@ namespace AquaControl
 
 			string value = "No data";
 		
-			if (CurrentData.DataStored) {
-				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
-					if (CurrentData.Data.datastreams [i].id == id) {
+			if (DataStored) {
+				for (int i = 0; i < Data.datastreams.Count; i++) {
+					if (Data.datastreams [i].id == id) {
 
-						value = CurrentData.Data.datastreams [i].current_value;
+						value = Data.datastreams [i].current_value;
 
 					}
 				}
@@ -109,11 +156,11 @@ namespace AquaControl
 
 			float value = 0.0f;
 
-			if (CurrentData.DataStored) {
-				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
-					if (CurrentData.Data.datastreams [i].id == id) {
+			if (DataStored) {
+				for (int i = 0; i < Data.datastreams.Count; i++) {
+					if (Data.datastreams [i].id == id) {
 
-						value = (float)Convert.ToDouble(CurrentData.Data.datastreams [i].current_value);
+						value = (float)Convert.ToDouble(Data.datastreams [i].current_value);
 
 					}
 				}
@@ -133,11 +180,11 @@ namespace AquaControl
 
 			int value = 0;
 
-			if (CurrentData.DataStored) {
-				for (int i = 0; i < CurrentData.Data.datastreams.Count; i++) {
-					if (CurrentData.Data.datastreams [i].id == id) {
+			if (DataStored) {
+				for (int i = 0; i < Data.datastreams.Count; i++) {
+					if (Data.datastreams [i].id == id) {
 
-						value = Convert.ToInt32(CurrentData.Data.datastreams [i].current_value);
+						value = Convert.ToInt32(Data.datastreams [i].current_value);
 
 					}
 				}
@@ -146,7 +193,6 @@ namespace AquaControl
 			return value;
 
 		}
-
 
 
 	}

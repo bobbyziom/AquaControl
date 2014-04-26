@@ -45,7 +45,7 @@ public partial class MainWindow: Gtk.Window
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	private bool _clicked = false;
 
-	private Timer _updater;
+	private Timer MainUpdate;
 
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -69,14 +69,14 @@ public partial class MainWindow: Gtk.Window
 		// starts data gathering
 		CurrentData.StartDataGathering ();
 
-		// graph setup
+		// drawing framework setup
 		DrawAssembly.Setup (3);
 
 		// Setup main update timer
-		_updater = new Timer (10);
-		_updater.Elapsed += new ElapsedEventHandler(OnUpdate);
-		_updater.Enabled = true;
-		_updater.AutoReset = true;
+		MainUpdate = new Timer (10);
+		MainUpdate.Elapsed += new ElapsedEventHandler(OnUpdate);
+		MainUpdate.Enabled = true;
+		MainUpdate.AutoReset = true;
 
 		// Setup events 
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
@@ -128,7 +128,9 @@ public partial class MainWindow: Gtk.Window
 
 		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, ref _clicked);
 
-		_clicked = false;
+		if (_clicked) {
+			_clicked = false;
+		}
 
 		//Console.WriteLine ("X pos: " + _cursorX);
 		//Console.WriteLine ("Y pos: " + _cursorY);

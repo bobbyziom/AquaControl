@@ -12,7 +12,17 @@ namespace AquaControl
 	public static class DrawAssembly {
 
 
+
+
+		public static int GraphWidth { get; set; }
+		public static int GraphHeigth { get; set; }
+
+
 		private const int _coordinatesNum = 2;
+
+		private static int[,,] _frameCoordinates;
+
+		private static int _frameSize;
 
 		/// <summary>
 		/// Gets or sets the content heigth.
@@ -33,21 +43,24 @@ namespace AquaControl
 		public static Gdk.Window MainDrawingArea { get; set; }
 
 		/// <summary>
-		/// The size of the frame.
+		/// The graph position.
 		/// </summary>
-		public static int FrameSize { get; set; }
+		public static int GraphPosition;
 
-
-		public static int[,,] FrameCoordinates = new int[3,3,2];
-
-		public static int graphPosition = (int)SECTIONS.BOT;
-
-
+		/// <summary>
+		/// Setup draw assembly with the specified frameSize.
+		/// </summary>
+		/// <param name="frameSize">Frame size.</param>
 		public static void Setup(int frameSize)
 		{
-			//KevinsObject newGraph = new KevinsObject();
 
-			FrameSize = frameSize;
+
+
+			_frameSize = frameSize;
+
+			GraphPosition = (int)SECTIONS.BOT;
+
+			_frameCoordinates = new int[_frameSize,_frameSize,_coordinatesNum];
 
 		}
 
@@ -74,7 +87,8 @@ namespace AquaControl
 
 			using (Cairo.Context surface1 = Gdk.CairoHelper.Create (MainDrawingArea)) {
 				// Background color (Created from a rectangle covering the background)
-				surface1.SetSourceRGB (r, g, b);
+				surface1.SetSourceRGB (r
+					, g, b);
 				surface1.Rectangle (0, 0, ContentWidth, ContentHeigth);
 				surface1.Fill ();
 			}
@@ -87,44 +101,44 @@ namespace AquaControl
 		public static void DrawFramework ()
 		{
 
-			for (int NewCordi = 1; NewCordi < (FrameCoordinates.Length/2); NewCordi++) {
+			for (int NewCordi = 1; NewCordi < (_frameCoordinates.Length/2); NewCordi++) {
 
-				for (int xPos = 0; xPos < FrameSize; xPos++) {
+				for (int xPos = 0; xPos < _frameSize; xPos++) {
 
-					for (int yPos = 0; yPos < FrameSize; yPos++) {
+					for (int yPos = 0; yPos < _frameSize; yPos++) {
 
 						// Puts a coordinate into the FrameCoordinate array
 
 						//------- The array -------- Dimensions of drawing area -- Rows and coloums ------------------ Margin ------------------ //
-						FrameCoordinates [xPos, yPos, 0] = (int)ContentWidth / FrameSize * yPos+((int)ContentWidth / FrameSize/2);
-						FrameCoordinates [xPos, yPos, 1] = (int)ContentHeigth / FrameSize * xPos+((int)ContentHeigth / FrameSize/2);
+						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos+((int)ContentWidth / _frameSize/2);
+						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeigth / _frameSize * xPos+((int)ContentHeigth / _frameSize/2);
 
 					}
 				}
 			}
 
 			//----------- Generates Widgets from widgetContainer
-			graphPosition = 3;
+			GraphPosition = 3;
 
 
 			int RowStart = 0;
 			int RowJump = 0;
 			int RowStop = 0;
 
-			if (graphPosition == (int)SECTIONS.BOT) {		
+			if (GraphPosition == (int)SECTIONS.BOT) {		
 				RowStart = 0;	
 				RowJump = 0; 	
 				RowStop = 1;        
 				//newGraph.KevinCoordinates (FrameCoordinates [3, 0, 0], FrameCoordinates [3, 0, 1]);		
 			}
 
-			if (graphPosition == (int)SECTIONS.MID) {		
+			if (GraphPosition == (int)SECTIONS.MID) {		
 				RowStart = 0;	
 				RowJump = 1; 	
 				RowStop = 0;
 				//newGraph.KevinCoordinates (FrameCoordinates [2, 0, 0], FrameCoordinates [2, 0, 1]);	
 			}
-			if (graphPosition == (int)SECTIONS.TOP) {		
+			if (GraphPosition == (int)SECTIONS.TOP) {		
 				RowStart = 1;	
 				RowJump = 0; 	
 				RowStop = 0;	
@@ -135,22 +149,22 @@ namespace AquaControl
 
 			int CountWidgets = 0;
 
-			for (int Xframes = 0; Xframes < FrameSize; Xframes++) {
-				for (int Yframes = 0+RowStart; Yframes < FrameSize-RowStop; Yframes+=(1+RowJump)) {
+			for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
+				for (int Yframes = 0+RowStart; Yframes < _frameSize-RowStop; Yframes+=(1+RowJump)) {
 
 					using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
-						WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, FrameCoordinates [Yframes, Xframes, 0], FrameCoordinates [Yframes, Xframes, 1]);
+						WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0], _frameCoordinates [Yframes, Xframes, 1]);
 						CountWidgets++;
 					}
 
 				}
 			}
-//
-//			// HER SKULLE GRAFEN GERNE VIRKE -.-
+
+
 //			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
-//				newGraph.Draw (SurfaceGraph, 0, 0);
+//				graph.Draw (SurfaceGraph, 0, 0);
 //			}
-//
+
 
 		}
 	}

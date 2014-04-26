@@ -60,7 +60,7 @@ namespace AquaControl
 		public BaseObject ()
 		{
 
-			Console.WriteLine ("Datapoint Object construcT");
+			Console.WriteLine ("Base Object Construct");
 
 			Radius = 50;
 
@@ -132,8 +132,9 @@ namespace AquaControl
 		public virtual void OnHoverAction() 
 		{
 
-			// hover
-			//Console.WriteLine ("Hover!!!");
+			R = 0.8f;
+			G = 0.7f;
+			B = 0.4f;
 
 		}
 
@@ -143,7 +144,9 @@ namespace AquaControl
 		public virtual void OnNoHoverAction () 
 		{
 
-			// no hover 
+			R = 0.5f;
+			G = 0.5f;
+			B = 0.5f;
 
 		}
 

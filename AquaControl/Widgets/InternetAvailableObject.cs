@@ -7,6 +7,8 @@ namespace AquaControl
 
 		private float _textAlpha = 0.0f;
 
+		
+
 		public InternetAvailableObject () 
 		{
 
@@ -48,6 +50,8 @@ namespace AquaControl
 			surface.ShowText (widgetText);
 
 
+
+
 		}
 
 		public override void OnHoverAction ()
@@ -63,6 +67,38 @@ namespace AquaControl
 			_textAlpha = 0.0f;
 
 		}
+
+		public override void OnWidgetClickActionButtomLeft ()
+		{
+			OnAllClick ();
+		}
+
+		public override void OnWidgetClickActionButtomRight ()
+		{
+			OnAllClick ();
+		}
+
+		public override void OnWidgetClickActionTopLeft ()
+		{
+			OnAllClick ();
+		}
+
+		public override void OnWidgetClickActionTopRight ()
+		{
+			OnAllClick ();
+		}
+
+		private void OnAllClick ()
+		{
+
+			CurrentData.UpdateHistoricData ();
+			XivelyData data = CurrentData.HistroicData;
+
+		}
+
+
+
+
 
 	}
 }

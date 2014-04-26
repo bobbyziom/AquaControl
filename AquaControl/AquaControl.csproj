@@ -71,7 +71,6 @@
     <Compile Include="Windows\Preferences.cs" />
     <Compile Include="gtk-gui\AquaControl.Preferences.cs" />
     <Compile Include="DrawFiles\DrawAssemply.cs" />
-    <Compile Include="DrawFiles\drawObject.cs" />
     <Compile Include="Widgets\PHWidget.cs" />
     <Compile Include="System\UserSettings.cs" />
     <Compile Include="System\Connection.cs" />
