@@ -85,6 +85,8 @@ public partial class MainWindow: Gtk.Window
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
 		mainDrawingArea.AddEvents ((int)EventMask.AllEventsMask);
 
+		XivelyData data = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
+
 	}
 
 

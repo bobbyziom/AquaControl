@@ -11,7 +11,7 @@ namespace AquaControl
 		{
 
 			graphId = GraphContainer.AssignAndGetGraphId ();
-			GraphContainer.AssignValueByDataStreamId (graphId, "DS181");
+			//GraphContainer.AssignValueByDataStreamId (graphId, "DS181");
 
 			Alpha = 1;
 
@@ -72,6 +72,8 @@ namespace AquaControl
 			} else {
 				GraphContainer.ShowGraphById (graphId);
 			}
+
+
 
 
 		}

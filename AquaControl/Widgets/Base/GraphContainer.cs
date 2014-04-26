@@ -31,13 +31,6 @@ namespace AquaControl
 
 		}
 
-		public static void AssignValueByDataStreamId (int graphIndex, string datastreamId) 
-		{
-
-
-
-		}
-
 		/// <summary>
 		/// Creates the graphs.
 		/// </summary>
@@ -55,6 +48,13 @@ namespace AquaControl
 				graphArray [i] = new Graph ();
 
 			}
+
+		}
+
+		public static void UpdateValueToGraph(int id, string dataStreamId)
+		{
+
+
 
 		}
 

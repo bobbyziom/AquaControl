@@ -66,6 +66,7 @@ namespace AquaControl
 			Collect ();
 			CollectHistoric ();
 
+
 		}
 
 		/// <summary>
@@ -96,6 +97,7 @@ namespace AquaControl
 		/// </summary>
 		private static void Collect()
 		{
+
 			if (UserSettings.UserSetupCompleted) {
 
 				if (!DataIsReceived) {
@@ -116,14 +118,18 @@ namespace AquaControl
 		private static void CollectHistoric()
 		{
 			if (UserSettings.UserSetupCompleted) {
-			
+
+						
 				if (!HistoricDataIsReceived) {
 					HistroicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
 					HistoricDataIsReceived = true;
 					HistoricDataStored = true;
+
 				} else {
 					HistoricDataIsReceived = false;
 				}
+
+
 
 			}
 				

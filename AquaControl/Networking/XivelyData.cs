@@ -156,10 +156,10 @@ namespace AquaControl
 		{
 		
 			// send request to specified feedId
-			WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/" + "934834023" + "?duration=" + duration + "&limit=" + limit + "&function=average");
+			WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/" + feedId + "?duration=" + duration + "&limit=" + limit + "&function=average");
 
 			// add api key, for verification
-			request.Headers.Add ("X-ApiKey", "DH7zFdcZrWq2bSrLfxJFTV0iqwG2GoKZaYnutV2EGZiIMLPb");
+			request.Headers.Add ("X-ApiKey", xivelyDataApiKey);
 
 			// get response
 			WebResponse response = request.GetResponse ();
