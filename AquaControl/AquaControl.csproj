@@ -84,6 +84,7 @@
     <Compile Include="Widgets\Base\BaseObject.cs" />
     <Compile Include="Networking\CurrentData.cs" />
     <Compile Include="Widgets\KevinsObject.cs" />
+    <Compile Include="Widgets\PumpWidget.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
