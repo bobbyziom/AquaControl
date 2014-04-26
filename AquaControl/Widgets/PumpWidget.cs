@@ -26,7 +26,7 @@ namespace AquaControl
 			surface.Fill ();
 
 			surface.SetSourceRGBA (0.2, 1, 0.5, 0.1);
-			surface.Rectangle (X, Y, 100, 100);
+			surface.Rectangle (X-Width, Y-Height, 100, 100);
 			surface.Fill ();
 	
 
