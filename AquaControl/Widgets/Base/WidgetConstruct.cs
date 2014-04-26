@@ -14,17 +14,14 @@ namespace AquaControl
 			BaseObject hest2 = new BaseObject ();
 			WidgetContainer.PutWidget (hest2);
 
-			BaseObject hest3 = new InternetAvailableObject ();
-			WidgetContainer.PutWidget (hest3);
-
 			BaseObject pref = new PreferencesWidget ();
 			WidgetContainer.PutWidget (pref);
 
 			BaseObject PHwater = new PHWidget ();
 			WidgetContainer.PutWidget (PHwater);
 
-			BaseObject graph = new KevinsObject ();
-			WidgetContainer.PutWidget (graph);
+			BaseObject hum = new HumidityWidget ();
+			WidgetContainer.PutWidget (hum);
 
 		}
 

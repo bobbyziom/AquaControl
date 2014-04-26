@@ -155,7 +155,9 @@ namespace AquaControl
 
 
 			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
-				Graphs.Draw (SurfaceGraph, 0, 0);
+
+				GraphContainer.graphArray [0].Draw (SurfaceGraph, 50, 50);
+
 			}
 
 

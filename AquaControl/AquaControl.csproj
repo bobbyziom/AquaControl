@@ -83,9 +83,11 @@
     <Compile Include="Widgets\InternetAvailableObject.cs" />
     <Compile Include="Widgets\Base\BaseObject.cs" />
     <Compile Include="Networking\CurrentData.cs" />
-    <Compile Include="Widgets\KevinsObject.cs" />
     <Compile Include="Widgets\PumpWidget.cs" />
     <Compile Include="Graphs.cs" />
+    <Compile Include="Widgets\Base\GraphContainer.cs" />
+    <Compile Include="Widgets\Graph.cs" />
+    <Compile Include="Widgets\HumidityWidget.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

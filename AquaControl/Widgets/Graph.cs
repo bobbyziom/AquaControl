@@ -3,7 +3,7 @@ using Cairo;
 
 namespace AquaControl
 {
-	public class KevinsObject : BaseObject
+	public class Graph : BaseObject
 	{
 
 
@@ -29,21 +29,24 @@ namespace AquaControl
 		private double smallestValue;
 
 		PointD p1,p2;
-	
+
+			
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.KevinsObject"/> class.
 		/// </summary>
-		public KevinsObject ()
+		public Graph ()
 		{
+
+
 
 			GraphData = new double[10] { 1, 3, 5, 7, 9, 44, 22, 21, 1, 2 };
 
 			x_scale_ratio = 10;
 			y_scale_ratio = 10;
 
-			retrieveData ();
-			findSmallestValue(GraphData);
+			//retrieveData ();
+			//findSmallestValue(GraphData);
 			//SelectingColor (); // Selects a color based on dataStreamIndex
 
 		}
@@ -54,29 +57,34 @@ namespace AquaControl
 		/// <param name="surface">Surface.</param>
 		/// <param name="x">The x coordinate.</param>
 		/// <param name="y">The y coordinate.</param>
-		public override void Draw(Context surface, int x, int y)
+		public override void Draw(Cairo.Context surface, int x, int y)
 		{
-				
-			surface.LineWidth = 3;
-			surface.SetSourceRGB (B, G, 0.4f);
+		
+			surface.SetSourceRGBA (1, 1, 1, Alpha);
+			surface.Arc (x, y, 70, 0, Math.PI * 2);
+			surface.Fill ();
 
-			Console.WriteLine ("the smallest value is " + smallestValue);
-
-			for (int i = 0; i < totalDataPoints - 1; i++) {
-
-				int k = i + 1;
-
-				Console.WriteLine (y);
-
-				p1 = new PointD (x + (i * x_scale_ratio), y - (GraphData [i] - smallestValue) * y_scale_ratio);
-				p2 = new PointD (x + (k * x_scale_ratio), y - (GraphData [k] - smallestValue) * y_scale_ratio);
-
-				surface.MoveTo (p1);
-				surface.LineTo (p2);
-
-			}
-
-			surface.Stroke ();
+//			surface.LineWidth = 3;
+//			surface.SetSourceRGB (B, G, 0.4f);
+//
+//
+//			//Console.WriteLine ("the smallest value is " + smallestValue);
+//
+//			for (int i = 0; i < totalDataPoints - 1; i++) {
+//
+//				int k = i + 1;
+//
+//				Console.WriteLine (Graphs.X);
+//
+//				p1 = new PointD (Graphs.X + (i * x_scale_ratio), Graphs.Y - (GraphData [i] - smallestValue) * y_scale_ratio);
+//				p2 = new PointD (Graphs.X + (k * x_scale_ratio), Graphs.Y - (GraphData [k] - smallestValue) * y_scale_ratio);
+//
+//				surface.MoveTo (p1);
+//				surface.LineTo (p2);
+//
+//			}
+//
+//			surface.Stroke ();
 
 		
 		}

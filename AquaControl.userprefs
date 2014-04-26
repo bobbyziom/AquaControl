@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/graphClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/Graph.cs">
     <Files>
-      <File FileName="AquaControl/MainWindow.cs" Line="71" Column="1" />
-      <File FileName="AquaControl/Widgets/KevinsObject.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/Widgets/PreferencesWidget.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/Widgets/PHWidget.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/Widgets/graphClass.cs" Line="70" Column="24" />
-      <File FileName="AquaControl/Networking/CurrentData.cs" Line="1" Column="1" />
-      <File FileName="AquaControl/DrawFiles/DrawAssemply.cs" Line="1" Column="1" />
+      <File FileName="AquaControl/MainWindow.cs" Line="97" Column="34" />
+      <File FileName="AquaControl/DrawFiles/DrawAssemply.cs" Line="159" Column="7" />
+      <File FileName="AquaControl/System/UserSettings.cs" Line="17" Column="40" />
+      <File FileName="AquaControl/Widgets/InternetAvailableObject.cs" Line="14" Column="51" />
+      <File FileName="AquaControl/Widgets/Base/GraphContainer.cs" Line="51" Column="4" />
+      <File FileName="AquaControl/Widgets/Base/WidgetContainer.cs" Line="48" Column="3" />
+      <File FileName="AquaControl/Widgets/Base/WidgetConstruct.cs" Line="19" Column="4" />
+      <File FileName="AquaControl/Widgets/Graph.cs" Line="67" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -64,6 +64,7 @@ public partial class MainWindow: Gtk.Window
 		// Create widgets
 		WidgetContainer.AssignWidgetSpace (6);
 		WidgetConstruct.ConstructWidgets ();
+		GraphContainer.CreateGraphs ();
 
 		// initiate user settings
 		UserSettings.Initiate ();
@@ -134,8 +135,8 @@ public partial class MainWindow: Gtk.Window
 			_clicked = false;
 		}
 
-		//Console.WriteLine ("X pos: " + _cursorX);
-		//Console.WriteLine ("Y pos: " + _cursorY);
+		Console.WriteLine ("X pos: " + args.Event.X);
+		Console.WriteLine ("Y pos: " + args.Event.Y);
 
 	}
 

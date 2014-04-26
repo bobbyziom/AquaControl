@@ -52,6 +52,8 @@ namespace AquaControl
 			Width = DrawAssembly.ContentWidth;
 			Height = DrawAssembly.ContentHeigth;
 
+
+
 		}
 
 	}

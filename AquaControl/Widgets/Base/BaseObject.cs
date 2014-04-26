@@ -5,7 +5,13 @@ namespace AquaControl
 {
 	public class BaseObject
 	{
-	
+
+		/// <summary>
+		/// Gets or sets the alpha.
+		/// </summary>
+		/// <value>The alpha.</value>
+		public float Alpha { get; set; }
+
 		/// <summary>
 		/// Gets or sets the red.
 		/// </summary>
@@ -76,29 +82,29 @@ namespace AquaControl
 		/// <param name="x">The x coordinate.</param>
 		/// <param name="y">The y coordinate.</param>
 		/// <param name="clicked">Mouse Clicked bool.</param>
-		public void CheckMouseHover(double x, double y, ref bool clicked) 
+		public virtual void CheckMouseHover(double MouseX, double MouseY, ref bool clicked) 
 		{
 
 			// action lower left
-			if (x >= X - Radius && x < X && y >= Y && y < Y + Radius) {
+			if (MouseX >= X - Radius && MouseX < X && MouseY >= Y && MouseY < Y + Radius) {
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionButtomLeft ();
 					clicked = false;
 				}
-			} else if (x >= X && x < X + Radius && y >= Y && y < Y + Radius) { // action lower right
+			} else if (MouseX >= X && MouseX < X + Radius && MouseY >= Y && MouseY < Y + Radius) { // action lower right
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionButtomRight ();
 					clicked = false;
 				}
-			} else if (x >= X - Radius && x < X && y <= Y && y > Y - Radius) { // action upper left
+			} else if (MouseX >= X - Radius && MouseX < X && MouseY <= Y && MouseY > Y - Radius) { // action upper left
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionTopLeft ();
 					clicked = false;
 				}
-			} else if (x >= X && x < X + Radius && y <= Y && y > Y - Radius) { // action upper right
+			} else if (MouseX >= X && MouseX < X + Radius && MouseY <= Y && MouseY > Y - Radius) { // action upper right
 				OnHoverAction ();
 				if (clicked) {
 					OnWidgetClickActionTopRight ();
@@ -114,13 +120,13 @@ namespace AquaControl
 		/// Draw the specified surface.
 		/// </summary>
 		/// <param name="surface">Surface.</param>
-		public virtual void Draw(Context surface, int x, int y) 
+		public virtual void Draw(Context surface, int PositionX, int PositionY) 
 		{
 
-			X = x;
-			Y = y;
+			X = PositionX;
+			Y = PositionY;
 		
-			surface.SetSourceRGB (R, G, B);
+			surface.SetSourceRGBA (R, G, B, Alpha);
 			surface.Arc (X,Y,Radius,0,Math.PI*2);
 			surface.Stroke ();
 
@@ -187,6 +193,26 @@ namespace AquaControl
 		{
 
 			Console.WriteLine ("ButtomRight");
+
+		}
+
+		/// <summary>
+		/// Show this instance.
+		/// </summary>
+		public virtual void Show()
+		{
+
+			Alpha = 1;
+
+		}
+
+		/// <summary>
+		/// Hide this instance.
+		/// </summary>
+		public virtual void Hide()
+		{
+
+			Alpha = 0;
 
 		}
 			

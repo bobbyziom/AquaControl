@@ -45,7 +45,7 @@ namespace AquaControl
 		/// <param name="o">The widget.</param>
 		public static void PutWidget(BaseObject o) 
 		{
-
+		
 			int putIndex = 0;
 
 			while (putIndex < TotalWidgetCount) {
