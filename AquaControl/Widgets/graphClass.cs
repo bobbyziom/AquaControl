@@ -41,6 +41,10 @@ namespace AquaControl
 	
 		Context graphSurface;
 
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="AquaControl.graphClass"/> class.
+		/// </summary>
 		public graphClass ()
 		{
 			x_scale_ratio = 20;
@@ -52,11 +56,16 @@ namespace AquaControl
 
 			_historicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
 			Console.WriteLine (totalDataPoints);
+
 		}
 
-		public void drawGraph(int dataStreamIndex){ // value has to be between 1 and 9
+		/// <summary>
+		/// Draws the graph.
+		/// </summary>
+		/// <param name="dataStreamIndex">Data stream index.</param>
+		public void drawGraph(int dataStreamIndex) // value has to be between 1 and 9
+		{ 
 		 
-
 			if (dataStreamIndex > _historicData.datastreams.Count) {
 				Console.WriteLine ("Datastream Not Found");
 			} else {
@@ -98,7 +107,8 @@ namespace AquaControl
 		/// </summary>
 		/// <returns>The smallest value.</returns>
 		/// <param name="value">Value.</param>
-		public double findSmallestValue(Double[] value){
+		public double findSmallestValue(Double[] value)
+		{
 		
 			smallestValue = value [1];
 
@@ -109,31 +119,48 @@ namespace AquaControl
 					}
 				}
 			}
+
 			return smallestValue;
+
 		}
 
-		private void swap(ref int a, ref int b){
+		/// <summary>
+		/// Swap the specified a and b.
+		/// </summary>
+		/// <param name="a">The alpha component.</param>
+		/// <param name="b">The blue component.</param>
+		private void swap(ref int a, ref int b)
+		{
 
 			int tmp = a;
 			a = b;
 			b = tmp;
 		}
+
 		/// <summary>
 		/// Updates the graph.
 		/// </summary>
 		/// <param name="drawingArea">Drawing area.</param>
 		/// <param name="W">W.</param>
 		/// <param name="H">H.</param>
-		public void updateGraph(Gdk.Window drawingArea , double W, double H){
+		public void updateGraph(Gdk.Window drawingArea , double W, double H)
+		{
 		
 			_x = W;
 			_y = H;
 			graphSurface = Gdk.CairoHelper.Create(drawingArea);
+
 		}
 
-		public void clearDrawArea(Gdk.Window drawingAreaR){
+		/// <summary>
+		/// Clears the draw area.
+		/// </summary>
+		/// <param name="drawingAreaR">Drawing area r.</param>
+		public void clearDrawArea(Gdk.Window drawingAreaR)
+		{
 		
 			drawingAreaR.Clear ();
+
 		}
 
 	}
