@@ -56,15 +56,17 @@ public partial class MainWindow: Gtk.Window
 
 		Build ();
 
-		UserSettings.UserSetupCompleted = false;
+		UserSettings.UserSetupCompleted = true;
 
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
 
+
+
 		// Create widgets
 		WidgetContainer.AssignWidgetSpace (6);
 		WidgetConstruct.ConstructWidgets ();
-		GraphContainer.CreateGraphs ();
+	
 
 		// initiate user settings
 		UserSettings.Initiate ();
@@ -74,6 +76,8 @@ public partial class MainWindow: Gtk.Window
 
 		// drawing framework setup
 		DrawAssembly.Setup (3);
+		GraphContainer.CreateGraphs ();
+
 
 		// Setup main update timer
 		MainUpdate = new Timer (10);
@@ -84,8 +88,6 @@ public partial class MainWindow: Gtk.Window
 		// Setup events 
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
 		mainDrawingArea.AddEvents ((int)EventMask.AllEventsMask);
-
-		XivelyData data = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
 
 	}
 

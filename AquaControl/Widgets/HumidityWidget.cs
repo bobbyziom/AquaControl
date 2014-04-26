@@ -11,7 +11,6 @@ namespace AquaControl
 		{
 
 			graphId = GraphContainer.AssignAndGetGraphId ();
-			//GraphContainer.AssignValueByDataStreamId (graphId, "DS181");
 
 			Alpha = 1;
 
@@ -23,6 +22,8 @@ namespace AquaControl
 
 		public override void Draw (Cairo.Context surface, int x, int y)
 		{
+
+			GraphContainer.AssignXivelyDatastreamStringById (graphId, "LDR");
 
 			X = x;
 			Y = y;
@@ -72,8 +73,6 @@ namespace AquaControl
 			} else {
 				GraphContainer.ShowGraphById (graphId);
 			}
-
-
 
 
 		}

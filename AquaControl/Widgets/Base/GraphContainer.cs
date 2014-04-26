@@ -8,7 +8,7 @@ namespace AquaControl
 		/// <summary>
 		/// The widget array.
 		/// </summary>
-		public static BaseObject[] graphArray;
+		public static Graph[] graphArray;
 
 		/// <summary>
 		/// Gets or sets the total widget count.
@@ -39,7 +39,7 @@ namespace AquaControl
 
 			if (TotalGraphCount != 0) {
 
-				graphArray = new BaseObject[TotalGraphCount];
+				graphArray = new Graph[TotalGraphCount];
 
 			}
 
@@ -51,10 +51,10 @@ namespace AquaControl
 
 		}
 
-		public static void UpdateValueToGraph(int id, string dataStreamId)
+		public static void AssignXivelyDatastreamStringById(int id, string xivelyStringId)
 		{
 
-
+			graphArray [id].DataStreamId = xivelyStringId;
 
 		}
 
