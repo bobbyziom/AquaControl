@@ -36,6 +36,8 @@ namespace AquaControl
 			// display status in statusLael
 			statusLabel.Text = "Stored!";
 
+			UserSettings.UserSetupCompleted = true;
+
 		}
 
 	}

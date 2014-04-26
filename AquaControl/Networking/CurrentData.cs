@@ -96,14 +96,17 @@ namespace AquaControl
 		/// </summary>
 		private static void Collect()
 		{
+			if (UserSettings.UserSetupCompleted) {
 
-			if (!DataIsReceived) {
-				Data = XivelyData.GetCurrentData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId);
-				DataIsReceived = true;
-				DataStored = true;
-			} else {
-				DataIsReceived = false;
-			}
+				if (!DataIsReceived) {
+					Data = XivelyData.GetCurrentData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId);
+					DataIsReceived = true;
+					DataStored = true;
+				} else {
+					DataIsReceived = false;
+				}
+
+			} 
 
 		}
 
@@ -112,13 +115,16 @@ namespace AquaControl
 		/// </summary>
 		private static void CollectHistoric()
 		{
+			if (UserSettings.UserSetupCompleted) {
+			
+				if (!HistoricDataIsReceived) {
+					HistroicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
+					HistoricDataIsReceived = true;
+					HistoricDataStored = true;
+				} else {
+					HistoricDataIsReceived = false;
+				}
 
-			if (!HistoricDataIsReceived) {
-				HistroicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
-				HistoricDataIsReceived = true;
-				HistoricDataStored = true;
-			} else {
-				HistoricDataIsReceived = false;
 			}
 				
 		}

@@ -14,6 +14,8 @@ namespace AquaControl
 
 		public static float BgColorB { get; set; }
 
+		public static bool UserSetupCompleted { get; set; }
+
 		/// <summary>
 		/// Gets or sets the xively API key.
 		/// </summary>

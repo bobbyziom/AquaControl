@@ -56,6 +56,8 @@ public partial class MainWindow: Gtk.Window
 
 		Build ();
 
+		UserSettings.UserSetupCompleted = false;
+
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
 
