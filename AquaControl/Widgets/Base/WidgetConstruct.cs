@@ -14,8 +14,8 @@ namespace AquaControl
 			BaseObject hest2 = new BaseObject ();
 			WidgetContainer.PutWidget (hest2);
 
-			BaseObject hest3 = new InternetAvailableObject ();
-			WidgetContainer.PutWidget (hest3);
+			BaseObject Pump = new PumpWidget ();
+			WidgetContainer.PutWidget (Pump);
 
 			BaseObject pref = new PreferencesWidget ();
 			WidgetContainer.PutWidget (pref);
