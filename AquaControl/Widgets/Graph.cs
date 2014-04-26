@@ -5,12 +5,11 @@ namespace AquaControl
 {
 	public class Graph : BaseObject
 	{
-
-
-		int dataStreamIndex = 1;
-
+	
+		int dataStreamIndex;
 		private double[] GraphData;
 		private int totalDataPoints;
+		int arrayLength;
 
 
 		/// <summary>
@@ -35,15 +34,15 @@ namespace AquaControl
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.KevinsObject"/> class.
 		/// </summary>
-		public Graph ()
+		public Graph (int dataStreamInd)
 		{
 
+			dataStreamIndex = dataStreamInd;
 
-
-			GraphData = new double[10] { 1, 3, 5, 7, 9, 44, 22, 21, 1, 2 };
-
-			x_scale_ratio = 10;
-			y_scale_ratio = 10;
+			GraphData = new double[10] { 23, 24, 25, 23, 25, 28, 30, 23, 21, 22};
+			arrayLength = 10;
+			x_scale_ratio = 20;
+			y_scale_ratio = 50;
 
 			//retrieveData ();
 			//findSmallestValue(GraphData);
@@ -60,31 +59,27 @@ namespace AquaControl
 		public override void Draw(Cairo.Context surface, int x, int y)
 		{
 		
-			surface.SetSourceRGBA (1, 1, 1, Alpha);
-			surface.Arc (x, y, 70, 0, Math.PI * 2);
-			surface.Fill ();
+	
+			surface.LineWidth = 3;
+			surface.SetSourceRGB (0.0f, 1.0f, 0.0f);
 
-//			surface.LineWidth = 3;
-//			surface.SetSourceRGB (B, G, 0.4f);
-//
-//
-//			//Console.WriteLine ("the smallest value is " + smallestValue);
-//
-//			for (int i = 0; i < totalDataPoints - 1; i++) {
-//
-//				int k = i + 1;
-//
-//				Console.WriteLine (Graphs.X);
-//
-//				p1 = new PointD (Graphs.X + (i * x_scale_ratio), Graphs.Y - (GraphData [i] - smallestValue) * y_scale_ratio);
-//				p2 = new PointD (Graphs.X + (k * x_scale_ratio), Graphs.Y - (GraphData [k] - smallestValue) * y_scale_ratio);
-//
-//				surface.MoveTo (p1);
-//				surface.LineTo (p2);
-//
-//			}
-//
-//			surface.Stroke ();
+
+			//Console.WriteLine ("the smallest value is " + smallestValue);
+
+			for (int i = 0; i < arrayLength - 1; i++) {
+
+				int k = i + 1;
+
+
+				p1 = new PointD (x + (i * x_scale_ratio), y - (GraphData [i] - smallestValue) * y_scale_ratio);
+				p2 = new PointD (x + (k * x_scale_ratio), y - (GraphData [k] - smallestValue) * y_scale_ratio);
+
+				surface.MoveTo (p1);
+				surface.LineTo (p2);
+
+			}
+
+			surface.Stroke ();
 
 		
 		}
@@ -99,8 +94,8 @@ namespace AquaControl
 
 			smallestValue = value [1];
 
-			for (int i = 0; i < totalDataPoints; i++) {
-				for (int k = 0; k < totalDataPoints; k++) {
+			for (int i = 0; i < arrayLength; i++) {
+				for (int k = 0; k < arrayLength; k++) {
 					if (value [i] < smallestValue) {
 						smallestValue = value [i];
 					}

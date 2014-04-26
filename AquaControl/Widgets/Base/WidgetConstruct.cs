@@ -14,12 +14,12 @@ namespace AquaControl
 			BaseObject hest2 = new BaseObject ();
 			WidgetContainer.PutWidget (hest2);
 
-<<<<<<< HEAD
-=======
+			//<<<<<<< HEAD
+			//=======
 			BaseObject Pump = new PumpWidget ();
 			WidgetContainer.PutWidget (Pump);
 
->>>>>>> FETCH_HEAD
+			//>>>>>>> FETCH_HEAD
 			BaseObject pref = new PreferencesWidget ();
 			WidgetContainer.PutWidget (pref);
 
