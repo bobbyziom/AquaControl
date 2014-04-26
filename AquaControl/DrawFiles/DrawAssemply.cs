@@ -12,12 +12,6 @@ namespace AquaControl
 	public static class DrawAssembly {
 
 
-
-
-		public static int GraphWidth { get; set; }
-		public static int GraphHeigth { get; set; }
-
-
 		private const int _coordinatesNum = 2;
 
 		private static int[,,] _frameCoordinates;
@@ -28,7 +22,7 @@ namespace AquaControl
 		/// Gets or sets the content heigth.
 		/// </summary>
 		/// <value>The content heigth.</value>
-		public  static float ContentHeigth { get; set; }
+		public static float ContentHeigth { get; set; }
 
 		/// <summary>
 		/// Gets or sets the width of the content.
@@ -53,7 +47,6 @@ namespace AquaControl
 		/// <param name="frameSize">Frame size.</param>
 		public static void Setup(int frameSize)
 		{
-
 
 
 			_frameSize = frameSize;
@@ -161,9 +154,9 @@ namespace AquaControl
 			}
 
 
-//			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
-//				graph.Draw (SurfaceGraph, 0, 0);
-//			}
+			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
+				Graphs.Draw (SurfaceGraph, 0, 0);
+			}
 
 
 		}
