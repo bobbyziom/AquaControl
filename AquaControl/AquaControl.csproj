@@ -88,6 +88,7 @@
     <Compile Include="Widgets\Base\GraphContainer.cs" />
     <Compile Include="Widgets\Graph.cs" />
     <Compile Include="Widgets\HumidityWidget.cs" />
+    <Compile Include="Widgets\lightIntensity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

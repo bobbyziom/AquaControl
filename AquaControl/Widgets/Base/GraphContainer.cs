@@ -52,7 +52,7 @@ namespace AquaControl
 
 			for (int i = 0; i < TotalGraphCount; i++) {
 
-				graphArray [i] = new Graph ();
+				graphArray [i] = new Graph (1);
 
 			}
 
