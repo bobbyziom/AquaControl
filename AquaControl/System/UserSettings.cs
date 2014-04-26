@@ -8,6 +8,12 @@ namespace AquaControl
 		// config variable
 		private static Configuration config;
 
+		public static float BgColorR { get; set; }
+
+		public static float BgColorG { get; set; }
+
+		public static float BgColorB { get; set; }
+
 		/// <summary>
 		/// Gets or sets the xively API key.
 		/// </summary>
@@ -66,6 +72,11 @@ namespace AquaControl
 		/// </summary>
 		private static void StoreSettings() 
 		{
+
+			BgColorR = 0.2f;
+			BgColorG = 0.2f;
+			BgColorB = 0.2f;
+
 
 			KeyValueConfigurationCollection collection = config.AppSettings.Settings;
 

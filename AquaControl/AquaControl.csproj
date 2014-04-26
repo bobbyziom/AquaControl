@@ -77,8 +77,6 @@
     <Compile Include="System\Connection.cs" />
     <Compile Include="Networking\ImpCommunication.cs" />
     <Compile Include="Networking\XivelyData.cs" />
-    <Compile Include="DrawFiles\UpdateParameters.cs" />
-    <Compile Include="Widgets\KevinsObject.cs" />
     <Compile Include="Widgets\graphClass.cs" />
     <Compile Include="Widgets\Base\WidgetConstruct.cs" />
     <Compile Include="Widgets\Base\WidgetContainer.cs" />
@@ -86,6 +84,7 @@
     <Compile Include="Widgets\InternetAvailableObject.cs" />
     <Compile Include="Widgets\Base\BaseObject.cs" />
     <Compile Include="Networking\CurrentData.cs" />
+    <Compile Include="Widgets\KevinsObject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

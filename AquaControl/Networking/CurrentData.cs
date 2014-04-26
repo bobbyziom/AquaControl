@@ -6,7 +6,10 @@ namespace AquaControl
 	public static class CurrentData
 	{
 
-		public static Timer _dataGetter;
+		/// <summary>
+		/// The data collection timer.
+		/// </summary>
+		public static Timer CollectTimer;
 
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="AquaControl.CurrentData"/> data stored.
@@ -35,10 +38,10 @@ namespace AquaControl
 			DataIsReceived = false;
 			DataStored = false;
 
-			_dataGetter = new Timer (10000);
-			_dataGetter.Elapsed += new ElapsedEventHandler(OnUpdate);
-			_dataGetter.Enabled = true;
-			_dataGetter.AutoReset = true;
+			CollectTimer = new Timer (10000);
+			CollectTimer.Elapsed += new ElapsedEventHandler(OnUpdate);
+			CollectTimer.Enabled = true;
+			CollectTimer.AutoReset = true;
 
 			Collect ();
 

@@ -43,11 +43,7 @@ public partial class MainWindow: Gtk.Window
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN APPLICATION VARIABLES - START OF PROGRAM								 //
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	DrawAssembly _DrawingAssembly;
-
 	private bool _clicked = false;
-	private double _cursorX;
-	private double _cursorY;
 
 	private Timer _updater;
 
@@ -59,8 +55,6 @@ public partial class MainWindow: Gtk.Window
 	{
 
 		Build ();
-
-		_DrawingAssembly = new DrawAssembly ();
 
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
@@ -74,6 +68,9 @@ public partial class MainWindow: Gtk.Window
 
 		// starts data gathering
 		CurrentData.StartDataGathering ();
+
+		// graph setup
+		DrawAssembly.Setup (3);
 
 		// Setup main update timer
 		_updater = new Timer (10);
@@ -94,10 +91,9 @@ public partial class MainWindow: Gtk.Window
 	protected void OnMainDrawingAreaExposeEvent (object o, ExposeEventArgs args)
 	{
 
-		UpdateParameters.UpdateContext (mainDrawingArea.GdkWindow, this.Allocation.Width, this.Allocation.Height, ref _DrawingAssembly);
-
-		_DrawingAssembly.DrawBackground ();
-		_DrawingAssembly.DrawFramework (); 
+		DrawAssembly.UpdateDrawingContext (mainDrawingArea.GdkWindow, this.Allocation.Width, this.Allocation.Height);
+		DrawAssembly.DrawBackground (UserSettings.BgColorR, UserSettings.BgColorG, UserSettings.BgColorB);
+		DrawAssembly.DrawFramework (); 
 
 	}
 
@@ -109,8 +105,6 @@ public partial class MainWindow: Gtk.Window
 	{
 	
 		mainDrawingArea.QueueDraw ();
-
-		WidgetContainer.CheckAllWidgetHover (_cursorX, _cursorY, ref _clicked);
 
 	}
 
@@ -127,13 +121,12 @@ public partial class MainWindow: Gtk.Window
 		
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// WIDGET DRAING AREA MOTION NOTIFY EVENT										 //
+	// UPDATE MOUSE POSITION														 //
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	protected void OnMainDrawingAreaMotionNotifyEvent (object o, MotionNotifyEventArgs args)
 	{
 
-		_cursorX = args.Event.X;
-		_cursorY = args.Event.Y;
+		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, ref _clicked);
 
 		_clicked = false;
 
