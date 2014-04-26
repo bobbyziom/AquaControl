@@ -31,6 +31,13 @@ namespace AquaControl
 
 		}
 
+		public static void AssignValueByDataStreamId (int graphIndex, string datastreamId) 
+		{
+
+
+
+		}
+
 		/// <summary>
 		/// Creates the graphs.
 		/// </summary>
@@ -71,6 +78,26 @@ namespace AquaControl
 		{
 
 			graphArray [id].Alpha = 0;
+
+		}
+
+
+		/// <summary>
+		/// Find out if graph is shown or hidden.
+		/// </summary>
+		/// <returns><c>true</c> graph is shown; otherwise, <c>false</c>.</returns>
+		/// <param name="id">Identifier.</param>
+		public static bool IsShownById(int id) {
+
+			if (graphArray [id].Alpha == 1) {
+
+				return true;
+
+			} else {
+
+				return false;
+
+			}
 
 		}
 			

@@ -6,13 +6,11 @@ namespace AquaControl
 	{
 
 		private float _textAlpha = 0.0f;
-
-		private int graphId = 0;
 	
 		public InternetAvailableObject () 
 		{
 
-			//graphId = GraphContainer.AssignAndGetGraphId ();
+			Alpha = 1;
 		
 			Console.WriteLine ("inet avail Object construcT");
 
@@ -51,8 +49,6 @@ namespace AquaControl
 			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
 			surface.ShowText (widgetText);
 
-			
-
 
 		}
 
@@ -61,16 +57,12 @@ namespace AquaControl
 
 			_textAlpha = 0.9f;
 
-			GraphContainer.HideGraphById (graphId);
-
 		}
 
 		public override void OnNoHoverAction ()
 		{
 
 			_textAlpha = 0.0f;
-
-			GraphContainer.ShowGraphById (graphId);
 
 		}
 

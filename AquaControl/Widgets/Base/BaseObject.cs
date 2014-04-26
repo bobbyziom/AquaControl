@@ -70,6 +70,8 @@ namespace AquaControl
 
 			Radius = 50;
 
+			Alpha = 1;
+
 			R = 0.5f;
 			G = 0.5f;
 			B = 0.5f;

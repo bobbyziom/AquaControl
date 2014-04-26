@@ -135,8 +135,8 @@ public partial class MainWindow: Gtk.Window
 			_clicked = false;
 		}
 
-		Console.WriteLine ("X pos: " + args.Event.X);
-		Console.WriteLine ("Y pos: " + args.Event.Y);
+//		Console.WriteLine ("X pos: " + args.Event.X);
+//		Console.WriteLine ("Y pos: " + args.Event.Y);
 
 	}
 

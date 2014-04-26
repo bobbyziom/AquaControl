@@ -38,8 +38,6 @@ namespace AquaControl
 		public Graph ()
 		{
 
-
-
 			GraphData = new double[10] { 1, 3, 5, 7, 9, 44, 22, 21, 1, 2 };
 
 			x_scale_ratio = 10;

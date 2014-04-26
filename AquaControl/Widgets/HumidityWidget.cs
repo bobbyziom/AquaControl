@@ -11,13 +11,13 @@ namespace AquaControl
 		{
 
 			graphId = GraphContainer.AssignAndGetGraphId ();
+			GraphContainer.AssignValueByDataStreamId (graphId, "DS181");
 
 			Alpha = 1;
 
 			R = 0.4f;
 			G = 0.9f;
 			B = 0.1f;
-
 
 		}
 
@@ -40,7 +40,6 @@ namespace AquaControl
 
 		public override void OnNoHoverAction ()
 		{
-
 
 
 		}
@@ -68,7 +67,11 @@ namespace AquaControl
 		private void OnClickAll() 
 		{
 
-			GraphContainer.HideGraphById (graphId);
+			if (GraphContainer.IsShownById (graphId)) {
+				GraphContainer.HideGraphById (graphId);
+			} else {
+				GraphContainer.ShowGraphById (graphId);
+			}
 
 
 		}
