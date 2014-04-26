@@ -91,7 +91,7 @@ namespace AquaControl
 		private void OnAllClick ()
 		{
 
-			CurrentData.UpdateHistoricData ();
+			CurrentData.ForceUpdateData ();
 			XivelyData data = CurrentData.HistroicData;
 
 		}

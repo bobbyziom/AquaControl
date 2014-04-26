@@ -83,10 +83,11 @@ namespace AquaControl
 		/// <summary>
 		/// Updates the historic data.
 		/// </summary>
-		public static void UpdateHistoricData()
+		public static void ForceUpdateData()
 		{
 		
 			CollectHistoric ();
+			Collect ();
 
 		}
 
