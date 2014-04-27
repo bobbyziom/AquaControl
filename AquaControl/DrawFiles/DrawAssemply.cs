@@ -11,12 +11,13 @@ namespace AquaControl
 {
 	public static class DrawAssembly {
 
-
 		private const int _coordinatesNum = 2;
 
 		private static int[,,] _frameCoordinates;
 
 		private static int _frameSize;
+
+		private static int _frameHeight;
 
 		/// <summary>
 		/// Gets or sets the content heigth.
@@ -45,14 +46,15 @@ namespace AquaControl
 		/// Setup draw assembly with the specified frameSize.
 		/// </summary>
 		/// <param name="frameSize">Frame size.</param>
-		public static void Setup(int frameSize)
+		public static void Setup(int frameSize, int frameHeigh)
 		{
-		
+
 			_frameSize = frameSize;
+			_frameHeight = frameHeigh;
 
 			GraphPosition = (int)SECTIONS.BOT;
 
-			_frameCoordinates = new int[_frameSize,_frameSize,_coordinatesNum];
+			_frameCoordinates = new int[_frameHeight,_frameSize,_coordinatesNum];
 
 		}
 
@@ -95,15 +97,18 @@ namespace AquaControl
 
 			for (int NewCordi = 1; NewCordi < (_frameCoordinates.Length/2); NewCordi++) {
 
-				for (int xPos = 0; xPos < _frameSize; xPos++) {
+				for (int xPos = 0; xPos < _frameHeight; xPos++) {
 
 					for (int yPos = 0; yPos < _frameSize; yPos++) {
 
 						// Puts a coordinate into the FrameCoordinate array
 
 						//------- The array -------- Dimensions of drawing area -- Rows and coloums ------------------ Margin ------------------ //
-						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos+((int)ContentWidth / _frameSize/2);
-						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeigth / _frameSize * xPos+((int)ContentHeigth / _frameSize/2);
+						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos +((int)ContentWidth / _frameSize/2);
+						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeigth / _frameHeight  * xPos +((int)ContentHeigth / _frameSize/2);
+
+
+
 
 					}
 				}
@@ -137,22 +142,18 @@ namespace AquaControl
 				RowStop = 0;	
 				Putgraph = 0;
 			}
-				
-
 
 			int CountWidgets = 0;
 
 			for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
-				for (int Yframes = 0+RowStart; Yframes < _frameSize-RowStop; Yframes+=(1+RowJump)) {
+				for (int Yframes = 0+RowStart; Yframes < _frameHeight-RowStop; Yframes+=(1+RowJump)) {
 
 					using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
 						WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0], _frameCoordinates [Yframes, Xframes, 1]);
 						CountWidgets++;
 					}
-
 				}
 			}
-			// 
 
 			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
 

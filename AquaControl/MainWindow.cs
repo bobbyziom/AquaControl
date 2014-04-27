@@ -74,7 +74,7 @@ public partial class MainWindow: Gtk.Window
 		CurrentData.StartDataGathering ();
 
 		// drawing framework setup
-		DrawAssembly.Setup (3);
+		DrawAssembly.Setup (4,3);
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer
