@@ -173,6 +173,11 @@ namespace AquaControl
 
 					for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
 						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeigth/7)); 
+
+						// dynamic way of updating graph length and height
+
+//						GraphContainer.graphArray [i].x_scale_ratio = GraphContainer.graphArray [i]._totalDataPoints / ContentWidth;
+//						GraphContainer.graphArray [i].y_scale_ratio = GraphContainer.graphArray[i]._totalDataPoints/ ContentHeigth;
 					}
 				}
 			}

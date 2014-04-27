@@ -7,7 +7,7 @@ namespace AquaControl
 	{
 	
 		private double[] _graphData;
-		private int _totalDataPoints;
+	
 		private double _smallestValue;
 		private PointD _p1,_p2;
 
@@ -16,6 +16,12 @@ namespace AquaControl
 		/// </summary>
 		/// <value>The x_scale_ratio.</value>
 		public double x_scale_ratio { get; set; } 
+
+		/// <summary>
+		/// Only used for getting
+		/// </summary>
+		/// <value>The _total data points.</value>
+		public int _totalDataPoints { get; set; }
 
 		/// <summary>
 		/// Gets or sets the graphic spacing between each data point in the y direction
@@ -67,6 +73,7 @@ namespace AquaControl
 
 			X = x;
 			Y = y;
+
 
 
 			RetrieveData ();
