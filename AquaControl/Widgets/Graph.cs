@@ -42,37 +42,28 @@ namespace AquaControl
 		public int GraphLineWidth { get; set; }
 
 		/// <summary>
-		/// Gets or sets the name.
-		/// </summary>
-		/// <value>The name.</value>
-		public string Name { get; set; }
-
-		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.KevinsObject"/> class.
 		/// </summary>
 		public Graph ()
 		{
-		
+
 			GraphLineWidth = 1;
 
 			x_scale_ratio = 10;
 			y_scale_ratio = 10;
 
+			//SelectingColor (); // Selects a color based on dataStreamIndex
+
 		}
 
 		/// <summary>
-		/// Draw on the specified surface.
+		/// Draw the specified surface.
 		/// </summary>
 		/// <param name="surface">Surface.</param>
 		/// <param name="x">The x coordinate.</param>
 		/// <param name="y">The y coordinate.</param>
 		public override void Draw(Cairo.Context surface, int x, int y)
 		{
-		
-
-			if (Name == null) {
-				Name = DataStreamId;
-			}
 
 			X = x;
 			Y = y;
@@ -103,7 +94,7 @@ namespace AquaControl
 
 			surface.Stroke ();
 
-			string widgetText = Name;
+			string widgetText = DataStreamId;
 			surface.SetFontSize (15);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 
@@ -147,7 +138,6 @@ namespace AquaControl
 		/// </summary>
 		public void RetrieveData() 
 		{
-			//Console.WriteLine (CurrentData.HistoricDataStored);
 		
 			if (CurrentData.HistoricDataStored) {
 
@@ -169,7 +159,7 @@ namespace AquaControl
 
 									_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
 
-									//Console.Write (" " + _graphData [j]);
+									//Console.Write (" " + GraphData [j]);
 	
 								}
 							} else {

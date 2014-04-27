@@ -129,11 +129,11 @@ namespace AquaControl
 			w9.Expand = false;
 			w9.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
-			this.rEntry = new global::Gtk.SpinButton (0D, 1D, 0.01D);
+			this.rEntry = new global::Gtk.SpinButton (0, 1, 0.01);
 			this.rEntry.CanFocus = true;
 			this.rEntry.Name = "rEntry";
-			this.rEntry.Adjustment.PageIncrement = 10D;
-			this.rEntry.ClimbRate = 0.01D;
+			this.rEntry.Adjustment.PageIncrement = 10;
+			this.rEntry.ClimbRate = 0.01;
 			this.rEntry.Numeric = true;
 			this.hbox1.Add (this.rEntry);
 			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.rEntry]));
@@ -159,11 +159,11 @@ namespace AquaControl
 			w12.Expand = false;
 			w12.Fill = false;
 			// Container child hbox2.Gtk.Box+BoxChild
-			this.gEntry = new global::Gtk.SpinButton (0D, 1D, 0.01D);
+			this.gEntry = new global::Gtk.SpinButton (0, 1, 0.01);
 			this.gEntry.CanFocus = true;
 			this.gEntry.Name = "gEntry";
-			this.gEntry.Adjustment.PageIncrement = 10D;
-			this.gEntry.ClimbRate = 0.01D;
+			this.gEntry.Adjustment.PageIncrement = 10;
+			this.gEntry.ClimbRate = 0.01;
 			this.gEntry.Numeric = true;
 			this.hbox2.Add (this.gEntry);
 			global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.gEntry]));
@@ -200,11 +200,11 @@ namespace AquaControl
 			w16.Expand = false;
 			w16.Fill = false;
 			// Container child hbox3.Gtk.Box+BoxChild
-			this.bEntry = new global::Gtk.SpinButton (0D, 1D, 0.01D);
+			this.bEntry = new global::Gtk.SpinButton (0, 1, 0.01);
 			this.bEntry.CanFocus = true;
 			this.bEntry.Name = "bEntry";
-			this.bEntry.Adjustment.PageIncrement = 10D;
-			this.bEntry.ClimbRate = 0.01D;
+			this.bEntry.Adjustment.PageIncrement = 10;
+			this.bEntry.ClimbRate = 0.01;
 			this.bEntry.Numeric = true;
 			this.hbox3.Add (this.bEntry);
 			global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox3 [this.bEntry]));

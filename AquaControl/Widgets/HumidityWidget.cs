@@ -16,7 +16,7 @@ namespace AquaControl
 
 		}
 
-		public override void Draw (Cairo.Context surface, int PositionX, int PositionY)
+		public override void Draw (Cairo.Context surface, int x, int y)
 		{
 
 			_humidityValue = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
@@ -25,8 +25,8 @@ namespace AquaControl
 
 			GraphContainer.SetGraphColorById (_graphId, G, R, 0.4f);
 
-			X = PositionX;
-			Y = PositionY;
+			X = x;
+			Y = y;
 
 			surface.SetSourceRGBA (R, B, G, Alpha);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
@@ -93,11 +93,11 @@ namespace AquaControl
 		private void OnClickAll() 
 		{
 
+			CurrentData.ForceUpdateData ();
 
 			if (GraphContainer.IsShownById (_graphId)) {
 				GraphContainer.HideGraphById (_graphId);
 			} else {
-				CurrentData.ForceUpdateData ();
 				GraphContainer.ShowGraphById (_graphId);
 			}
 
