@@ -31,7 +31,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="408 350">
+  <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="408 358">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Window</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -210,6 +210,22 @@
               </widget>
               <packing>
                 <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="rndBtn">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">Randomize!</property>
+                <property name="UseUnderline">True</property>
+                <signal name="Clicked" handler="OnRndBtnClicked" />
+              </widget>
+              <packing>
+                <property name="Position">2</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>

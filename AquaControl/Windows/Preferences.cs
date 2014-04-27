@@ -15,6 +15,9 @@ namespace AquaControl
 			impKeyEntry.Text = UserSettings.ImpKey;
 			xivelyApiKeyEntry.Text = UserSettings.XivelyApiKey;
 			xivelyFeedIdEntry.Text = UserSettings.XivelyFeedId;
+			rEntry.Value = UserSettings.BgColorR;
+			gEntry.Value = UserSettings.BgColorG;
+			bEntry.Value = UserSettings.BgColorB;
 
 		}
 
@@ -49,6 +52,20 @@ namespace AquaControl
 
 		}
 
+		protected void OnRndBtnClicked (object sender, EventArgs e)
+		{
+
+			rEntry.Value = GetRandomNumber (0, 100);
+			gEntry.Value = GetRandomNumber (0, 100);
+			bEntry.Value = GetRandomNumber (0, 100);
+
+		}
+			
+		private double GetRandomNumber(double minimum, double maximum)
+		{ 
+			Random random = new Random();
+			return random.NextDouble ();
+		}
 	}
 }
 
