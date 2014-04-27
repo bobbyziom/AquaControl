@@ -31,7 +31,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="408 246">
+  <widget class="Gtk.Window" id="AquaControl.Preferences" design-size="408 350">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Window</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -119,11 +119,157 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HSeparator" id="hseparator1">
+          <widget class="Gtk.HSeparator" id="hseparator2">
             <property name="MemberName" />
           </widget>
           <packing>
             <property name="Position">6</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HButtonBox" id="hbuttonbox1">
+            <property name="MemberName" />
+            <property name="Size">0</property>
+          </widget>
+          <packing>
+            <property name="Position">7</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox1">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Label" id="r">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Background R:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.SpinButton" id="rEntry">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Upper">1</property>
+                <property name="PageIncrement">10</property>
+                <property name="StepIncrement">0.01</property>
+                <property name="ClimbRate">0.01</property>
+                <property name="Numeric">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">8</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox2">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Label" id="b1">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Background G:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.SpinButton" id="gEntry">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Upper">1</property>
+                <property name="PageIncrement">10</property>
+                <property name="StepIncrement">0.01</property>
+                <property name="ClimbRate">0.01</property>
+                <property name="Numeric">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">9</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox3">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="Gtk.Label" id="b">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Background B:</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.SpinButton" id="bEntry">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Upper">1</property>
+                <property name="PageIncrement">10</property>
+                <property name="StepIncrement">0.01</property>
+                <property name="ClimbRate">0.01</property>
+                <property name="Numeric">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">10</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HSeparator" id="hseparator1">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="Position">11</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -139,7 +285,7 @@
             <signal name="Clicked" handler="OnSaveButtonClicked" />
           </widget>
           <packing>
-            <property name="Position">7</property>
+            <property name="Position">12</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -150,7 +296,7 @@
             <property name="MemberName" />
           </widget>
           <packing>
-            <property name="Position">8</property>
+            <property name="Position">13</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

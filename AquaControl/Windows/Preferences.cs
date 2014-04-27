@@ -30,6 +30,15 @@ namespace AquaControl
 			if (xivelyFeedIdEntry.Text != "") {
 				UserSettings.XivelyFeedId = xivelyFeedIdEntry.Text;
 			}
+			if (rEntry.Text != "") {
+				UserSettings.BgColorR = (float)Convert.ToDouble(rEntry.Value);
+			}
+			if (gEntry.Text != "") {
+				UserSettings.BgColorG = (float)Convert.ToDouble(gEntry.Value);
+			}
+			if (bEntry.Text != "") {
+				UserSettings.BgColorB = (float)Convert.ToDouble(bEntry.Value);
+			}
 
 			UserSettings.Save ();
 

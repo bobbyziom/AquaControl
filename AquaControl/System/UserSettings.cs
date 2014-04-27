@@ -64,6 +64,12 @@ namespace AquaControl
 			// add imp key
 			config.AppSettings.Settings.Add("ImpKey", ImpKey);
 
+			config.AppSettings.Settings.Add ("BgColorR", BgColorR.ToString());
+
+			config.AppSettings.Settings.Add ("BgColorG", BgColorG.ToString());
+
+			config.AppSettings.Settings.Add ("BgColorB", BgColorB.ToString());
+
 			// save added configurations
 			config.Save(ConfigurationSaveMode.Full);
 
@@ -74,12 +80,7 @@ namespace AquaControl
 		/// </summary>
 		private static void StoreSettings() 
 		{
-
-			BgColorR = 0.2f;
-			BgColorG = 0.2f;
-			BgColorB = 0.2f;
-
-
+		
 			KeyValueConfigurationCollection collection = config.AppSettings.Settings;
 
 			foreach (KeyValueConfigurationElement keyValue in collection) {
@@ -95,6 +96,18 @@ namespace AquaControl
 				if (keyValue.Key == "ImpKey") {
 					ImpKey = keyValue.Value;
 				} 
+
+				if (keyValue.Key == "BgColorR") {
+					BgColorR = (float)Convert.ToDouble(keyValue.Value);
+				}
+
+				if (keyValue.Key == "BgColorG") {
+					BgColorG = (float)Convert.ToDouble(keyValue.Value);
+				}
+
+				if (keyValue.Key == "BgColorB") {
+					BgColorB = (float)Convert.ToDouble(keyValue.Value);
+				}
 					
 			}
 
