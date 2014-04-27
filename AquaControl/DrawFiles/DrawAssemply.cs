@@ -159,7 +159,7 @@ namespace AquaControl
 			int CountWidgets = 0;
 
 			// SWIPE TIMES
-			for(int swipes = 0; swipes != _SwipeAmount; swipes++){
+			for(int swipes = 0; swipes != 2; swipes++){
 			Console.WriteLine (swipes);
 
 				// LOOP FOR WIDGETS
@@ -167,7 +167,7 @@ namespace AquaControl
 					for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
 
 						using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
-							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)_SwipeLenght+(int)_SwipeMargin, _frameCoordinates [Yframes, Xframes, 1]);
+							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)_SwipeLenght+((int)_SwipeMargin*swipes), _frameCoordinates [Yframes, Xframes, 1]);
 							CountWidgets++;
 						}
 					}
@@ -189,7 +189,6 @@ namespace AquaControl
 
 				_SwipeMargin = -ContentWidth;
 			}
-			_SwipeMargin = 0;
 		}
 	}
 }
