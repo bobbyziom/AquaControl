@@ -37,7 +37,11 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
-			surface.SetSourceRGB (R, G, 0);
+			if (!UserSettings.UserSetupCompleted) { 
+				surface.SetSourceRGB (1, 0, 0);
+			} else {
+				surface.SetSourceRGB (R, G, 0);
+			}
 			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 
@@ -46,6 +50,15 @@ namespace AquaControl
 			surface.SetSourceRGBA (0, 0, 0, _textAlpha);
 			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
 			surface.ShowText (widgetText);
+
+			if (!UserSettings.UserSetupCompleted) { 
+				widgetText = "Settings Incomplete";
+				surface.SetFontSize (10);
+				text = surface.TextExtents (widgetText);
+				surface.SetSourceRGBA (0, 0, 0, Alpha);
+				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+10);
+				surface.ShowText (widgetText);
+			}
 
 
 		}

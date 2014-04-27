@@ -23,21 +23,12 @@ namespace AquaControl
 			surface.SetSourceRGBA (0, 1, 0, 0.5);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill (); 
-
 		}
 
-		public override void OnHoverAction () {
-
+		public override void OnWidgetClickActionButtomLeft () {
 			if (DrawAssembly.ContentWidth > DrawAssembly._SwipeLenght) {
 				DrawAssembly._SwipeLenght = DrawAssembly.ContentWidth;
-		
 			} 
-		}
-		public override void OnNoHoverAction () {
-
-
-			DrawAssembly._SwipeLenght = 0;
-
 		}
 	}
 }
