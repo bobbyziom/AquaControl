@@ -29,6 +29,10 @@ namespace AquaControl
 			BaseObject Swipe = new Swipe ();
 			WidgetContainer.PutWidget (Swipe);
 
+			BaseObject bulb = new lightIntensity ();
+			WidgetContainer.PutWidget (bulb);
+
+
 		}
 
 	}
