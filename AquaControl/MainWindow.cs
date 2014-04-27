@@ -61,8 +61,6 @@ public partial class MainWindow: Gtk.Window
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
 
-
-
 		// Create widgets
 		WidgetContainer.AssignWidgetSpace (6);
 		WidgetConstruct.ConstructWidgets ();
