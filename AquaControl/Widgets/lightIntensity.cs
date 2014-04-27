@@ -29,7 +29,6 @@ namespace AquaControl
 
 			lightValue = CurrentData.GetCurrentValueByIdFloat("LIGHT");
 
-			Console.WriteLine (lightValue);
 
 			//LIGHTBULB ALL THE WAY BABY
 
