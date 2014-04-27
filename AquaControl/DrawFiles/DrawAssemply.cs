@@ -5,7 +5,7 @@ using Gdk;
 using AquaControl;
 
 // 
-enum SECTIONS {BOT = 1, MID = 2, TOP = 3};
+enum SECTIONS {BOT = 0, MID = 1, TOP = 2};
 
 namespace AquaControl
 {
@@ -111,28 +111,32 @@ namespace AquaControl
 			}
 
 			//----------- Generates Widgets from widgetContainer
-			GraphPosition = 3;
+			GraphPosition = 2;
 
 
 			int RowStart = 0;
 			int RowJump = 0;
 			int RowStop = 0;
+			int Putgraph = 0;
 
 			if (GraphPosition == (int)SECTIONS.BOT) {		
 				RowStart = 0;	
 				RowJump = 0; 	
-				RowStop = 1;        
+				RowStop = 1; 
+				Putgraph = 2;
 			}
 
 			if (GraphPosition == (int)SECTIONS.MID) {		
 				RowStart = 0;	
 				RowJump = 1; 	
 				RowStop = 0;
+				Putgraph = 1;
 			}
 			if (GraphPosition == (int)SECTIONS.TOP) {		
 				RowStart = 1;	
 				RowJump = 0; 	
 				RowStop = 0;	
+				Putgraph = 0;
 			}
 				
 
@@ -149,12 +153,12 @@ namespace AquaControl
 
 				}
 			}
-			// _frameCoordinates [GraphPosition, 1, 1]
+			// 
 
 			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
 
 				for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
-					GraphContainer.graphArray [i].Draw (SurfaceGraph,  20,  20);
+					GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeigth/7)); 
 				}
 			}
 

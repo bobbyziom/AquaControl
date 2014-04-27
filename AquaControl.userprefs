@@ -1,6 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/DrawFiles/DrawAssemply.cs">
+    <Files>
+      <File FileName="AquaControl/DrawFiles/DrawAssemply.cs" Line="114" Column="4" />
+      <File FileName="AquaControl/MainWindow.cs" Line="66" Column="39" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
