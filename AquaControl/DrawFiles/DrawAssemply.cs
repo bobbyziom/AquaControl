@@ -23,6 +23,12 @@ namespace AquaControl
 		public static float _SwipeLenght { get; set; }
 
 		/// <summary>
+		/// Gets or sets the _ swipe margin.
+		/// </summary>
+		/// <value>The _ swipe margin.</value>
+		public static float _SwipeMargin { get; set; }
+
+		/// <summary>
 		/// Gets or sets the times able to swipe.
 		/// </summary>
 		/// <value>The swipe amount.</value>
@@ -161,7 +167,7 @@ namespace AquaControl
 					for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
 
 						using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
-							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)_SwipeLenght, _frameCoordinates [Yframes, Xframes, 1]);
+							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)_SwipeLenght+(int)_SwipeMargin, _frameCoordinates [Yframes, Xframes, 1]);
 							CountWidgets++;
 						}
 					}
@@ -180,7 +186,10 @@ namespace AquaControl
 //						GraphContainer.graphArray [i].y_scale_ratio = GraphContainer.graphArray[i]._totalDataPoints/ ContentHeigth;
 					}
 				}
+
+				_SwipeMargin = -ContentWidth;
 			}
+			_SwipeMargin = 0;
 		}
 	}
 }
