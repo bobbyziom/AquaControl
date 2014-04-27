@@ -10,7 +10,7 @@ namespace AquaControl
 
 			Console.WriteLine ("Pumpwidget Up!");
 
-			Radius = 100;
+			Radius = 50;
 
 			X = 300;
 

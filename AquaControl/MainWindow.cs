@@ -43,12 +43,21 @@ public partial class MainWindow: Gtk.Window
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN APPLICATION VARIABLES - START OF PROGRAM								 //
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	private const int MAX_WIDGETS = 9; 
+
+	private const int FRAMES = 3;
+
+	private const int UPDATE_INTERVAL_MS = 10;
+
 	private bool _clicked = false;
 
 	private Timer MainUpdate;
 
+<<<<<<< HEAD
 	private const int MAX_WIDGETS = 8; 
 
+=======
+>>>>>>> FETCH_HEAD
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN CONSTRUCTOR																 //
@@ -79,10 +88,11 @@ public partial class MainWindow: Gtk.Window
 		// Input 2: Rows
 		// Input 3: Swipe Times
 		DrawAssembly.Setup (4,3,1);
+	
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer
-		MainUpdate = new Timer (10);
+		MainUpdate = new Timer (UPDATE_INTERVAL_MS);
 		MainUpdate.Elapsed += new ElapsedEventHandler(OnUpdate);
 		MainUpdate.Enabled = true;
 		MainUpdate.AutoReset = true;

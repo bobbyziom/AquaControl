@@ -26,9 +26,17 @@ namespace AquaControl
 			BaseObject hum = new HumidityWidget ();
 			WidgetContainer.PutWidget (hum);
 
+<<<<<<< HEAD
 			BaseObject Swipe = new Swipe ();
 			WidgetContainer.PutWidget (Swipe);
 
+=======
+			BaseObject airTemp = new AirTempWidget ();
+			WidgetContainer.PutWidget (airTemp);
+
+			BaseObject bulb = new lightIntensity ();
+			WidgetContainer.PutWidget (bulb);
+>>>>>>> FETCH_HEAD
 		}
 
 	}

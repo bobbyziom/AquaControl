@@ -35,6 +35,8 @@ namespace AquaControl
 
 			GraphContainer.SetGraphColorById (_graphId, R, G, B);
 
+			GraphContainer.AssignCustomNameById (_graphId, "WATCH");
+
 			X = PositionX;
 			Y = PositionY;
 
@@ -116,7 +118,7 @@ namespace AquaControl
 		public override void OnAllClick ()
 		{
 
-			CurrentData.ForceUpdateData ();
+
 
 			if (_showText) {
 				_showText = false;
@@ -127,6 +129,7 @@ namespace AquaControl
 			if (GraphContainer.IsShownById (_graphId)) {
 				GraphContainer.HideGraphById (_graphId);
 			} else {
+				CurrentData.ForceUpdateData ();
 				GraphContainer.ShowGraphById (_graphId);
 			}
 
