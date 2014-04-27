@@ -35,6 +35,8 @@ namespace AquaControl
 
 			GraphContainer.SetGraphColorById (_graphId, R, G, B);
 
+			GraphContainer.AssignCustomNameById (_graphId, "WATCH");
+
 			X = PositionX;
 			Y = PositionY;
 

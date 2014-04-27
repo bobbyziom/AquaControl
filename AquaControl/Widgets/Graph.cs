@@ -42,11 +42,17 @@ namespace AquaControl
 		public int GraphLineWidth { get; set; }
 
 		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>The name.</value>
+		public string Name { get; set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.KevinsObject"/> class.
 		/// </summary>
 		public Graph ()
 		{
-
+		
 			GraphLineWidth = 1;
 
 			x_scale_ratio = 10;
@@ -64,6 +70,10 @@ namespace AquaControl
 		/// <param name="y">The y coordinate.</param>
 		public override void Draw(Cairo.Context surface, int x, int y)
 		{
+
+			if (Name == null) {
+				Name = DataStreamId;
+			}
 
 			X = x;
 			Y = y;
@@ -94,7 +104,7 @@ namespace AquaControl
 
 			surface.Stroke ();
 
-			string widgetText = DataStreamId;
+			string widgetText = Name;
 			surface.SetFontSize (15);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 

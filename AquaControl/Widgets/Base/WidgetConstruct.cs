@@ -26,6 +26,9 @@ namespace AquaControl
 			BaseObject hum = new HumidityWidget ();
 			WidgetContainer.PutWidget (hum);
 
+			BaseObject airTemp = new AirTempWidget ();
+			WidgetContainer.PutWidget (airTemp);
+
 		}
 
 	}

@@ -78,8 +78,6 @@ public partial class MainWindow: Gtk.Window
 		CurrentData.StartDataGathering ();
 
 		// drawing framework setup
-	
-
 		// Input 1: Coloumns
 		// Input 2: Rows
 		// Input 3: Swipe Times

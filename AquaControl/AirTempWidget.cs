@@ -2,28 +2,34 @@
 
 namespace AquaControl
 {
-	public class HumidityWidget : BaseObject
+	public class AirTempWidget : BaseObject
 	{
 
 		private int _graphId; 
-		private string _humidityValue;
-		private const string XIVELY_DATA_STREAM_ID = "HUMIDITY";
+		private string _airTempValue;
+		private const string XIVELY_DATA_STREAM_ID = "AIR_TEMPERATURE";
 
-		public HumidityWidget ()
+		public AirTempWidget ()
 		{
 
 			_graphId = GraphContainer.AssignAndGetGraphId ();
+
+			R = 0.2f;
+			G = 0.3f;
+			B = 0.3f;
 
 		}
 
 		public override void Draw (Cairo.Context surface, int PositionX, int PositionY)
 		{
 
-			_humidityValue = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
+			_airTempValue = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
 
 			GraphContainer.AssignXivelyDatastreamStringById (_graphId, XIVELY_DATA_STREAM_ID);
 
-			GraphContainer.SetGraphColorById (_graphId, G, R, 0.4f);
+			GraphContainer.SetGraphColorById (_graphId, R, G, B);
+
+			GraphContainer.AssignCustomNameById (_graphId, "AIR");
 
 			X = PositionX;
 			Y = PositionY;
@@ -36,7 +42,7 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 
-			string widgetText = _humidityValue + "%";
+			string widgetText = _airTempValue + "°";
 			surface.SetFontSize (15);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 
@@ -45,7 +51,7 @@ namespace AquaControl
 
 			surface.ShowText (widgetText);
 
-			widgetText = "Humidity";
+			widgetText = "Air";
 			surface.SetFontSize (13);
 			text = surface.TextExtents (widgetText);
 
@@ -58,16 +64,19 @@ namespace AquaControl
 
 		public override void OnHoverAction ()
 		{
-			base.OnHoverAction ();
-			Alpha = 0.9f;
+
+			R = 0.2f;
+			G = 0.3f;
+			B = 0.8f;
 
 		}
 
 		public override void OnNoHoverAction ()
 		{
-			base.OnNoHoverAction ();
-			Alpha = 0.5f;
 
+			R = 0.2f;
+			G = 0.3f;
+			B = 0.3f;
 		}
 
 		public override void OnWidgetClickActionButtomLeft ()
@@ -92,8 +101,7 @@ namespace AquaControl
 
 		private void OnClickAll() 
 		{
-
-
+		
 			if (GraphContainer.IsShownById (_graphId)) {
 				GraphContainer.HideGraphById (_graphId);
 			} else {
@@ -102,8 +110,6 @@ namespace AquaControl
 			}
 
 		}
-
-
 
 	}
 }
