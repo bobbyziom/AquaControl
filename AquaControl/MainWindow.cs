@@ -79,6 +79,7 @@ public partial class MainWindow: Gtk.Window
 		// Input 2: Rows
 		// Input 3: Swipe Times
 		DrawAssembly.Setup (4,3,1);
+		DrawAssembly._SwipeLenght = 0;
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer
