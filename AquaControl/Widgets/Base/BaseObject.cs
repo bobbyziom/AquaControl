@@ -84,7 +84,7 @@ namespace AquaControl
 		/// <param name="x">The x coordinate.</param>
 		/// <param name="y">The y coordinate.</param>
 		/// <param name="clicked">Mouse Clicked bool.</param>
-		public virtual void CheckMouseHover(double MouseX, double MouseY, ref bool clicked) 
+		public virtual void CheckMouseHover(double MouseX, double MouseY, bool clicked) 
 		{
 
 			// action lower left

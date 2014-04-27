@@ -43,8 +43,6 @@ public partial class MainWindow: Gtk.Window
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN APPLICATION VARIABLES - START OF PROGRAM								 //
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	private bool _clicked = false;
-
 	private Timer MainUpdate;
 
 	private const int MAX_WIDGETS = 16; 
@@ -127,9 +125,7 @@ public partial class MainWindow: Gtk.Window
 	protected void HandlePress (object o, ButtonPressEventArgs args)
 	{
 
-		_clicked = true;
-
-		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, ref _clicked);
+		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, true);
 
 	}
 		
@@ -140,12 +136,8 @@ public partial class MainWindow: Gtk.Window
 	protected void OnMainDrawingAreaMotionNotifyEvent (object o, MotionNotifyEventArgs args)
 	{
 
-		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, ref _clicked);
+		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, false);
 
-		if (_clicked) {
-			_clicked = false;
-		}
-			
 	}
 
 
