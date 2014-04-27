@@ -8,7 +8,9 @@ namespace AquaControl
 	
 		private double[] _graphData;
 	
-		private double _smallestValue;
+		public double _minValue { get; set;}
+		public double _maxValue { get; set;}
+
 		private PointD _p1,_p2;
 
 		/// <summary>
@@ -55,8 +57,7 @@ namespace AquaControl
 
 			GraphLineWidth = 1;
 
-			x_scale_ratio = 10;
-			y_scale_ratio = 10;
+
 
 			//SelectingColor (); // Selects a color based on dataStreamIndex
 
@@ -74,10 +75,14 @@ namespace AquaControl
 			X = x;
 			Y = y;
 
+			Console.WriteLine ("The Yvalue should be:" + (DrawAssembly.ContentHeight / 3) / (_maxValue - _minValue));
+
+
 
 
 			RetrieveData ();
 			FindSmallestValue(_graphData);
+			FindMaxValue (_graphData);
 	
 
 			surface.LineWidth = GraphLineWidth;
@@ -91,8 +96,8 @@ namespace AquaControl
 				int k = i + 1;
 
 
-				_p1 = new PointD (X + (i * x_scale_ratio), Y + 200 - (_graphData [i] - _smallestValue) * y_scale_ratio);
-				_p2 = new PointD (X + (k * x_scale_ratio), Y + 200 - (_graphData [k] - _smallestValue) * y_scale_ratio);
+				_p1 = new PointD (X - 125  + (i * (x_scale_ratio*0.5)), Y + 200 - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
+				_p2 = new PointD (X - 125 + (k *  (x_scale_ratio*0.5)), Y + 200 - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
@@ -121,21 +126,40 @@ namespace AquaControl
 		public double FindSmallestValue(Double[] value)
 		{
 			if (CurrentData.HistoricDataStored) {
-				_smallestValue = value [1];
+				_minValue = value [1];
 
 				for (int i = 0; i < _totalDataPoints; i++) {
 					for (int k = 0; k < _totalDataPoints; k++) {
-						if (value [i] < _smallestValue) {
-							_smallestValue = value [i];
+						if (value [i] < _minValue) {
+							_minValue = value [i];
 						}
 					}
 				}
 
-				return _smallestValue;
+				return _minValue;
 			} else {
 				return 0;
 			}
 
+		}
+		public double FindMaxValue(Double[] value){
+
+			if (CurrentData.HistoricDataStored) {
+				_maxValue = value [1];
+
+				for (int i = 0; i < _totalDataPoints; i++) {
+					for (int k = 0; k < _totalDataPoints; k++) {
+						if (value [i] > _maxValue) {
+							_maxValue= value [i];
+						}
+					}
+				}
+
+				return _maxValue;
+			} else {
+				return 0;
+			}
+				
 		}
 
 

@@ -38,7 +38,7 @@ namespace AquaControl
 		/// Gets or sets the content heigth.
 		/// </summary>
 		/// <value>The content heigth.</value>
-		public static float ContentHeigth { get; set; }
+		public static float ContentHeight { get; set; }
 
 		/// <summary>
 		/// Gets or sets the width of the content.
@@ -85,7 +85,7 @@ namespace AquaControl
 		{
 
 			MainDrawingArea = context2;
-			ContentHeigth = height;
+			ContentHeight = height;
 			ContentWidth = width; 
 
 		}
@@ -100,7 +100,7 @@ namespace AquaControl
 				// Background color (Created from a rectangle covering the background)
 				surface1.SetSourceRGB (r
 					, g, b);
-				surface1.Rectangle (0, 0, ContentWidth, ContentHeigth);
+				surface1.Rectangle (0, 0, ContentWidth, ContentHeight);
 				surface1.Fill ();
 			}
 
@@ -122,7 +122,7 @@ namespace AquaControl
 
 						//------- The array -------- Dimensions of drawing area -- Rows and coloums ------------------ Margin ------------------ //
 						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos +((int)ContentWidth / _frameSize/2);
-						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeigth / _frameHeight  * xPos +((int)ContentHeigth / _frameSize/2);
+						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeight / _frameHeight  * xPos +((int)ContentHeight / _frameSize/2);
 					}
 				}
 			}
@@ -178,12 +178,13 @@ namespace AquaControl
 				using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
 
 					for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
-						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeigth/7)); 
+						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeight/7)); 
 
 						// dynamic way of updating graph length and height
 
-//						GraphContainer.graphArray [i].x_scale_ratio = GraphContainer.graphArray [i]._totalDataPoints / ContentWidth;
-//						GraphContainer.graphArray [i].y_scale_ratio = GraphContainer.graphArray[i]._totalDataPoints/ ContentHeigth;
+						GraphContainer.graphArray [i].x_scale_ratio = ContentWidth/GraphContainer.graphArray [i]._totalDataPoints;
+						GraphContainer.graphArray [i].y_scale_ratio = (ContentHeight / _frameHeight) / (GraphContainer.graphArray [i]._maxValue
+						- GraphContainer.graphArray [i]._minValue);
 					}
 				}
 
