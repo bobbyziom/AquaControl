@@ -31,10 +31,24 @@ namespace AquaControl
 		public string DataStreamId { get; set; }
 
 		/// <summary>
+		/// Gets or sets the identifier.
+		/// </summary>
+		/// <value>The identifier.</value>
+		public int Id { get; set; }
+
+		/// <summary>
+		/// Gets or sets the width of the graph line.
+		/// </summary>
+		/// <value>The width of the graph line.</value>
+		public int GraphLineWidth { get; set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.KevinsObject"/> class.
 		/// </summary>
 		public Graph ()
 		{
+
+			GraphLineWidth = 1;
 
 			x_scale_ratio = 10;
 			y_scale_ratio = 10;
@@ -60,8 +74,8 @@ namespace AquaControl
 			FindSmallestValue(GraphData);
 	
 
-			surface.LineWidth = 3;
-			surface.SetSourceRGBA (1, 1, 0.4f, Alpha);
+			surface.LineWidth = GraphLineWidth;
+			surface.SetSourceRGBA (R, G, B, Alpha);
 
 
 			//Console.WriteLine ("the smallest value is " + smallestValue);
@@ -85,8 +99,8 @@ namespace AquaControl
 			surface.SetFontSize (15);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 
-			surface.SetSourceRGBA (1, 1, 1, Alpha);
-			surface.MoveTo(X + 200 - (text.Width/2), Y + 100 + (text.Height/2));
+			surface.SetSourceRGBA (R, G, B, Alpha);
+			surface.MoveTo(X + 200, Y + 100 + (text.Height*Id));
 
 			surface.ShowText (widgetText);
 
@@ -221,9 +235,9 @@ namespace AquaControl
 
 							for (int j = 0; j < totalDataPoints; j++) {
 
-								GraphData [i] = Convert.ToDouble (newData.datastreams [i].datapoints [i].value);
+								GraphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
 
-								//Console.Write (" " + GraphData [i]);
+								Console.Write (" " + GraphData [j]);
 	
 							}
 						} else {

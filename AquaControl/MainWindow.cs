@@ -47,6 +47,8 @@ public partial class MainWindow: Gtk.Window
 
 	private Timer MainUpdate;
 
+	private const int MAX_WIDGETS = 9; 
+
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN CONSTRUCTOR																 //
@@ -56,13 +58,16 @@ public partial class MainWindow: Gtk.Window
 
 		Build ();
 
+		// lame isSettingsSet algorithm
 		UserSettings.UserSetupCompleted = true;
 
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
 
-		// Create widgets
-		WidgetContainer.AssignWidgetSpace (6);
+		// Create space for max widgets
+		WidgetContainer.AssignWidgetSpace (MAX_WIDGETS);
+
+		// Instantiate widgets from widget construct
 		WidgetConstruct.ConstructWidgets ();
 
 		// initiate user settings
@@ -75,7 +80,6 @@ public partial class MainWindow: Gtk.Window
 		DrawAssembly.Setup (3);
 		GraphContainer.CreateGraphs ();
 
-
 		// Setup main update timer
 		MainUpdate = new Timer (10);
 		MainUpdate.Elapsed += new ElapsedEventHandler(OnUpdate);
@@ -85,6 +89,8 @@ public partial class MainWindow: Gtk.Window
 		// Setup events 
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
 		mainDrawingArea.AddEvents ((int)EventMask.AllEventsMask);
+
+		//XivelyData data = CurrentData.HistroicData;
 
 	}
 
@@ -135,10 +141,7 @@ public partial class MainWindow: Gtk.Window
 		if (_clicked) {
 			_clicked = false;
 		}
-
-//		Console.WriteLine ("X pos: " + args.Event.X);
-//		Console.WriteLine ("Y pos: " + args.Event.Y);
-
+			
 	}
 
 

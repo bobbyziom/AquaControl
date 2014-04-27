@@ -47,8 +47,7 @@ namespace AquaControl
 		/// <param name="frameSize">Frame size.</param>
 		public static void Setup(int frameSize)
 		{
-
-
+		
 			_frameSize = frameSize;
 
 			GraphPosition = (int)SECTIONS.BOT;

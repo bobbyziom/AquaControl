@@ -9,8 +9,15 @@ namespace AquaControl
 
 		private bool _showText = false;
 
+		private int _graphId = 0;
+
+		private const string XIVELY_DATA_STREAM_ID = "DS181";
+
+
 		public ClockWidget ()
 		{
+
+			_graphId = GraphContainer.AssignAndGetGraphId ();
 
 			Alpha = 0.6f;
 			Name = "";
@@ -23,6 +30,11 @@ namespace AquaControl
 
 		public override void Draw (Cairo.Context surface, int PositionX, int PositionY)
 		{
+
+			GraphContainer.AssignXivelyDatastreamStringById (_graphId, XIVELY_DATA_STREAM_ID);
+
+			GraphContainer.SetGraphColorById (_graphId, R, G, B);
+
 			X = PositionX;
 			Y = PositionY;
 
@@ -91,11 +103,13 @@ namespace AquaControl
 
 		public override void OnHoverAction ()
 		{
+			base.OnHoverAction ();
 			Alpha = 1;
 		}
 
 		public override void OnNoHoverAction ()
 		{
+			base.OnNoHoverAction ();
 			Alpha = 0.6f;
 		}
 
@@ -103,10 +117,15 @@ namespace AquaControl
 		{
 
 			if (_showText) {
-
 				_showText = false;
 			} else {
 				_showText = true;
+			}
+
+			if (GraphContainer.IsShownById (_graphId)) {
+				GraphContainer.HideGraphById (_graphId);
+			} else {
+				GraphContainer.ShowGraphById (_graphId);
 			}
 
 		}

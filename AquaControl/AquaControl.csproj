@@ -76,7 +76,6 @@
     <Compile Include="System\Connection.cs" />
     <Compile Include="Networking\ImpCommunication.cs" />
     <Compile Include="Networking\XivelyData.cs" />
-    <Compile Include="Widgets\graphClass.cs" />
     <Compile Include="Widgets\Base\WidgetConstruct.cs" />
     <Compile Include="Widgets\Base\WidgetContainer.cs" />
     <Compile Include="Widgets\PreferencesWidget.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="Widgets\Base\BaseObject.cs" />
     <Compile Include="Networking\CurrentData.cs" />
     <Compile Include="Widgets\PumpWidget.cs" />
-    <Compile Include="Graphs.cs" />
     <Compile Include="Widgets\Base\GraphContainer.cs" />
     <Compile Include="Widgets\Graph.cs" />
     <Compile Include="Widgets\HumidityWidget.cs" />

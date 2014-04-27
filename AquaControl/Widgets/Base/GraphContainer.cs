@@ -46,6 +46,7 @@ namespace AquaControl
 			for (int i = 0; i < TotalGraphCount; i++) {
 
 				graphArray [i] = new Graph ();
+				graphArray [i].Id = i;
 
 			}
 
@@ -60,6 +61,15 @@ namespace AquaControl
 		{
 
 			graphArray [id].DataStreamId = xivelyStringId;
+
+		}
+
+		public static void SetGraphColorById(int id, float r, float g, float b)
+		{
+
+			graphArray [id].R = r;
+			graphArray [id].G = g;
+			graphArray [id].B = b;
 
 		}
 
