@@ -58,12 +58,10 @@ namespace AquaControl
 			x_scale_ratio = 10;
 			y_scale_ratio = 10;
 
-			//SelectingColor (); // Selects a color based on dataStreamIndex
-
 		}
 
 		/// <summary>
-		/// Draw the specified surface.
+		/// Draw on the specified surface.
 		/// </summary>
 		/// <param name="surface">Surface.</param>
 		/// <param name="x">The x coordinate.</param>
