@@ -88,6 +88,7 @@
     <Compile Include="Widgets\HumidityWidget.cs" />
     <Compile Include="Widgets\lightIntensity.cs" />
     <Compile Include="Widgets\ClockWidget.cs" />
+    <Compile Include="Widgets\Swipe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -47,7 +47,7 @@ public partial class MainWindow: Gtk.Window
 
 	private Timer MainUpdate;
 
-	private const int MAX_WIDGETS = 16; 
+	private const int MAX_WIDGETS = 8; 
 
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -55,6 +55,7 @@ public partial class MainWindow: Gtk.Window
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
+
 
 		Build ();
 

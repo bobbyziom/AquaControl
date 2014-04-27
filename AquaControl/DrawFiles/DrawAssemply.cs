@@ -12,12 +12,15 @@ namespace AquaControl
 	public static class DrawAssembly {
 
 		private const int _coordinatesNum = 2;
-
 		private static int[,,] _frameCoordinates;
-
 		private static int _frameSize;
-
 		private static int _frameHeight;
+
+		/// <summary>
+		/// Gets or sets the lenght of swipe.
+		/// </summary>
+		/// <value>The _ swipe lenght.</value>
+		public static float _SwipeLenght { get; set; }
 
 		/// <summary>
 		/// Gets or sets the times able to swipe.
@@ -58,6 +61,7 @@ namespace AquaControl
 			_SwipeAmount = SwipeAmount;
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
+
 
 			GraphPosition = (int)SECTIONS.BOT;
 
@@ -113,10 +117,6 @@ namespace AquaControl
 						//------- The array -------- Dimensions of drawing area -- Rows and coloums ------------------ Margin ------------------ //
 						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos +((int)ContentWidth / _frameSize/2);
 						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeigth / _frameHeight  * xPos +((int)ContentHeigth / _frameSize/2);
-
-
-
-
 					}
 				}
 			}
@@ -151,21 +151,21 @@ namespace AquaControl
 			}
 
 			int CountWidgets = 0;
-			int Swiped = 0;
 
 			// SWIPE TIMES
-			if(_SwipeAmount > Swiped){
-
+			for(int swipes = 0; swipes != _SwipeAmount; swipes++){
+			Console.WriteLine (swipes);
 				// LOOP FOR WIDGETS
 				for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
-					for (int Yframes = 0+RowStart; Yframes < _frameHeight-RowStop; Yframes+=(1+RowJump)) {
+					for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
 
 						using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
-							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes+((int)ContentWidth*Swiped), 0], _frameCoordinates [Yframes, Xframes+((int)ContentWidth*Swiped), 1]);
+							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)_SwipeLenght, _frameCoordinates [Yframes, Xframes, 1]);
 							CountWidgets++;
 						}
 					}
 				}
+				//((int)ContentWidth/2*swipes)
 
 				// GENERATING GRAPH
 				using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
@@ -174,7 +174,6 @@ namespace AquaControl
 						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeigth/7)); 
 					}
 				}
-				Swiped += 1;
 			}
 		}
 	}
