@@ -47,7 +47,7 @@ public partial class MainWindow: Gtk.Window
 
 	private Timer MainUpdate;
 
-	private const int MAX_WIDGETS = 9; 
+	private const int MAX_WIDGETS = 16; 
 
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -74,7 +74,10 @@ public partial class MainWindow: Gtk.Window
 		CurrentData.StartDataGathering ();
 
 		// drawing framework setup
-		DrawAssembly.Setup (4,3);
+		// Input 1: Coloumns
+		// Input 2: Rows
+		// Input 3: Swipe Times
+		DrawAssembly.Setup (4,3,1);
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer

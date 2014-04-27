@@ -20,6 +20,12 @@ namespace AquaControl
 		private static int _frameHeight;
 
 		/// <summary>
+		/// Gets or sets the times able to swipe.
+		/// </summary>
+		/// <value>The swipe amount.</value>
+		public static float _SwipeAmount { get; set; }
+
+		/// <summary>
 		/// Gets or sets the content heigth.
 		/// </summary>
 		/// <value>The content heigth.</value>
@@ -46,9 +52,10 @@ namespace AquaControl
 		/// Setup draw assembly with the specified frameSize.
 		/// </summary>
 		/// <param name="frameSize">Frame size.</param>
-		public static void Setup(int frameSize, int frameHeigh)
+		public static void Setup(int frameSize, int frameHeigh, int SwipeAmount)
 		{
 
+			_SwipeAmount = SwipeAmount;
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
 
@@ -144,25 +151,31 @@ namespace AquaControl
 			}
 
 			int CountWidgets = 0;
+			int Swiped = 0;
 
-			for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
-				for (int Yframes = 0+RowStart; Yframes < _frameHeight-RowStop; Yframes+=(1+RowJump)) {
+			// SWIPE TIMES
+			if(_SwipeAmount > Swiped){
 
-					using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
-						WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0], _frameCoordinates [Yframes, Xframes, 1]);
-						CountWidgets++;
+				// LOOP FOR WIDGETS
+				for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
+					for (int Yframes = 0+RowStart; Yframes < _frameHeight-RowStop; Yframes+=(1+RowJump)) {
+
+						using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
+							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes+((int)ContentWidth*Swiped), 0], _frameCoordinates [Yframes, Xframes+((int)ContentWidth*Swiped), 1]);
+							CountWidgets++;
+						}
 					}
 				}
-			}
 
-			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
+				// GENERATING GRAPH
+				using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
 
-				for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
-					GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeigth/7)); 
+					for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
+						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeigth/7)); 
+					}
 				}
+				Swiped += 1;
 			}
-
-
 		}
 	}
 }
