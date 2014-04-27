@@ -37,7 +37,7 @@ using AquaControl;
 using System.Timers;
 using Gdk;
 
-public partial class MainWindow: Gtk.Window
+public partial class MainWindow : Gtk.Window
 {
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -54,7 +54,7 @@ public partial class MainWindow: Gtk.Window
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
 
-
+		// Build window
 		Build ();
 
 		// Start internet connectivity periodic check
