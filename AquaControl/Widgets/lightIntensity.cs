@@ -20,6 +20,9 @@ namespace AquaControl
 
 		public override void Draw (Cairo.Context surface, int x, int y)
 		{
+			X = x;
+
+			Y = y;
 
 			double StartAngle = (1/8)*Math.PI ;
 			double EndAngle = 2 * Math.PI - ((1 / 8) * Math.PI);
@@ -30,12 +33,12 @@ namespace AquaControl
 
 			//LIGHTBULB ALL THE WAY BABY
 
-			surface.MoveTo (x - 100 * scaleFactor, y + 200 * scaleFactor);
-			surface.LineTo (x - 100 * scaleFactor, y - 100 * scaleFactor);
-			surface.Arc (x, y-100 * scaleFactor, 200 * scaleFactor, StartAngle, EndAngle);
-			surface.MoveTo (x + 100 * scaleFactor, y - 100 * scaleFactor);
-			surface.LineTo (x + 100 * scaleFactor, y + 200 * scaleFactor);
-			surface.LineTo (x - 100 * scaleFactor, y + 200 * scaleFactor);
+			surface.MoveTo (X - 100 * scaleFactor, Y + 200 * scaleFactor);
+			surface.LineTo (X - 100 * scaleFactor, Y - 100 * scaleFactor);
+			surface.Arc (X, Y-100 * scaleFactor, 200 * scaleFactor, StartAngle, EndAngle);
+			surface.MoveTo (X + 100 * scaleFactor, Y - 100 * scaleFactor);
+			surface.LineTo (X + 100 * scaleFactor, Y + 200 * scaleFactor);
+			surface.LineTo (X - 100 * scaleFactor, Y + 200 * scaleFactor);
 
 			surface.SetSourceRGBA (1, 1, 0, 0.20+normalizingLightValue());
 			surface.Fill ();
