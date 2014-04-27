@@ -12,18 +12,12 @@ namespace AquaControl
 
 			graphId = GraphContainer.AssignAndGetGraphId ();
 
-			Alpha = 1;
-
-			R = 0.4f;
-			G = 0.9f;
-			B = 0.1f;
-
 		}
 
 		public override void Draw (Cairo.Context surface, int x, int y)
 		{
 
-			GraphContainer.AssignXivelyDatastreamStringById (graphId, "LDR");
+			GraphContainer.AssignXivelyDatastreamStringById (graphId, "HUMIDITY");
 
 			X = x;
 			Y = y;
@@ -32,16 +26,32 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
+			surface.SetSourceRGB (R, G, B);
+			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
+			surface.Stroke ();
+
+			string widgetText = "Press Me!";
+			surface.SetFontSize (13);
+			Cairo.TextExtents text = surface.TextExtents (widgetText);
+
+			surface.SetSourceRGBA (1, 1, 1, Alpha);
+			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
+
+			surface.ShowText (widgetText);
+
 		}
 
 		public override void OnHoverAction ()
 		{
+			base.OnHoverAction ();
+			Alpha = 0.9f;
 
 		}
 
 		public override void OnNoHoverAction ()
 		{
-
+			base.OnNoHoverAction ();
+			Alpha = 0.5f;
 
 		}
 
@@ -73,7 +83,6 @@ namespace AquaControl
 			} else {
 				GraphContainer.ShowGraphById (graphId);
 			}
-
 
 		}
 

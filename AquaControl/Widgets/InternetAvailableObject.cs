@@ -12,8 +12,6 @@ namespace AquaControl
 
 			Alpha = 1;
 		
-			Console.WriteLine ("inet avail Object construcT");
-
 			R = 0.2f;
 			G = 0.5f;
 			B = 0.2f;

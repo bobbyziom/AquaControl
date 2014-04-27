@@ -75,19 +75,19 @@ namespace AquaControl
 			IsAlive = PingHost (TestAdress);
 
 			// widget test
-			Random random = new Random();
-			int randomNumber = random.Next(0, 100);
-
-			Console.WriteLine ("Random number: " + randomNumber);
-
-			if (randomNumber > 50) {
-				IsAlive = true;
-			} else {
-				IsAlive = false;
-			}
-
-			// debug
-			Console.WriteLine (IsAlive);
+//			Random random = new Random();
+//			int randomNumber = random.Next(0, 100);
+//
+//			Console.WriteLine ("Random number: " + randomNumber);
+//
+//			if (randomNumber > 50) {
+//				IsAlive = true;
+//			} else {
+//				IsAlive = false;
+//			}
+//
+//			// debug
+//			Console.WriteLine (IsAlive);
 
 		}
 			

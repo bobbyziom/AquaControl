@@ -11,7 +11,7 @@ namespace AquaControl
 			BaseObject hest1 = new InternetAvailableObject ();
 			WidgetContainer.PutWidget (hest1);
 
-			BaseObject hest2 = new BaseObject ();
+			BaseObject hest2 = new ClockWidget ();
 			WidgetContainer.PutWidget (hest2);
 
 			BaseObject Pump = new PumpWidget ();

@@ -164,7 +164,7 @@ namespace AquaControl
 		public virtual void OnWidgetClickActionTopLeft() 
 		{
 
-			Console.WriteLine ("TopLeft");
+			OnAllClick ();
 
 		}
 
@@ -174,7 +174,7 @@ namespace AquaControl
 		public virtual void OnWidgetClickActionTopRight() 
 		{
 
-			Console.WriteLine ("TopRight");
+			OnAllClick ();
 
 		}
 
@@ -184,7 +184,7 @@ namespace AquaControl
 		public virtual void OnWidgetClickActionButtomLeft() 
 		{
 
-			Console.WriteLine ("ButtomLeft");
+			OnAllClick ();
 
 		}
 
@@ -194,7 +194,14 @@ namespace AquaControl
 		public virtual void OnWidgetClickActionButtomRight() 
 		{
 
-			Console.WriteLine ("ButtomRight");
+			OnAllClick ();
+
+		}
+
+		public virtual void OnAllClick() 
+		{
+
+			Console.WriteLine ("Widget Clicked");
 
 		}
 

@@ -51,6 +51,11 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Assigns the xively datastream string by graph identifier.
+		/// </summary>
+		/// <param name="id">Graph Identifier.</param>
+		/// <param name="xivelyStringId">Xively string identifier.</param>
 		public static void AssignXivelyDatastreamStringById(int id, string xivelyStringId)
 		{
 
