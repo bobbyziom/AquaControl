@@ -237,7 +237,7 @@ namespace AquaControl
 
 								GraphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
 
-								Console.Write (" " + GraphData [j]);
+								//Console.Write (" " + GraphData [j]);
 	
 							}
 						} else {
