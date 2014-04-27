@@ -70,6 +70,11 @@ namespace AquaControl
 
 			config.AppSettings.Settings.Add ("BgColorB", BgColorB.ToString());
 
+			if (UserSetupCompleted) {
+				config.AppSettings.Settings.Add ("SettingsStored", "yes");
+			} else {
+				config.AppSettings.Settings.Add ("SettingsStored", "no");
+			}
 			// save added configurations
 			config.Save(ConfigurationSaveMode.Full);
 
@@ -107,6 +112,14 @@ namespace AquaControl
 
 				if (keyValue.Key == "BgColorB") {
 					BgColorB = (float)Convert.ToDouble(keyValue.Value);
+				}
+
+				if (keyValue.Key == "SettingsStored") {
+					if (keyValue.Value == "yes") {
+						UserSetupCompleted = true;
+					} else {
+						UserSetupCompleted = false;
+					}
 				}
 					
 			}

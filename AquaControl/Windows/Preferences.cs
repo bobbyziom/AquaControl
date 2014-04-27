@@ -45,8 +45,12 @@ namespace AquaControl
 
 			UserSettings.Save ();
 
+
+
 			// display status in statusLael
 			statusLabel.Text = "Stored!";
+
+			CurrentData.ForceUpdateData ();
 
 			UserSettings.UserSetupCompleted = true;
 

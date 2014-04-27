@@ -93,6 +93,8 @@ namespace AquaControl
 		private void OnClickAll() 
 		{
 
+			CurrentData.ForceUpdateData ();
+
 			if (GraphContainer.IsShownById (_graphId)) {
 				GraphContainer.HideGraphById (_graphId);
 			} else {

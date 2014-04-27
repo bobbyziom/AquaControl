@@ -58,9 +58,6 @@ public partial class MainWindow: Gtk.Window
 
 		Build ();
 
-		// lame isSettingsSet algorithm
-		UserSettings.UserSetupCompleted = true;
-
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
 

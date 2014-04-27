@@ -113,18 +113,21 @@ namespace AquaControl
 		/// <param name="value">Value.</param>
 		public double FindSmallestValue(Double[] value)
 		{
+			if (CurrentData.HistoricDataStored) {
+				_smallestValue = value [1];
 
-			_smallestValue = value [1];
-
-			for (int i = 0; i < _totalDataPoints; i++) {
-				for (int k = 0; k < _totalDataPoints; k++) {
-					if (value [i] < _smallestValue) {
-						_smallestValue = value [i];
+				for (int i = 0; i < _totalDataPoints; i++) {
+					for (int k = 0; k < _totalDataPoints; k++) {
+						if (value [i] < _smallestValue) {
+							_smallestValue = value [i];
+						}
 					}
 				}
-			}
 
-			return _smallestValue;
+				return _smallestValue;
+			} else {
+				return 0;
+			}
 
 		}
 
@@ -135,35 +138,38 @@ namespace AquaControl
 		/// </summary>
 		public void RetrieveData() 
 		{
+		
+			if (CurrentData.HistoricDataStored) {
 
-			XivelyData newData = CurrentData.HistroicData;
+				XivelyData newData = CurrentData.HistroicData;
 
-			if (newData.datastreams.Count < 1) {
-				Console.WriteLine ("Datastream Not Found");
-			} else  {
-				for (int i = 0; i < newData.datastreams.Count; i++) {
-					if (newData.datastreams [i].id == DataStreamId) {
+				if (newData.datastreams.Count < 1) {
+					Console.WriteLine ("Datastream Not Found");
+				} else {
+					for (int i = 0; i < newData.datastreams.Count; i++) {
+						if (newData.datastreams [i].id == DataStreamId) {
 
-						if (newData.datastreams [i].datapoints != null) {
+							if (newData.datastreams [i].datapoints != null) {
 
-							int graph_dataP = newData.datastreams [i].datapoints.Count;
-							_totalDataPoints = graph_dataP;
-							_graphData = new double[_totalDataPoints];
+								int graph_dataP = newData.datastreams [i].datapoints.Count;
+								_totalDataPoints = graph_dataP;
+								_graphData = new double[_totalDataPoints];
 
-							for (int j = 0; j < _totalDataPoints; j++) {
+								for (int j = 0; j < _totalDataPoints; j++) {
 
-								_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
+									_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
 
-								//Console.Write (" " + GraphData [j]);
+									//Console.Write (" " + GraphData [j]);
 	
-							}
-						} else {
+								}
+							} else {
 
-							Console.WriteLine ("no dataspoints");
+								Console.WriteLine ("no dataspoints");
+							}
 						}
 					}
-				}
-			} 
+				} 
+			}
 				
 		}
 

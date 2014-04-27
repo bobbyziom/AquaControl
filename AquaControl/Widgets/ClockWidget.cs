@@ -116,6 +116,8 @@ namespace AquaControl
 		public override void OnAllClick ()
 		{
 
+			CurrentData.ForceUpdateData ();
+
 			if (_showText) {
 				_showText = false;
 			} else {
