@@ -43,11 +43,15 @@ public partial class MainWindow: Gtk.Window
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN APPLICATION VARIABLES - START OF PROGRAM								 //
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	private const int MAX_WIDGETS = 9; 
+
+	private const int FRAMES = 3;
+
+	private const int UPDATE_INTERVAL_MS = 10;
+
 	private bool _clicked = false;
 
 	private Timer MainUpdate;
-
-	private const int MAX_WIDGETS = 9; 
 
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -74,11 +78,11 @@ public partial class MainWindow: Gtk.Window
 		CurrentData.StartDataGathering ();
 
 		// drawing framework setup
-		DrawAssembly.Setup (3);
+		DrawAssembly.Setup (FRAMES);
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer
-		MainUpdate = new Timer (10);
+		MainUpdate = new Timer (UPDATE_INTERVAL_MS);
 		MainUpdate.Elapsed += new ElapsedEventHandler(OnUpdate);
 		MainUpdate.Enabled = true;
 		MainUpdate.AutoReset = true;

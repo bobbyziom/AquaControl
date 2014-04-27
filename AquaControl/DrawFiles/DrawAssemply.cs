@@ -138,8 +138,6 @@ namespace AquaControl
 				Putgraph = 0;
 			}
 				
-
-
 			int CountWidgets = 0;
 
 			for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
