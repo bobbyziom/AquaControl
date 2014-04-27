@@ -53,11 +53,6 @@ public partial class MainWindow: Gtk.Window
 
 	private Timer MainUpdate;
 
-<<<<<<< HEAD
-=======
-	private const int MAX_WIDGETS = 16; 
-
->>>>>>> FETCH_HEAD
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN CONSTRUCTOR																 //
@@ -83,14 +78,13 @@ public partial class MainWindow: Gtk.Window
 		CurrentData.StartDataGathering ();
 
 		// drawing framework setup
-<<<<<<< HEAD
-		DrawAssembly.Setup (FRAMES);
-=======
+	
+
 		// Input 1: Coloumns
 		// Input 2: Rows
 		// Input 3: Swipe Times
 		DrawAssembly.Setup (4,3,1);
->>>>>>> FETCH_HEAD
+	
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer

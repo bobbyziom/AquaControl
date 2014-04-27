@@ -149,11 +149,7 @@ namespace AquaControl
 				RowStop = 0;	
 				Putgraph = 0;
 			}
-<<<<<<< HEAD
-				
-=======
 
->>>>>>> FETCH_HEAD
 			int CountWidgets = 0;
 			int Swiped = 0;
 
