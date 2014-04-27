@@ -5,12 +5,11 @@ namespace AquaControl
 {
 	public class Graph : BaseObject
 	{
-
-
-		private double[] GraphData;
-		private int totalDataPoints;
-		private double smallestValue;
-		private PointD p1,p2;
+	
+		private double[] _graphData;
+		private int _totalDataPoints;
+		private double _smallestValue;
+		private PointD _p1,_p2;
 
 		/// <summary>
 		/// Gets or sets the graphic spacing between each data point in the x direction 
@@ -71,7 +70,7 @@ namespace AquaControl
 
 
 			RetrieveData ();
-			FindSmallestValue(GraphData);
+			FindSmallestValue(_graphData);
 	
 
 			surface.LineWidth = GraphLineWidth;
@@ -80,16 +79,16 @@ namespace AquaControl
 
 			//Console.WriteLine ("the smallest value is " + smallestValue);
 
-			for (int i = 0; i < totalDataPoints - 1; i++) {
+			for (int i = 0; i < _totalDataPoints - 1; i++) {
 
 				int k = i + 1;
 
 
-				p1 = new PointD (X + (i * x_scale_ratio), Y + 200 - (GraphData [i] - smallestValue) * y_scale_ratio);
-				p2 = new PointD (X + (k * x_scale_ratio), Y + 200 - (GraphData [k] - smallestValue) * y_scale_ratio);
+				_p1 = new PointD (X + (i * x_scale_ratio), Y + 200 - (_graphData [i] - _smallestValue) * y_scale_ratio);
+				_p2 = new PointD (X + (k * x_scale_ratio), Y + 200 - (_graphData [k] - _smallestValue) * y_scale_ratio);
 
-				surface.MoveTo (p1);
-				surface.LineTo (p2);
+				surface.MoveTo (_p1);
+				surface.LineTo (_p2);
 
 			}
 
@@ -115,19 +114,59 @@ namespace AquaControl
 		public double FindSmallestValue(Double[] value)
 		{
 
-			smallestValue = value [1];
+			_smallestValue = value [1];
 
-			for (int i = 0; i < totalDataPoints; i++) {
-				for (int k = 0; k < totalDataPoints; k++) {
-					if (value [i] < smallestValue) {
-						smallestValue = value [i];
+			for (int i = 0; i < _totalDataPoints; i++) {
+				for (int k = 0; k < _totalDataPoints; k++) {
+					if (value [i] < _smallestValue) {
+						_smallestValue = value [i];
 					}
 				}
 			}
 
-			return smallestValue;
+			return _smallestValue;
 
 		}
+
+
+
+		/// <summary>
+		/// Retrieves the data.
+		/// </summary>
+		public void RetrieveData() 
+		{
+
+			XivelyData newData = CurrentData.HistroicData;
+
+			if (newData.datastreams.Count < 1) {
+				Console.WriteLine ("Datastream Not Found");
+			} else  {
+				for (int i = 0; i < newData.datastreams.Count; i++) {
+					if (newData.datastreams [i].id == DataStreamId) {
+
+						if (newData.datastreams [i].datapoints != null) {
+
+							int graph_dataP = newData.datastreams [i].datapoints.Count;
+							_totalDataPoints = graph_dataP;
+							_graphData = new double[_totalDataPoints];
+
+							for (int j = 0; j < _totalDataPoints; j++) {
+
+								_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
+
+								//Console.Write (" " + GraphData [j]);
+	
+							}
+						} else {
+
+							Console.WriteLine ("no dataspoints");
+						}
+					}
+				}
+			} 
+				
+		}
+
 
 		/*
 		/// <summary>
@@ -212,43 +251,6 @@ namespace AquaControl
 
 		}
 		*/
-
-		/// <summary>
-		/// Retrieves the data.
-		/// </summary>
-		public void RetrieveData() 
-		{
-
-			XivelyData newData = CurrentData.HistroicData;
-
-			if (newData.datastreams.Count < 1) {
-				Console.WriteLine ("Datastream Not Found");
-			} else  {
-				for (int i = 0; i < newData.datastreams.Count; i++) {
-					if (newData.datastreams [i].id == DataStreamId) {
-
-						if (newData.datastreams [i].datapoints != null) {
-
-							int graph_dataP = newData.datastreams [i].datapoints.Count;
-							totalDataPoints = graph_dataP;
-							GraphData = new double[totalDataPoints];
-
-							for (int j = 0; j < totalDataPoints; j++) {
-
-								GraphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
-
-								//Console.Write (" " + GraphData [j]);
-	
-							}
-						} else {
-
-							Console.WriteLine ("no dataspoints");
-						}
-					}
-				}
-			} 
-				
-		}
 
 
 	}
