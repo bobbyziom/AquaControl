@@ -4,14 +4,12 @@ namespace AquaControl
 {
 	public class PHWidget : BaseObject
 	{
-
-		float fadecolor = 0;
-		string phTextShow = "PH";
-		int textMoveX;
-		int textMoveY;
+	
 		float PHValue = 3.0f;
-		float PHcolorR = 0;
-		float PHcolorB = 0;
+		float WaterTemp = 0.0f;
+		float[] colorWater = new float[3];
+		float _alphaChannel = 0.2f;
+		float topBottomDifference = 0.4f;
 
 		public PHWidget () 
 		{
@@ -19,8 +17,10 @@ namespace AquaControl
 			Console.WriteLine ("Test Object construcT");
 
 			Radius = 100;
-
 			X = 300;
+			colorWater[0] = 0.6f;
+			colorWater[1] = 0.6f;
+			colorWater[2] = 0.6f;
 
 		}
 
@@ -30,6 +30,7 @@ namespace AquaControl
 			Y = y;
 
 			PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+			WaterTemp = CurrentData.GetCurrentValueByIdFloat("temp");
 		
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
@@ -42,60 +43,59 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
 			surface.Fill ();
 
-			//XivelyData data = XivelyData.GetCurrentData (apiKey, feedId);
-
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
-			surface.MoveTo (X+textMoveX, Y+textMoveY);
-			surface.SetFontSize (80);
-			surface.ShowText (phTextShow);
+			surface.MoveTo (X, Y);
 
-			//surface.Arc (X, Y, Radius, 0, Math.PI * 1);
+			surface.SetFontSize (50);
+			string widgetText = "TEMP";
+			Cairo.TextExtents text = surface.TextExtents (widgetText);
+			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
+			surface.ShowText (widgetText);
+
 			surface.Fill();
 
 			surface.CurveTo(X-100, Y-10, X-60, Y+10, X-30, Y-10);
 			surface.CurveTo(X-30, Y-10, X, Y+10, X+30, Y-10);
 			surface.CurveTo(X+30, Y-10, X+60, Y+10, X+100, Y-10);
-			surface.SetSourceRGBA (PHcolorR, 0, PHcolorB, fadecolor);
+			surface.SetSourceRGBA (colorWater[0], colorWater[1], colorWater[2], _alphaChannel);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
 			surface.Fill ();
-
 
 		}
 
 		public override void OnHoverAction ()
 		{
 			// MOVE TO ALIGN NUMBER
-			if (PHValue < 10) {
-				textMoveX = -22;
-				textMoveY = 30;
-			} else{
-				textMoveX = -48;
-				textMoveY = 30;
-			}
+			//if (WaterTemp < 20) {
 
+				//} else{
+
+				//}
+				
 			// SPECIFIC COLOR	
-			PHcolorR = 1-(PHValue/7);
-			PHcolorB = PHValue/7-1;	
+
+			//PHcolorR = WaterTemp/40;
+			//PHcolorB = WaterTemp/40;	
 
 			// FADE IN
-			if (fadecolor < 0.4) {	
-				fadecolor += 0.01f; 
-				phTextShow =  Convert.ToString(PHValue/100);
+			if (_alphaChannel < 0.6) {	
+				_alphaChannel += 0.01f; 
+				//phTextShow =  Convert.ToString(WaterTemp/100);
 			}
 
 		}
 
 		public override void OnNoHoverAction()
 		{
-			if (fadecolor > 0) {
-				fadecolor -= 0.005f;
+			if (_alphaChannel > 0) {
+				_alphaChannel -= 0.01f;
 			} else {
 			
 			}
 
-			phTextShow = "PH";
-			textMoveX = -55;
-			textMoveY = 30;
+			//phTextShow = "";
+			//textMoveX = -55;
+			//textMoveY = 30;
 
 		}
 
