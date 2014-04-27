@@ -153,8 +153,9 @@ namespace AquaControl
 			int CountWidgets = 0;
 
 			// SWIPE TIMES
-			for(int swipes = 0; swipes != _SwipeAmount; swipes++){
+			for(int swipes = 0; swipes > _SwipeAmount; swipes++){
 			Console.WriteLine (swipes);
+
 				// LOOP FOR WIDGETS
 				for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
 					for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
