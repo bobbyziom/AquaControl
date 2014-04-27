@@ -129,6 +129,8 @@ public partial class MainWindow: Gtk.Window
 
 		_clicked = true;
 
+		WidgetContainer.CheckAllWidgetHover (args.Event.X, args.Event.Y, ref _clicked);
+
 	}
 		
 
