@@ -33,6 +33,12 @@ namespace AquaControl
 		
 			} 
 		}
+		public override void OnNoHoverAction () {
+
+
+			DrawAssembly._SwipeLenght = 0;
+
+		}
 	}
 }
 
