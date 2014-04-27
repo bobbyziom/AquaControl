@@ -68,6 +68,7 @@ namespace AquaControl
 		/// <param name="y">The y coordinate.</param>
 		public override void Draw(Cairo.Context surface, int x, int y)
 		{
+		
 
 			if (Name == null) {
 				Name = DataStreamId;
@@ -146,6 +147,7 @@ namespace AquaControl
 		/// </summary>
 		public void RetrieveData() 
 		{
+			//Console.WriteLine (CurrentData.HistoricDataStored);
 		
 			if (CurrentData.HistoricDataStored) {
 
@@ -167,7 +169,7 @@ namespace AquaControl
 
 									_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
 
-									//Console.Write (" " + GraphData [j]);
+									//Console.Write (" " + _graphData [j]);
 	
 								}
 							} else {

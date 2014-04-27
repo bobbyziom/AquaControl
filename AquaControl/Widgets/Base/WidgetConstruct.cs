@@ -29,6 +29,8 @@ namespace AquaControl
 			BaseObject airTemp = new AirTempWidget ();
 			WidgetContainer.PutWidget (airTemp);
 
+			BaseObject bulb = new lightIntensity ();
+			WidgetContainer.PutWidget (bulb);
 		}
 
 	}
