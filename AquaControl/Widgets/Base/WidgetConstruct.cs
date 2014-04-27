@@ -32,6 +32,8 @@ namespace AquaControl
 			BaseObject bulb = new lightIntensity ();
 			WidgetContainer.PutWidget (bulb);
 
+			BaseObject swipeback = new SwipeBack ();
+			WidgetContainer.PutWidget (swipeback);
 
 		}
 
