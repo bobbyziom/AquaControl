@@ -102,8 +102,8 @@ namespace AquaControl
 				int k = i + 1;
 
 
-				_p1 = new PointD (X - 125  + (i * (x_scale_ratio*0.5)), Y + 200 - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
-				_p2 = new PointD (X - 125 + (k *  (x_scale_ratio*0.5)), Y + 200 - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
+				_p1 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (i * (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
+				_p2 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT + (k *  (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
