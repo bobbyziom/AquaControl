@@ -35,12 +35,6 @@ namespace AquaControl
 		public static float SwipeAmount { get; set; }
 
 		/// <summary>
-		/// Gets or sets the frame area margin LEF.
-		/// </summary>
-		/// <value>The frame area margin LEF.</value>
-		public static int WidgetRadius { get; set; }
-
-		/// <summary>
 		/// Gets or sets the content heigth.
 		/// </summary>
 		/// <value>The content heigth.</value>
@@ -53,28 +47,16 @@ namespace AquaControl
 		public static float ContentWidth { get; set;}
 
 		/// <summary>
-		/// Gets or sets the LEFT margin of the entire frame setup. (DO NOT OVERRIDE)
+		/// Gets or sets the LEFT margin of the entire frame setup.
 		/// </summary>
 		/// <value>The frame area margin.</value>
 		public static int FrameAreaMarginLEFT { get; set; }
 
 		/// <summary>
-		/// Gets or sets the TOP margin of the entire frame setup. (DO NOT OVERRIDE)
+		/// Gets or sets the TOP margin of the entire frame setup.
 		/// </summary>
 		/// <value>The frame area margin.</value>
 		public static int FrameAreaMarginTOP { get; set; }
-
-		/// <summary>
-		/// Gets or sets the widget margin to the TOP border. (DO NOT OVERRIDE)
-		/// </summary>
-		/// <value>The widget margin TO.</value>
-		public static int WidgetMarginTOP { get; set; }
-
-		/// <summary>
-		/// Gets or sets the widget margin to the LEFT border. (DO NOT OVERRIDE)
-		/// </summary>
-		/// <value>The widget margin Left.</value>
-		public static int WidgetMarginLEFT { get; set; }
 
 		/// <summary>
 		/// The area height of one frame
@@ -97,7 +79,7 @@ namespace AquaControl
 		/// <summary>
 		/// The graph position.
 		/// </summary>
-		public static int GraphPosition { get; set; }
+		public static int GraphPosition;
 
 		/// <summary>
 		/// Setup draw assembly with the specified frameSize.
@@ -133,8 +115,6 @@ namespace AquaControl
 			FrameAreaHeight = (int)ContentHeight / _frameHeight;
 			FrameAreaMarginLEFT = ((int)ContentWidth / _frameSize/2);
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
-			WidgetMarginTOP = FrameAreaMarginLEFT - WidgetRadius;
-			WidgetMarginTOP = FrameAreaMarginTOP - WidgetRadius;
 
 		}
 
@@ -228,7 +208,6 @@ namespace AquaControl
 						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]); 
 
 						// dynamic way of updating graph length and height
-
 
 							
 					}

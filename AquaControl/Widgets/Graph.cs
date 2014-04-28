@@ -9,6 +9,9 @@ namespace AquaControl
 		private double[] _graphData;
 		//BaseObject[] dotContainer;
 
+		private double X;
+		private double Y;
+
 	
 		public double _minValue { get; set;}
 		public double _maxValue { get; set;}
@@ -120,7 +123,8 @@ namespace AquaControl
 
 			}
 
-			drawGraphDots (surface);
+			DrawGraphDots (surface);
+			DrawYScale (surface);
 
 			surface.Stroke ();
 
@@ -228,19 +232,42 @@ namespace AquaControl
 				
 		}
 
-		public void drawGraphDots(Context surface){
+		public void DrawGraphDots(Context surface)
+		{
 
 			for (int i = 0; i < _totalDataPoints; i++) {
 
 				surface.MoveTo (p1Xcoordinates [i], p1Ycoordinates [i]);
 			
-				surface.SetSourceRGBA (R, G, B, 0.4);
+				surface.SetSourceRGBA (R, G, B, Alpha);
 				surface.Arc (p1Xcoordinates[i], p1Ycoordinates[i], 2, 0, Math.PI * 2);
 				surface.Stroke ();
 
 			}
 
 
+		}
+
+		public void DrawYScale(Context surface)
+		{
+			double ydifference = (Y + DrawAssembly.FrameAreaMarginTOP
+				- (_maxValue - _minValue) * (y_scale_ratio*0.5))-(Y 
+				+ DrawAssembly.FrameAreaMarginTOP);
+
+			if (Alpha > 0.8) {
+
+				Console.WriteLine (0.20 *ydifference);
+				surface.MoveTo (X - DrawAssembly.FrameAreaMarginLEFT -10, 
+					Y + DrawAssembly.FrameAreaMarginTOP);
+				surface.LineTo (X - DrawAssembly.FrameAreaMarginLEFT -10, 
+				Y + DrawAssembly.FrameAreaMarginTOP - (_maxValue - _minValue) * (y_scale_ratio*0.5));
+
+//				for (int i = 0; i == 5; i++) {
+//					surface.LineTo (X - DrawAssembly.FrameAreaMarginLEFT - 10, (Y + DrawAssembly.FrameAreaMarginTOP) + ((i *0.20) * ydifference));
+//					surface.Arc (X - DrawAssembly.FrameAreaMarginLEFT - 10, (Y + DrawAssembly.FrameAreaMarginTOP) + ((i * 0.20) * ydifference), 2, 0, Math.PI*2);
+//					surface.Fill();
+//				}
+			}
 		}
 
 
