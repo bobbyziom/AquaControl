@@ -6,7 +6,6 @@ namespace AquaControl
 	{
 
 		float PHValue = 7.0f;
-		private string temp;
 		private const string XIVELY_DATA_STREAM_ID = "HUMIDITY"; // NEEDS TO BE CHANGED
 
 		public PHWidget () 
@@ -22,8 +21,8 @@ namespace AquaControl
 		
 			//PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
 
-			temp = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
-			PHValue = (float)Convert.ToDouble(temp)%14;
+			PHValue = CurrentData.GetCurrentValueByIdFloat (XIVELY_DATA_STREAM_ID);
+			PHValue = PHValue%14;
 
 			X = x;
 			Y = y;
