@@ -31,8 +31,8 @@ namespace AquaControl
 			int waveDepths = Radius / 6;
 
 			WaterTemperature = CurrentData.GetCurrentValueByIdFloat (XIVELY_DATA_STREAM_ID);
+			WaterTemperature = WaterTemperature / 100;
 
-			Console.WriteLine (WaterTemperature);
 
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.3);
