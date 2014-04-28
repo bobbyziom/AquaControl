@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/PumpWidget.cs">
     <Files>
-      <File FileName="AquaControl/MainWindow.cs" Line="67" Column="30" />
+      <File FileName="AquaControl/Widgets/PumpWidget.cs" Line="51" Column="74" />
+      <File FileName="AquaControl/Widgets/WaterTemp.cs" Line="34" Column="4" />
+      <File FileName="AquaControl/Widgets/PHWidget.cs" Line="15" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

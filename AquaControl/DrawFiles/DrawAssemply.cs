@@ -35,15 +35,6 @@ namespace AquaControl
 		public static float SwipeAmount { get; set; }
 
 		/// <summary>
-<<<<<<< HEAD
-=======
-		/// Gets or sets the frame area margin LEF.
-		/// </summary>
-		/// <value>The frame area margin LEF.</value>
-		public static int GlobalRadius { get; set; }
-
-		/// <summary>
->>>>>>> FETCH_HEAD
 		/// Gets or sets the content heigth.
 		/// </summary>
 		/// <value>The content heigth.</value>
@@ -101,7 +92,6 @@ namespace AquaControl
 		
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
-			GlobalRadius = 50;
 
 			GraphPosition = (int)SECTIONS.BOT;
 
@@ -117,6 +107,7 @@ namespace AquaControl
 		/// <param name="height">Height.</param>
 		public static void UpdateDrawingContext(Gdk.Window context2, float width, float height)
 		{
+
 			MainDrawingArea = context2;
 			ContentHeight = height;
 			ContentWidth = width; 
@@ -124,10 +115,6 @@ namespace AquaControl
 			FrameAreaHeight = (int)ContentHeight / _frameHeight;
 			FrameAreaMarginLEFT = ((int)ContentWidth / _frameSize/2);
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
-
-			WidgetMarginTOP = FrameAreaMarginLEFT - GlobalRadius;
-			WidgetMarginTOP = FrameAreaMarginTOP - GlobalRadius;
-
 
 		}
 
