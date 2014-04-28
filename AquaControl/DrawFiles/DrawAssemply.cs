@@ -79,7 +79,7 @@ namespace AquaControl
 		/// <summary>
 		/// The graph position.
 		/// </summary>
-		public static int GraphPosition;
+		public static int GraphPosition { get; set; }
 
 		/// <summary>
 		/// Setup draw assembly with the specified frameSize.

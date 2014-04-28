@@ -101,9 +101,8 @@ namespace AquaControl
 
 				int k = i + 1;
 
-
-				_p1 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (i * (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
-				_p2 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT + (k *  (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
+				_p1 = new PointD (DrawAssembly.FrameAreaMarginLEFT + (i * (x_scale_ratio*0.5)), DrawAssembly.FrameAreaHeight - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
+				_p2 = new PointD (DrawAssembly.FrameAreaMarginLEFT + (k * (x_scale_ratio*0.5)), DrawAssembly.FrameAreaHeight - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
@@ -117,20 +116,20 @@ namespace AquaControl
 
 			surface.Stroke ();
 
-
-
-			
-
 			string widgetText = DataStreamId;
 			surface.SetFontSize (15);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 
 			surface.SetSourceRGBA (R, G, B, Alpha);
-			surface.MoveTo(X + 200, Y + 100 + (text.Height*Id));
+			surface.MoveTo(DrawAssembly.FrameAreaWidth - text.Width - DrawAssembly.FrameAreaMarginLEFT, DrawAssembly.FrameAreaHeight - (text.Height*Id));
 
 			surface.ShowText (widgetText);
 
-		
+			surface.SetSourceRGBA (1, 1, 1, 0.5);
+			surface.Rectangle (DrawAssembly.FrameAreaMarginLEFT, 0, DrawAssembly.FrameAreaWidth, DrawAssembly.FrameAreaHeight);
+			surface.Stroke ();
+
+
 		}
 
 		/// <summary>

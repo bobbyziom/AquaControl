@@ -26,8 +26,6 @@ namespace AquaControl
 		public static void AssignWidgetSpace (int amount)
 		{
 		
-			//	widgetArray = new List<BaseObject> ();
-
 			TotalWidgetCount = amount;
 
 			widgetArray = new BaseObject[TotalWidgetCount];
@@ -49,9 +47,7 @@ namespace AquaControl
 		public static void PutWidget(BaseObject o) 
 		{
 
-//			TotalWidgetCount++;
-//
-//			widgetArray.Add (o);
+
 
 			int putIndex = 0;
 
@@ -81,15 +77,15 @@ namespace AquaControl
 		public static void RemoveWidget(int index) 
 		{
 		
-			if (_isAssigned [index] && index < TotalWidgetCount) {
-
-				widgetArray [index] = new BaseObject ();
-				_isAssigned [index] = false;
-
-			} else {
-
-				Console.WriteLine ("No widget assigned on index provided: ({0}) ... Still containing std widget!", index);
-			}
+//			if (_isAssigned [index] && index < TotalWidgetCount) {
+//
+//				widgetArray [index] = new BaseObject ();
+//				_isAssigned [index] = false;
+//
+//			} else {
+//
+//				Console.WriteLine ("No widget assigned on index provided: ({0}) ... Still containing std widget!", index);
+//			}
 
 		}
 
