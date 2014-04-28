@@ -90,6 +90,8 @@
     <Compile Include="Widgets\ClockWidget.cs" />
     <Compile Include="Widgets\Swipe.cs" />
     <Compile Include="Widgets\SwipeBack.cs" />
+    <Compile Include="Widgets\graphDot.cs" />
+    <Compile Include="Widgets\Base\dotGraphContainer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

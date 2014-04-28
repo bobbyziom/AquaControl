@@ -7,6 +7,8 @@ namespace AquaControl
 	{
 	
 		private double[] _graphData;
+		//BaseObject[] dotContainer;
+
 	
 		public double _minValue { get; set;}
 		public double _maxValue { get; set;}
@@ -74,15 +76,15 @@ namespace AquaControl
 
 			X = x;
 			Y = y;
-
-			Console.WriteLine ("The Yvalue should be:" + (DrawAssembly.ContentHeight / 3) / (_maxValue - _minValue));
-
-
-
+		
 
 			RetrieveData ();
 			FindSmallestValue(_graphData);
 			FindMaxValue (_graphData);
+
+			dotGraphContainer dots = new dotGraphContainer ();
+			dots.creatingGraphDots (_totalDataPoints, _graphData);
+
 	
 
 			surface.LineWidth = GraphLineWidth;
@@ -99,12 +101,19 @@ namespace AquaControl
 				_p1 = new PointD (X - 125  + (i * (x_scale_ratio*0.5)), Y + 200 - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
 				_p2 = new PointD (X - 125 + (k *  (x_scale_ratio*0.5)), Y + 200 - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
+
+
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
+
+				dots.arrayofDots[i].Draw (surface, (int)_p1.X, (int)_p1.Y);
 
 			}
 
 			surface.Stroke ();
+
+				
+			
 
 			string widgetText = DataStreamId;
 			surface.SetFontSize (15);
@@ -203,6 +212,7 @@ namespace AquaControl
 			}
 				
 		}
+			
 
 
 		/*
