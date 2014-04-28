@@ -4,13 +4,13 @@ namespace AquaControl
 {
 	public class graphDot : BaseObject
 	{
-		private double _datValue;
+		public double _dataValue{ get; set;}
 
-		public graphDot (double dataValue)
+		public graphDot ()
 		{
 
 			Radius = 2;
-			_datValue = dataValue;
+
 
 		}
 

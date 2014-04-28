@@ -88,11 +88,11 @@
     <Compile Include="Widgets\Swipe.cs" />
     <Compile Include="Widgets\SwipeBack.cs" />
     <Compile Include="Widgets\graphDot.cs" />
-    <Compile Include="Widgets\Base\dotGraphContainer.cs" />
     <Compile Include="DataGathering\XivelyData.cs" />
     <Compile Include="DataGathering\CurrentData.cs" />
     <Compile Include="Networking\Connection.cs" />
     <Compile Include="Widgets\WaterTemp.cs" />
+    <Compile Include="gtk-gui\AquaControl.bobby.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

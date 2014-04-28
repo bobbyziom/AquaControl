@@ -7,22 +7,22 @@ namespace AquaControl
 
 		public BaseObject[] arrayofDots;
 
+		public int containerSize { get; set;}
+
 		public dotGraphContainer ()
 		{
-			// THIS IS KEVIN
-		}
+			containerSize = 100;
 
-		public void creatingGraphDots(int containerSize, double[] dataArray){
-
-			arrayofDots = new BaseObject[containerSize];
-
-			for( int i = 0; i < containerSize; i++){
-
-				arrayofDots [i] = new graphDot(dataArray[i]);
-
-			}
+			arrayofDots = new graphDot[containerSize];
 
 		}
+
+		public void creatingGraphDots(){
+
+			arrayofDots[0].Draw (surface, (int)_p1.X,(int)_p1.Y);
+		
+		}
+			
 	}
 }
 

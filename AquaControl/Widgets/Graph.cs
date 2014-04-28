@@ -12,7 +12,10 @@ namespace AquaControl
 	
 		public double _minValue { get; set;}
 		public double _maxValue { get; set;}
-		dotGraphContainer dots;
+
+		public double[] p1Xcoordinates ;
+		public double[] p1Ycoordinates ;
+
 
 		private PointD _p1,_p2;
 
@@ -57,7 +60,8 @@ namespace AquaControl
 		/// </summary>
 		public Graph ()
 		{
-			dots = new dotGraphContainer ();
+
+
 			GraphLineWidth = 1;
 
 
@@ -84,7 +88,6 @@ namespace AquaControl
 			FindMaxValue (_graphData);
 
 
-			//dots.creatingGraphDots (_totalDataPoints, _graphData);
 
 	
 
@@ -102,18 +105,20 @@ namespace AquaControl
 				_p1 = new PointD (X - 125  + (i * (x_scale_ratio*0.5)), Y + 200 - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
 				_p2 = new PointD (X - 125 + (k *  (x_scale_ratio*0.5)), Y + 200 - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
-
-
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
 
-				//dots.arrayofDots[i].Draw (surface, (int)_p1.X, (int)_p1.Y);
+				p1Xcoordinates [i] = _p1.X;
+				p1Ycoordinates [i] = _p1.Y;
+
+
 
 			}
 
 			surface.Stroke ();
 
-				
+
+
 			
 
 			string widgetText = DataStreamId;
@@ -195,6 +200,8 @@ namespace AquaControl
 								int graph_dataP = newData.datastreams [i].datapoints.Count;
 								_totalDataPoints = graph_dataP;
 								_graphData = new double[_totalDataPoints];
+								p1Xcoordinates = new double[_totalDataPoints];
+								p1Ycoordinates = new double[_totalDataPoints];
 
 								for (int j = 0; j < _totalDataPoints; j++) {
 
