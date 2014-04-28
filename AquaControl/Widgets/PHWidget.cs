@@ -3,8 +3,7 @@
 namespace AquaControl
 {
 	public class PHWidget : BaseObject
-	{float WaterLight = 0.3f;
-
+	{
 		float PHLight = 0.3f;
 		float PHValue = 7.0f;
 		private const string XIVELY_DATA_STREAM_ID = "HUMIDITY"; // NEEDS TO BE CHANGED
