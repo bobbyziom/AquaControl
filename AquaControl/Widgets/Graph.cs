@@ -87,6 +87,10 @@ namespace AquaControl
 			FindSmallestValue(_graphData);
 			FindMaxValue (_graphData);
 
+
+			x_scale_ratio = DrawAssembly.ContentWidth / _totalDataPoints;
+			y_scale_ratio = DrawAssembly.FrameAreaHeight / (_maxValue - _minValue);
+
 			surface.LineWidth = GraphLineWidth;
 			surface.SetSourceRGBA (R, G, B, Alpha);
 
