@@ -5,6 +5,8 @@ namespace AquaControl
 	public class PumpWidget : BaseObject
 	{
 		float pumpLight = 0.3f;
+		bool pumpON = false;
+		private const string XIVELY_DATA_STREAM_ID = "PUMP";
 
 		public PumpWidget () 
 		{
@@ -16,6 +18,13 @@ namespace AquaControl
 		}
 
 		public override void Draw (Cairo.Context surface, int x, int y){
+
+			if (0 == CurrentData.GetCurrentValueByIdFloat (XIVELY_DATA_STREAM_ID)){
+				pumpON = false;
+			} else {
+				pumpON = true;
+			}
+			 
 
 			X = x;
 			Y = y;
@@ -63,7 +72,13 @@ namespace AquaControl
 			surface.SetSourceRGB (0.1, 0.1, 0.1);
 			surface.Arc (X+Radius/4, Y+Radius/4, Radius/10, 0, Math.PI * 2);
 			surface.Stroke ();
-			surface.SetSourceRGB (0, 0.5, 0);
+			if (pumpON == true) {
+				surface.SetSourceRGB (0, 0.5, 0);
+			} else {
+				surface.SetSourceRGB (0.5, 0, 0);
+			}
+
+
 			surface.Arc (X+Radius/4, Y+Radius/4, Radius/10, 0, Math.PI * 2);
 			surface.Fill ();
 
