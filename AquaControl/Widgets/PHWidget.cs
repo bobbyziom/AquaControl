@@ -6,7 +6,8 @@ namespace AquaControl
 	{
 
 		float PHValue = 7.0f;
-		float[] colorWater = new float[3];
+		private string temp;
+		private const string XIVELY_DATA_STREAM_ID = "HUMIDITY"; // NEEDS TO BE CHANGED
 
 		public PHWidget () 
 		{
@@ -14,13 +15,15 @@ namespace AquaControl
 			Console.WriteLine ("Test Object construcT");
 
 			X = 300;
-			colorWater[0] = 0.6f;
-			colorWater[1] = 0.6f;
-			colorWater[2] = 0.6f;
 
 		}
 
 		public override void Draw (Cairo.Context surface, int x, int y){
+		
+			//PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+
+			temp = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
+			PHValue = (float)Convert.ToDouble(temp)%14;
 
 			Radius = 100;
 			X = x;
@@ -40,8 +43,6 @@ namespace AquaControl
 			Console.WriteLine (distanceOnBar);
 			Console.WriteLine (X);
 
-			//PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
-
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
@@ -60,11 +61,11 @@ namespace AquaControl
 			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*2), Y - (barHeight/2), (sectionSize), barHeight);
 			surface.Fill ();
 
-			surface.SetSourceRGB (0.2, 0.0, 0.0);
+			surface.SetSourceRGB (0.3, 0.0, 0.0);
 			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*3), Y - (barHeight/2), (sectionSize), barHeight);
 			surface.Fill ();
 
-			surface.SetSourceRGB (0.0, 0.0, 0.2);
+			surface.SetSourceRGB (0.0, 0.0, 0.3);
 			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*4), Y - (barHeight/2), (sectionSize), barHeight);
 			surface.Fill ();
 
@@ -94,8 +95,6 @@ namespace AquaControl
 			surface.Rectangle (distanceOnBar-(selectwidth/2), Y-barHeight/2, selectwidth, selectHeight);
 			surface.Stroke ();
 			surface.Fill ();
-
-
 		
 		}
 
