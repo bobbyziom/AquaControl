@@ -60,6 +60,12 @@ public partial class MainWindow : Gtk.Window
 		// Start internet connectivity periodic check
 		Connection.StartCheck ();
 
+		// drawing framework setup
+		// Input 1: Coloumns
+		// Input 2: Rows
+		// Input 3: Swipe Times
+		DrawAssembly.Setup (4,3,1);
+
 		// Create space for max widgets
 		WidgetContainer.AssignWidgetSpace (MAX_WIDGETS);
 
@@ -73,11 +79,7 @@ public partial class MainWindow : Gtk.Window
 		// starts data gathering
 		CurrentData.StartDataGathering ();
 
-		// drawing framework setup
-		// Input 1: Coloumns
-		// Input 2: Rows
-		// Input 3: Swipe Times
-		DrawAssembly.Setup (4,3,1);
+
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer

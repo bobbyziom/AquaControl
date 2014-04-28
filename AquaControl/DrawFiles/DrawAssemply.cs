@@ -29,6 +29,12 @@ namespace AquaControl
 		public static float SwipeMargin { get; set; }
 
 		/// <summary>
+		/// Gets or sets the GlobalRadius
+		/// </summary>
+		/// <value>The swipe margin.</value>
+		public static int GlobalRadius { get; set; }
+
+		/// <summary>
 		/// Gets or sets the times able to swipe.
 		/// </summary>
 		/// <value>The swipe amount.</value>
@@ -71,6 +77,18 @@ namespace AquaControl
 		public static int FrameAreaWidth { get; set; }
 
 		/// <summary>
+		/// Gets or sets the widget margin TO.
+		/// </summary>
+		/// <value>The widget margin TO.</value>
+		public static int WidgetMarginTOP { get; set; }
+
+		/// <summary>
+		/// Gets or sets the widget margin LEF.
+		/// </summary>
+		/// <value>The widget margin LEF.</value>
+		public static int WidgetMarginLEFT { get; set; }
+
+		/// <summary>
 		/// Gets or sets the main drawing area2.
 		/// </summary>
 		/// <value>The main drawing area2.</value>
@@ -92,6 +110,7 @@ namespace AquaControl
 		
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
+			GlobalRadius = 50;
 
 			GraphPosition = (int)SECTIONS.BOT;
 
@@ -115,6 +134,8 @@ namespace AquaControl
 			FrameAreaHeight = (int)ContentHeight / _frameHeight;
 			FrameAreaMarginLEFT = ((int)ContentWidth / _frameSize/2);
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
+			WidgetMarginTOP = (int)FrameAreaMarginTOP - (int)GlobalRadius;
+			WidgetMarginLEFT = (int)FrameAreaMarginLEFT - (int)GlobalRadius;
 
 		}
 
