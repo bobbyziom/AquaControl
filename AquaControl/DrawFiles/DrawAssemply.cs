@@ -11,10 +11,19 @@ namespace AquaControl
 {
 	public static class DrawAssembly {
 
+		// FRAME GENERATION
 		private const int _coordinatesNum = 2;
 		private static int[,,] _frameCoordinates;
 		private static int _frameSize;
 		private static int _frameHeight;
+		private static int RowStart = 0;
+		private static int RowJump = 0;
+		private static int RowStop = 0;
+		private static int Putgraph = 0;
+		private static int CountWidgets = 0;
+
+		public static int WidgetGraphSpace { get; set; }
+		public static int WidgetWidgetSpace { get; set; }
 
 		/// <summary>
 		/// Gets or sets the lenght of swipe.
@@ -103,19 +112,14 @@ namespace AquaControl
 		/// Setup draw assembly with the specified frameSize.
 		/// </summary>
 		/// <param name="frameSize">Frame size.</param>
-		public static void Setup(int frameSize, int frameHeigh, int SwipeAmount)
-		{
-
+		public static void Setup(int frameSize, int frameHeigh, int SwipeAmount) {
 			SwipeLenght = 0;
-		
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
 			GlobalRadius = 50;
-
+			WidgetGraphSpace = 100;
 			GraphPosition = (int)SECTIONS.BOT;
-
 			_frameCoordinates = new int[_frameHeight,_frameSize,_coordinatesNum];
-
 		}
 
 		/// <summary>
@@ -124,9 +128,7 @@ namespace AquaControl
 		/// <param name="context2">Context2.</param>
 		/// <param name="width">Width.</param>
 		/// <param name="height">Height.</param>
-		public static void UpdateDrawingContext(Gdk.Window context2, float width, float height)
-		{
-
+		public static void UpdateDrawingContext(Gdk.Window context2, float width, float height) {
 			MainDrawingArea = context2;
 			ContentHeight = height;
 			ContentWidth = width; 
@@ -136,22 +138,6 @@ namespace AquaControl
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
 			WidgetMarginTOP = (int)FrameAreaMarginTOP - (int)GlobalRadius;
 			WidgetMarginLEFT = (int)FrameAreaMarginLEFT - (int)GlobalRadius;
-
-		}
-
-		/// <summary>
-		/// Draws background
-		/// </summary>
-		public static void DrawBackground (float r, float g, float b)
-		{
-
-			using (Cairo.Context surface1 = Gdk.CairoHelper.Create (MainDrawingArea)) {
-				// Background color (Created from a rectangle covering the background)
-				surface1.SetSourceRGB (r, g, b);
-				surface1.Rectangle (0, 0, ContentWidth, ContentHeight);
-				surface1.Fill ();
-			}
-
 		}
 
 		/// <summary>
@@ -159,7 +145,70 @@ namespace AquaControl
 		/// </summary>
 		public static void DrawFramework ()
 		{
+			// Sets the coordinates
+			SetCoordinates ();
+		
+			// Draws widgets and graph
+			DrawElements ();
 
+		}
+
+
+		public static void DrawElements (){
+
+			SetGraphPosition (2);
+			CountWidgets = 0;
+
+			// SWIPE TIMES
+			for(int swipes = 0; swipes != 2; swipes++){
+
+				// LOOP FOR WIDGETS
+				DrawWidgets (swipes);
+
+				// GENERATING GRAPH
+				DrawGraphArea ();
+				SwipeMargin = -ContentWidth;
+			}
+		}
+
+
+		/// <summary>
+		/// Draws the widgets.
+		/// </summary>
+		/// <param name="swipes">Swipes.</param>
+		public static void DrawWidgets (int swipes){
+
+			for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
+				for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
+
+					using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
+
+						WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)SwipeLenght+((int)SwipeMargin*swipes), _frameCoordinates [Yframes, Xframes, 1]);
+						CountWidgets++;
+					}
+				}
+			}
+
+		}
+
+		/// <summary>
+		/// Draws the graph area.
+		/// </summary>
+		public static void DrawGraphArea ()
+		{
+			using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
+				for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
+					GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]); 
+				}
+			}
+
+		}
+
+		/// <summary>
+		/// Sets the coordinates.
+		/// </summary>
+		public static void SetCoordinates ()
+		{
 			for (int NewCordi = 1; NewCordi < (_frameCoordinates.Length/2); NewCordi++) {
 
 				for (int xPos = 0; xPos < _frameHeight; xPos++) {
@@ -173,15 +222,16 @@ namespace AquaControl
 					}
 				}
 			}
+		}
 
+		/// <summary>
+		/// Sets the graph position.
+		/// </summary>
+		/// <param name="GAmount">G amount.</param>
+		public static void SetGraphPosition (int GAmount){
+		
 			//----------- Generates Widgets from widgetContainer
-			GraphPosition = 2;
-
-
-			int RowStart = 0;
-			int RowJump = 0;
-			int RowStop = 0;
-			int Putgraph = 0;
+			GraphPosition = GAmount;
 
 			if (GraphPosition == (int)SECTIONS.BOT) {		
 				RowStart = 0;	
@@ -202,41 +252,22 @@ namespace AquaControl
 				RowStop = 0;	
 				Putgraph = 0;
 			}
-
-			int CountWidgets = 0;
-
-			// SWIPE TIMES
-			for(int swipes = 0; swipes != 2; swipes++){
-				//Console.WriteLine (swipes);
-
-				// LOOP FOR WIDGETS
-				for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
-					for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
-
-						using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
-
-							WidgetContainer.widgetArray [CountWidgets].Draw (SurfaceWidget, _frameCoordinates [Yframes, Xframes, 0]+(int)SwipeLenght+((int)SwipeMargin*swipes), _frameCoordinates [Yframes, Xframes, 1]);
-							CountWidgets++;
-						}
-					}
-				}
-				//((int)ContentWidth/2*swipes)
-
-				// GENERATING GRAPH
-				using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
-
-					for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
-						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]); 
-
-						// dynamic way of updating graph length and height
-
-							
-					}
-				}
-
-				SwipeMargin = -ContentWidth;
-			}
 		}
+
+		/// <summary>
+		/// Draws background
+		/// </summary>
+		public static void DrawBackground (float r, float g, float b)
+		{
+			using (Cairo.Context surface1 = Gdk.CairoHelper.Create (MainDrawingArea)) {
+				// Background color (Created from a rectangle covering the background)
+				surface1.SetSourceRGB (r, g, b);
+				surface1.Rectangle (0, 0, ContentWidth, ContentHeight);
+				surface1.Fill ();
+			}
+
+		}
+
 	}
 }
 
