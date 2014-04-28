@@ -110,7 +110,7 @@ namespace AquaControl
 		
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
-
+			GlobalRadius = 50;
 
 			GraphPosition = (int)SECTIONS.BOT;
 
@@ -135,7 +135,7 @@ namespace AquaControl
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
 			WidgetMarginTOP = FrameAreaMarginLEFT - GlobalRadius;
 			WidgetMarginTOP = FrameAreaMarginTOP - GlobalRadius;
-			GlobalRadius = 50;
+
 
 		}
 
