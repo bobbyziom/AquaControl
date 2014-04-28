@@ -5,6 +5,10 @@ namespace AquaControl
 	public class SwipeBack : BaseObject
 	{
 
+		public float SwipeBackColorR = 0.3f;
+		public float SwipeBackColorG = 0.3f;
+		public float SwipeBackColorB = 0.1f;
+
 		public SwipeBack () 
 		{
 
@@ -19,15 +23,37 @@ namespace AquaControl
 
 			X = x;
 			Y = y;
+			int RectLenght = -70;
+			int RectHeight = -40;
 
-			surface.SetSourceRGBA (0, 1, 0, 0.5);
-			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
+			surface.SetSourceRGB (SwipeBackColorR, SwipeBackColorG, SwipeBackColorB);
+			surface.Rectangle (X+(RectLenght/2), Y-(RectHeight/2), -RectLenght, RectHeight);
+			surface.Stroke ();
 			surface.Fill (); 
+
+			surface.MoveTo (X-35, Y);
+			surface.LineTo (X-35, Y-50);
+			surface.LineTo (X-80, Y);
+			surface.LineTo (X-35, Y+50);
+			surface.ClosePath ();
+			surface.Stroke ();
+			surface.Fill (); 
+
+
+
 		}
 
 		public override void OnWidgetClickActionButtomLeft () {
+			DrawAssembly._SwipeLenght = 0;
+		}
 
-				DrawAssembly._SwipeLenght = 0;
+		public override void OnHoverAction () {
+
+			SwipeBackColorR = 0.6f;
+		}
+		public override void OnNoHoverAction () {
+
+			SwipeBackColorR = 0.3f;
 		}
 	}
 }
