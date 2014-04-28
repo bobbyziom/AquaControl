@@ -27,6 +27,7 @@ namespace AquaControl
 		{
 		
 
+
 			TotalWidgetCount = amount;
 
 			widgetArray = new BaseObject[TotalWidgetCount];
@@ -68,6 +69,14 @@ namespace AquaControl
 
 		}
 
+		public static void AddWidget() 
+		{
+
+
+
+
+		}
+
 
 		/// <summary>
 		/// Removes widget by index.
@@ -76,17 +85,15 @@ namespace AquaControl
 		public static void RemoveWidget(int index) 
 		{
 		
-		
+			if (_isAssigned [index] && index < TotalWidgetCount) {
 
-//			if (_isAssigned [index] && index < TotalWidgetCount) {
-//
-//				widgetArray [index] = new BaseObject ();
-//				_isAssigned [index] = false;
-//
-//			} else {
-//
-//				Console.WriteLine ("No widget assigned on index provided: ({0}) ... Still containing std widget!", index);
-//			}
+				widgetArray [index] = new BaseObject ();
+				_isAssigned [index] = false;
+
+			} else {
+
+				Console.WriteLine ("No widget assigned on index provided: ({0}) ... Still containing std widget!", index);
+			}
 
 		}
 
