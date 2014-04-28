@@ -112,8 +112,9 @@ namespace AquaControl
 		/// Setup draw assembly with the specified frameSize.
 		/// </summary>
 		/// <param name="frameSize">Frame size.</param>
-		public static void Setup(int frameSize, int frameHeigh, int SwipeAmount) {
+		public static void Setup(int frameSize, int frameHeigh, int SwipeAmountSend) {
 			SwipeLenght = 0;
+			SwipeAmount = SwipeAmountSend;
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
 			GlobalRadius = 50;
@@ -160,7 +161,7 @@ namespace AquaControl
 			CountWidgets = 0;
 
 			// SWIPE TIMES
-			for(int swipes = 0; swipes <= SwipeAmount; swipes++){
+			for(int swipes = 0; swipes != SwipeAmount+1; swipes++){
 
 				// LOOP FOR WIDGETS
 				DrawWidgets (swipes);
