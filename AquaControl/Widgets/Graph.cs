@@ -103,7 +103,7 @@ namespace AquaControl
 
 
 				_p1 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (i * (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
-				_p2 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT + (k *  (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
+				_p2 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (k *  (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
@@ -114,6 +114,8 @@ namespace AquaControl
 
 
 			}
+
+			drawGraphDots (surface);
 
 			surface.Stroke ();
 
@@ -220,6 +222,23 @@ namespace AquaControl
 			}
 				
 		}
+
+		public void drawGraphDots(Context surface){
+
+			for (int i = 0; i < _totalDataPoints; i++) {
+
+				surface.MoveTo (p1Xcoordinates [i], p1Ycoordinates [i]);
+			
+				surface.SetSourceRGBA (R, G, B, 0.4);
+				surface.Arc (p1Xcoordinates[i], p1Ycoordinates[i], 2, 0, Math.PI * 2);
+				surface.Stroke ();
+
+			}
+
+
+		}
+
+
 			
 
 
