@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Timers;
+using System.Threading;
 
 namespace AquaControl
 {
@@ -9,7 +10,7 @@ namespace AquaControl
 		/// <summary>
 		/// The data collection timer.
 		/// </summary>
-		public static Timer CollectTimer;
+		public static System.Timers.Timer CollectTimer;
 
 		/// <summary>
 		/// Gets or sets a value indicating whether this <see cref="AquaControl.CurrentData"/> data stored.
@@ -53,19 +54,25 @@ namespace AquaControl
 		public static void StartDataGathering() 
 		{
 
+			Thread request = new Thread (Collect);
+			Thread requestHistoric = new Thread (CollectHistoric);
+
 			DataIsReceived = false;
 			DataStored = false;
 			HistoricDataIsReceived = false;
 			HistoricDataStored = false;
 
-			CollectTimer = new Timer (10000);
+			CollectTimer = new System.Timers.Timer (10000);
 			CollectTimer.Elapsed += new ElapsedEventHandler(OnUpdate);
 			CollectTimer.Enabled = true;
 			CollectTimer.AutoReset = true;
 
-			Collect ();
-			CollectHistoric ();
-
+			if (!request.IsAlive) {
+				request.Start ();
+			}
+			if (!requestHistoric.IsAlive) {
+				requestHistoric.Start ();
+			}
 
 		}
 
@@ -77,7 +84,11 @@ namespace AquaControl
 		private static void OnUpdate(object source, ElapsedEventArgs e) 
 		{
 
-			Collect ();
+			Thread request = new Thread (Collect);
+
+			if (!request.IsAlive) {
+				request.Start ();
+			}
 
 		}
 
@@ -86,9 +97,16 @@ namespace AquaControl
 		/// </summary>
 		public static void ForceUpdateData()
 		{
-		
-			CollectHistoric ();
-			Collect ();
+
+			Thread request = new Thread (Collect);
+			Thread requestHistoric = new Thread (CollectHistoric);
+
+			if (!requestHistoric.IsAlive) {
+				requestHistoric.Start ();
+			}
+			if (!request.IsAlive) {
+				request.Start ();
+			}
 
 		}
 

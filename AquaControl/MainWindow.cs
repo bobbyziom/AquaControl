@@ -77,7 +77,6 @@ public partial class MainWindow : Gtk.Window
 		// Input 2: Rows
 		// Input 3: Swipe Times
 		DrawAssembly.Setup (4,3,1);
-		DrawAssembly._SwipeLenght = 0;
 		GraphContainer.CreateGraphs ();
 
 		// Setup main update timer
@@ -89,8 +88,6 @@ public partial class MainWindow : Gtk.Window
 		// Setup events 
 		mainDrawingArea.ButtonPressEvent += new ButtonPressEventHandler(HandlePress);
 		mainDrawingArea.AddEvents ((int)EventMask.AllEventsMask);
-
-		//XivelyData data = CurrentData.HistroicData;
 
 	}
 

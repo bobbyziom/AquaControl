@@ -31,34 +31,22 @@ namespace AquaControl
 		public float B { get; set; }
 
 		/// <summary>
-		/// Gets or sets widget width.
-		/// </summary>
-		/// <value>The width.</value>
-		public int Width { get { return Width; } set { Radius = value/2; Height = value; } }
-
-		/// <summary>
-		/// Gets or sets widget height.
-		/// </summary>
-		/// <value>The height.</value>
-		public int Height { get { return Height; } set { Radius = value/2; Width = value; } }
-
-		/// <summary>
 		/// Gets or sets the x widget coordinate.
 		/// </summary>
 		/// <value>The x.</value>
-		public int X { get; set; }
+		protected int X { get; set; }
 
 		/// <summary>
 		/// Gets or sets the Y widget coordinate.
 		/// </summary>
 		/// <value>The Y.</value>
-		public int Y { get; set; }
+		protected int Y { get; set; }
 
 		/// <summary>
 		/// Gets or sets the radius of the widget.
 		/// </summary>
 		/// <value>The radius.</value>
-		public int Radius { get; set; }
+		protected int Radius { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="oose_testster.DatapointObject"/> class.

@@ -144,17 +144,12 @@ namespace AquaControl
 				// return data
 				return data;
 
-
 			} catch {
 
-				Console.WriteLine ("keys doesn't work");
 				UserSettings.CorrectKey = false;
 				return null;
 
 			}
-
-
-
 
 		}
 
@@ -189,6 +184,7 @@ namespace AquaControl
 				// translate string (JSON) into new weather info object
 				XivelyData data = JsonConvert.DeserializeObject<XivelyData> (jsonData);
 
+				// validation complete (no exeption)
 				UserSettings.CorrectKey = true;
 
 				// return data
@@ -197,12 +193,13 @@ namespace AquaControl
 			} catch {
 
 				UserSettings.CorrectKey = false;
-				Console.WriteLine ("keys doesn't work");
 				return null;
 
 			}
 
 		}
+
+
 			
 	}
 }
