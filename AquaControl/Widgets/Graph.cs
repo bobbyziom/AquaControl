@@ -87,13 +87,8 @@ namespace AquaControl
 			FindSmallestValue(_graphData);
 			FindMaxValue (_graphData);
 
-
-
-	
-
 			surface.LineWidth = GraphLineWidth;
 			surface.SetSourceRGBA (R, G, B, Alpha);
-
 
 			//Console.WriteLine ("the smallest value is " + smallestValue);
 
@@ -103,8 +98,8 @@ namespace AquaControl
 
 
 
-				_p1 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (i * (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
-				_p2 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (k *  (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
+				_p1 = new PointD (DrawAssembly.FrameAreaMarginLEFT  + (i * (x_scale_ratio*0.5)), DrawAssembly.FrameAreaHeight - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
+				_p2 = new PointD (DrawAssembly.FrameAreaMarginLEFT  + (k *  (x_scale_ratio*0.5)), DrawAssembly.FrameAreaHeight - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
 
 				surface.MoveTo (_p1);
@@ -130,7 +125,7 @@ namespace AquaControl
 
 			surface.ShowText (widgetText);
 
-			surface.SetSourceRGBA (1, 1, 1, 0.5);
+			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Rectangle (DrawAssembly.FrameAreaMarginLEFT, 0, DrawAssembly.FrameAreaWidth, DrawAssembly.FrameAreaHeight);
 			surface.Stroke ();
 
