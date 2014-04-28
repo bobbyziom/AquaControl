@@ -14,8 +14,6 @@ namespace AquaControl
 		public PreferencesWidget ()
 		{
 
-			Radius = 50;
-
 			R = 0.1f;
 			G = 0.2f;
 			B = 0.5f;

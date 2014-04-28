@@ -68,7 +68,7 @@ namespace AquaControl
 
 			Console.WriteLine ("Base Object Construct");
 
-			Radius = 50;
+			Radius = 100;
 
 			Alpha = 1;
 

@@ -160,7 +160,7 @@ namespace AquaControl
 
 			// SWIPE TIMES
 			for(int swipes = 0; swipes != 2; swipes++){
-			Console.WriteLine (swipes);
+				//Console.WriteLine (swipes);
 
 				// LOOP FOR WIDGETS
 				for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
