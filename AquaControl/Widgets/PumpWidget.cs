@@ -4,6 +4,7 @@ namespace AquaControl
 {
 	public class PumpWidget : BaseObject
 	{
+		float pumpLight = 0.3f;
 
 		public PumpWidget () 
 		{
@@ -22,12 +23,11 @@ namespace AquaControl
 			int rectSideLenght = Radius;
 			int pumphead = Radius / 5;
 
-
 			surface.SetSourceRGB (0.3, 0.3, 0.3);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
-			surface.SetSourceRGB (0.3, 0.3, 0.3);
+			surface.SetSourceRGBA (1, 1, 1, pumpLight);
 			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 			surface.Fill ();
@@ -67,6 +67,14 @@ namespace AquaControl
 			surface.Arc (X+Radius/4, Y+Radius/4, Radius/10, 0, Math.PI * 2);
 			surface.Fill ();
 
+		}
+		public override void OnHoverAction ()
+		{
+			pumpLight = 0.8f;
+		}
+		public override void OnNoHoverAction ()
+		{
+			pumpLight = 0.3f;
 		}
 			
 	}

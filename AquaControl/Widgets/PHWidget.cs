@@ -3,8 +3,9 @@
 namespace AquaControl
 {
 	public class PHWidget : BaseObject
-	{
+	{float WaterLight = 0.3f;
 
+		float PHLight = 0.3f;
 		float PHValue = 7.0f;
 		private const string XIVELY_DATA_STREAM_ID = "HUMIDITY"; // NEEDS TO BE CHANGED
 
@@ -43,6 +44,7 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
+			surface.SetSourceRGBA (1, 1, 1, PHLight);
 			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 			surface.Fill ();
@@ -95,6 +97,15 @@ namespace AquaControl
 			surface.Stroke ();
 			surface.Fill ();
 		
+		}
+
+		public override void OnHoverAction ()
+		{
+			PHLight = 0.8f;
+		}
+		public override void OnNoHoverAction ()
+		{
+			PHLight = 0.3f;
 		}
 
 	}

@@ -5,6 +5,7 @@ namespace AquaControl
 	public class WaterTemp : BaseObject
 	{
 	
+		float WaterLight = 0.3f;
 		float WaterTemperature = 15.0f;
 		float[] colorWater = new float[3];
 		float alphaChannel = 0.0f;
@@ -39,6 +40,7 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
+			surface.SetSourceRGBA (1, 1, 1, WaterLight);
 			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 			surface.Fill ();
@@ -79,6 +81,8 @@ namespace AquaControl
 			if (alphaChannel < 0.8f) {
 				alphaChannel += 0.1f;
 			}
+
+			WaterLight = 0.8f;
 		}
 
 		public override void OnNoHoverAction()
@@ -86,6 +90,7 @@ namespace AquaControl
 			if (alphaChannel > 0.0f) {
 				alphaChannel -= 0.1f;
 			}
+			WaterLight = 0.3f;
 		}
 
 	}
