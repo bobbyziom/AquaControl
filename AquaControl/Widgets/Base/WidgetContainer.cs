@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AquaControl
 {
@@ -24,6 +25,7 @@ namespace AquaControl
 		/// </summary>
 		public static void AssignWidgetSpace (int amount)
 		{
+		
 
 			TotalWidgetCount = amount;
 
@@ -45,7 +47,7 @@ namespace AquaControl
 		/// <param name="o">The widget.</param>
 		public static void PutWidget(BaseObject o) 
 		{
-		
+
 			int putIndex = 0;
 
 			while (putIndex < TotalWidgetCount) {
@@ -74,15 +76,17 @@ namespace AquaControl
 		public static void RemoveWidget(int index) 
 		{
 		
-			if (_isAssigned [index] && index < TotalWidgetCount) {
+		
 
-				widgetArray [index] = new BaseObject ();
-				_isAssigned [index] = false;
-
-			} else {
-
-				Console.WriteLine ("No widget assigned on index provided: ({0}) ... Still containing std widget!", index);
-			}
+//			if (_isAssigned [index] && index < TotalWidgetCount) {
+//
+//				widgetArray [index] = new BaseObject ();
+//				_isAssigned [index] = false;
+//
+//			} else {
+//
+//				Console.WriteLine ("No widget assigned on index provided: ({0}) ... Still containing std widget!", index);
+//			}
 
 		}
 

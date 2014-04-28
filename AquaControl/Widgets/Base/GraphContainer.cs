@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AquaControl
 {
@@ -8,7 +9,7 @@ namespace AquaControl
 		/// <summary>
 		/// The widget array.
 		/// </summary>
-		public static Graph[] graphArray;
+		public static List<Graph> graphArray;
 
 		/// <summary>
 		/// Gets or sets the total widget count.
@@ -37,15 +38,11 @@ namespace AquaControl
 		public static void CreateGraphs()
 		{
 
-			if (TotalGraphCount != 0) {
-
-				graphArray = new Graph[TotalGraphCount];
-
-			}
+			graphArray = new List<Graph> ();
 
 			for (int i = 0; i < TotalGraphCount; i++) {
 
-				graphArray [i] = new Graph ();
+				graphArray.Add(new Graph ());
 				graphArray [i].Id = i;
 
 			}
