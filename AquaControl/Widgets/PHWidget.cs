@@ -25,7 +25,6 @@ namespace AquaControl
 			temp = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
 			PHValue = (float)Convert.ToDouble(temp)%14;
 
-			Radius = 100;
 			X = x;
 			Y = y;
 			int barHeight = Radius / 2;
