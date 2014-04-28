@@ -7,6 +7,7 @@ namespace AquaControl
 
 		private float _textAlpha = 0.5f;
 		private bool _isClicked = false;
+		float valueOnMouse = 0.8f;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="AquaControl.PreferencesWidget"/> class.
@@ -17,6 +18,7 @@ namespace AquaControl
 			R = 0.1f;
 			G = 0.2f;
 			B = 0.5f;
+
 
 		}
 
@@ -36,7 +38,7 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
-			surface.SetSourceRGBA (0, 0, 0, 0.5f);
+			surface.SetSourceRGBA (R, G, B, valueOnMouse);
 			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
 			surface.Stroke ();
 
@@ -67,6 +69,8 @@ namespace AquaControl
 
 			}
 
+			valueOnMouse = 1.0f;
+
 		}
 
 		public override void OnNoHoverAction()
@@ -79,6 +83,8 @@ namespace AquaControl
 			_textAlpha = 0.5f;
 
 			_isClicked = false;
+
+			valueOnMouse = 0.8f;
 
 		}
 
