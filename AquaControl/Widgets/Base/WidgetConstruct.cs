@@ -37,9 +37,9 @@ namespace AquaControl
 			BaseObject swipeback = new SwipeBack ();
 			WidgetContainer.PutWidget (swipeback);
 
-			BaseObject test = new ClockWidget ();
-			WidgetContainer.PutWidget (test);
-
+//			BaseObject test = new ClockWidget ();
+//			WidgetContainer.PutWidget (test);
+//
 //			BaseObject test2 = new ClockWidget ();
 //			WidgetContainer.PutWidget (test2);
 //
