@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/SwipeBack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/PHWidget.cs">
     <Files>
       <File FileName="AquaControl/MainWindow.cs" Line="1" Column="1" />
       <File FileName="AquaControl/Widgets/Swipe.cs" Line="62" Column="1" />
-      <File FileName="AquaControl/Widgets/SwipeBack.cs" Line="19" Column="4" />
+      <File FileName="AquaControl/Widgets/SwipeBack.cs" Line="23" Column="4" />
+      <File FileName="AquaControl/Widgets/PHWidget.cs" Line="69" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
