@@ -26,6 +26,8 @@ namespace AquaControl
 
 			WidgetContainer.PutWidget (new SwipeBack ());
 
+			WidgetContainer.PutWidget (new WaterTemp ());
+
 //			BaseObject WaterTemp = new WaterTemp ();
 //			WidgetContainer.PutWidget (WaterTemp);
 
