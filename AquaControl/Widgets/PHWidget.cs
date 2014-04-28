@@ -5,9 +5,8 @@ namespace AquaControl
 	public class PHWidget : BaseObject
 	{
 
-		float PHValue = 3.0f;
+		float PHValue = 7.0f;
 		float[] colorWater = new float[3];
-		float alphaChannel = 0.8f;
 
 		public PHWidget () 
 		{
@@ -32,7 +31,16 @@ namespace AquaControl
 			int pushLength = sectionSize+1;
 			int amountOfSections = 8;
 
-			PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+			int selectwidth = Radius / 10;
+			int selectHeight = Radius / 2;
+
+			float phSelect = (((float)sectionSize * (float)amountOfSections) / 14.0f) * PHValue;
+			int distanceOnBar = X-((sectionSize * amountOfSections)/2)+(int)phSelect;
+
+			Console.WriteLine (distanceOnBar);
+			Console.WriteLine (X);
+
+			//PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
 
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
@@ -78,28 +86,17 @@ namespace AquaControl
 			surface.SetFontSize (Radius/2);
 			string widgetText = Convert.ToString(PHValue);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
-			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2)-barHeight);
+			surface.MoveTo(distanceOnBar-(text.Width/2), Y + (text.Height/2)-barHeight);
 			surface.ShowText (widgetText);
 			surface.Fill();
 
 			surface.SetSourceRGB (1, 1, 1);
-			surface.Rectangle (X-(text.Width/2), Y-barHeight/2, 20, 50);
+			surface.Rectangle (distanceOnBar-(selectwidth/2), Y-barHeight/2, selectwidth, selectHeight);
 			surface.Stroke ();
 			surface.Fill ();
 
 
-
-		}
-
-		public override void OnHoverAction ()
-		{
 		
-
-		}
-
-		public override void OnNoHoverAction()
-		{
-
 		}
 
 	}
