@@ -35,6 +35,12 @@ namespace AquaControl
 		public static string XivelyFeedId { get; set; }
 
 		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="AquaControl.XivelyData"/> has correct key.
+		/// </summary>
+		/// <value><c>true</c> if correct key; otherwise, <c>false</c>.</value>
+		public static bool CorrectKey { get; set; }
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="system_settings_test.UserSettings"/> class.
 		/// </summary>
 		public static void Initiate ()
@@ -75,6 +81,9 @@ namespace AquaControl
 			} else {
 				config.AppSettings.Settings.Add ("SettingsStored", "no");
 			}
+
+			UserSettings.CorrectKey = false;
+
 			// save added configurations
 			config.Save(ConfigurationSaveMode.Full);
 

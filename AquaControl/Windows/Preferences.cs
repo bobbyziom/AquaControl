@@ -52,6 +52,8 @@ namespace AquaControl
 
 			CurrentData.ForceUpdateData ();
 
+			Console.WriteLine (UserSettings.CorrectKey);
+
 			UserSettings.UserSetupCompleted = true;
 
 		}

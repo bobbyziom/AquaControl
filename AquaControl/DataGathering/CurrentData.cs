@@ -102,8 +102,10 @@ namespace AquaControl
 
 				if (!DataIsReceived) {
 					Data = XivelyData.GetCurrentData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId);
-					DataIsReceived = true;
-					DataStored = true;
+					if (Data != null) {
+						DataIsReceived = true;
+						DataStored = true;
+					}
 				} else {
 					DataIsReceived = false;
 				}
@@ -117,20 +119,19 @@ namespace AquaControl
 		/// </summary>
 		private static void CollectHistoric()
 		{
-			if (UserSettings.UserSetupCompleted) {
 
-						
+			if (UserSettings.UserSetupCompleted) {
+			
 				if (!HistoricDataIsReceived) {
 					HistroicData = XivelyData.GetHistoricData (UserSettings.XivelyApiKey, UserSettings.XivelyFeedId, "6hours", "500");
-					HistoricDataIsReceived = true;
-					HistoricDataStored = true;
-
+					if (HistroicData != null) {
+						HistoricDataIsReceived = true;
+						HistoricDataStored = true;
+					}
 				} else {
 					HistoricDataIsReceived = false;
 				}
-
-
-
+					
 			}
 				
 		}
@@ -145,7 +146,7 @@ namespace AquaControl
 
 			string value = "No data";
 		
-			if (DataStored) {
+			if (UserSettings.CorrectKey && DataStored) {
 				for (int i = 0; i < Data.datastreams.Count; i++) {
 					if (Data.datastreams [i].id == id) {
 
@@ -169,7 +170,7 @@ namespace AquaControl
 
 			float value = 0.0f;
 
-			if (DataStored) {
+			if (UserSettings.CorrectKey && DataStored) {
 				for (int i = 0; i < Data.datastreams.Count; i++) {
 					if (Data.datastreams [i].id == id) {
 
@@ -193,7 +194,7 @@ namespace AquaControl
 
 			int value = 0;
 
-			if (DataStored) {
+			if (UserSettings.CorrectKey && DataStored) {
 				for (int i = 0; i < Data.datastreams.Count; i++) {
 					if (Data.datastreams [i].id == id) {
 

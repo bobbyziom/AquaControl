@@ -58,7 +58,24 @@ namespace AquaControl
 				surface.SetSourceRGBA (0, 0, 0, Alpha);
 				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+10);
 				surface.ShowText (widgetText);
+
 			}
+			if (!UserSettings.CorrectKey) { 
+				widgetText = "Settings Incomplete";
+				surface.SetFontSize (10);
+				text = surface.TextExtents (widgetText);
+				surface.SetSourceRGBA (0, 0, 0, Alpha);
+				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+10);
+				surface.ShowText (widgetText);
+				widgetText = "Wrong Key";
+				surface.SetFontSize (10);
+				text = surface.TextExtents (widgetText);
+				surface.SetSourceRGBA (0.4f, 0, 0, Alpha);
+				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+(text.Height)+10);
+				surface.ShowText (widgetText);
+			}
+
+
 
 
 		}

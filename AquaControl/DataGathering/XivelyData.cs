@@ -106,6 +106,8 @@ namespace AquaControl
 		/// <value>The device_serial.</value>
 		public string device_serial { get; set; }
 
+
+
 		/// <summary>
 		/// Gets the current data.
 		/// Example:
@@ -116,29 +118,43 @@ namespace AquaControl
 		/// <param name="feedId">Feed identifier.</param>
 		public static XivelyData GetCurrentData(string xivelyDataApiKey, string feedId) 
 		{
+			try {
+				// send request to specified feedId
+				WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/" + feedId + ".json");
 
-			// send request to specified feedId
-			WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/" + feedId + ".json");
+				// debug
+				Console.WriteLine (xivelyDataApiKey);
 
-			// debug
-			Console.WriteLine (xivelyDataApiKey);
+				// add api key, for verification
+				request.Headers.Add ("X-ApiKey", xivelyDataApiKey);
 
-			// add api key, for verification
-			request.Headers.Add ("X-ApiKey", xivelyDataApiKey);
+				// get response
+				WebResponse response = request.GetResponse ();
 
-			// get response
-			WebResponse response = request.GetResponse ();
+				Stream rawdata = response.GetResponseStream ();
+				StreamReader reader = new StreamReader (rawdata);
+				string jsonData = reader.ReadToEnd ();
 
-			// translate data to string
-			Stream rawdata = response.GetResponseStream ();
-			StreamReader reader = new StreamReader (rawdata);
-			string jsonData = reader.ReadToEnd ();
+				// translate string (JSON) into new weather info object
+				XivelyData data = JsonConvert.DeserializeObject<XivelyData> (jsonData);
 
-			// translate string (JSON) into new weather info object
-			XivelyData data = JsonConvert.DeserializeObject<XivelyData> (jsonData);
+				// sets up correct key
+				UserSettings.CorrectKey = true;
 
-			// return data
-			return data;
+				// return data
+				return data;
+
+
+			} catch {
+
+				Console.WriteLine ("keys doesn't work");
+				UserSettings.CorrectKey = false;
+				return null;
+
+			}
+
+
+
 
 		}
 
@@ -155,25 +171,36 @@ namespace AquaControl
 		public static XivelyData GetHistoricData(string xivelyDataApiKey, string feedId, string duration, string limit) 
 		{
 		
-			// send request to specified feedId
-			WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/" + feedId + "?duration=" + duration + "&limit=" + limit + "&function=average");
+			try {
+				// send request to specified feedId
+				WebRequest request = WebRequest.Create ("https://api.xively.com/v2/feeds/" + feedId + "?duration=" + duration + "&limit=" + limit + "&function=average");
 
-			// add api key, for verification
-			request.Headers.Add ("X-ApiKey", xivelyDataApiKey);
+				// add api key, for verification
+				request.Headers.Add ("X-ApiKey", xivelyDataApiKey);
 
-			// get response
-			WebResponse response = request.GetResponse ();
+				// get response
+				WebResponse response = request.GetResponse ();
 
-			// translate data to string
-			Stream rawdata = response.GetResponseStream ();
-			StreamReader reader = new StreamReader (rawdata);
-			string jsonData = reader.ReadToEnd ();
+				// translate data to string
+				Stream rawdata = response.GetResponseStream ();
+				StreamReader reader = new StreamReader (rawdata);
+				string jsonData = reader.ReadToEnd ();
 
-			// translate string (JSON) into new weather info object
-			XivelyData data = JsonConvert.DeserializeObject<XivelyData> (jsonData);
+				// translate string (JSON) into new weather info object
+				XivelyData data = JsonConvert.DeserializeObject<XivelyData> (jsonData);
 
-			// return data
-			return data;
+				UserSettings.CorrectKey = true;
+
+				// return data
+				return data;
+
+			} catch {
+
+				UserSettings.CorrectKey = false;
+				Console.WriteLine ("keys doesn't work");
+				return null;
+
+			}
 
 		}
 			

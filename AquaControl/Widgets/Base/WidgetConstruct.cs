@@ -8,34 +8,23 @@ namespace AquaControl
 		public static void ConstructWidgets ()
 		{
 
-			BaseObject hest1 = new InternetAvailableObject ();
-			WidgetContainer.PutWidget (hest1);
+			WidgetContainer.PutWidget (new InternetAvailableObject ());
 
-			BaseObject hest2 = new ClockWidget ();
-			WidgetContainer.PutWidget (hest2);
+			WidgetContainer.PutWidget (new ClockWidget ());
 
-			BaseObject Pump = new PumpWidget ();
-			WidgetContainer.PutWidget (Pump);
+			WidgetContainer.PutWidget (new PumpWidget ());
 
-			BaseObject pref = new PreferencesWidget ();
-			WidgetContainer.PutWidget (pref);
+			WidgetContainer.PutWidget (new PreferencesWidget ());
 
-			BaseObject PHwater = new PHWidget ();
-			WidgetContainer.PutWidget (PHwater);
+			WidgetContainer.PutWidget (new PHWidget ());
 
-			BaseObject hum = new HumidityWidget ();
-			WidgetContainer.PutWidget (hum);
+			WidgetContainer.PutWidget (new HumidityWidget ());
 
-			// Fixed position
-			BaseObject Swipe = new Swipe ();
-			WidgetContainer.PutWidget (Swipe);
+			WidgetContainer.PutWidget (new Swipe ()); // NEEDS TO BE HERE
 
-			BaseObject bulb = new lightIntensity ();
-			WidgetContainer.PutWidget (bulb);
+			WidgetContainer.PutWidget (new lightIntensity ());
 
-			// Fixed position
-			BaseObject swipeback = new SwipeBack ();
-			WidgetContainer.PutWidget (swipeback);
+			WidgetContainer.PutWidget (new SwipeBack ());
 
 //			BaseObject test = new ClockWidget ();
 //			WidgetContainer.PutWidget (test);

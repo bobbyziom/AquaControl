@@ -84,7 +84,7 @@ namespace AquaControl
 			FindMaxValue (_graphData);
 
 
-			dots.creatingGraphDots (_totalDataPoints, _graphData);
+			//dots.creatingGraphDots (_totalDataPoints, _graphData);
 
 	
 

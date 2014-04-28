@@ -73,15 +73,12 @@
     <Compile Include="DrawFiles\DrawAssemply.cs" />
     <Compile Include="Widgets\PHWidget.cs" />
     <Compile Include="System\UserSettings.cs" />
-    <Compile Include="System\Connection.cs" />
     <Compile Include="Networking\ImpCommunication.cs" />
-    <Compile Include="Networking\XivelyData.cs" />
     <Compile Include="Widgets\Base\WidgetConstruct.cs" />
     <Compile Include="Widgets\Base\WidgetContainer.cs" />
     <Compile Include="Widgets\PreferencesWidget.cs" />
     <Compile Include="Widgets\InternetAvailableObject.cs" />
     <Compile Include="Widgets\Base\BaseObject.cs" />
-    <Compile Include="Networking\CurrentData.cs" />
     <Compile Include="Widgets\PumpWidget.cs" />
     <Compile Include="Widgets\Base\GraphContainer.cs" />
     <Compile Include="Widgets\Graph.cs" />
@@ -92,6 +89,9 @@
     <Compile Include="Widgets\SwipeBack.cs" />
     <Compile Include="Widgets\graphDot.cs" />
     <Compile Include="Widgets\Base\dotGraphContainer.cs" />
+    <Compile Include="DataGathering\XivelyData.cs" />
+    <Compile Include="DataGathering\CurrentData.cs" />
+    <Compile Include="Networking\Connection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -102,6 +102,7 @@
     <Folder Include="System\" />
     <Folder Include="Networking\" />
     <Folder Include="Widgets\Base\" />
+    <Folder Include="DataGathering\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Frameworks\Newtonsoft.Json.dll" />
