@@ -47,6 +47,30 @@ namespace AquaControl
 		public static float ContentWidth { get; set;}
 
 		/// <summary>
+		/// Gets or sets the LEFT margin of the entire frame setup.
+		/// </summary>
+		/// <value>The frame area margin.</value>
+		public static int FrameAreaMarginLEFT { get; set; }
+
+		/// <summary>
+		/// Gets or sets the TOP margin of the entire frame setup.
+		/// </summary>
+		/// <value>The frame area margin.</value>
+		public static int FrameAreaMarginTOP { get; set; }
+
+		/// <summary>
+		/// The area height of one frame
+		/// </summary>
+		/// <value>The height of the frame area.</value>
+		public static int FrameAreaHeight { get; set; }
+
+		/// <summary>
+		/// The area width of one frame
+		/// </summary>
+		/// <value>The height of the frame area.</value>
+		public static int FrameAreaWidth { get; set; }
+
+		/// <summary>
 		/// Gets or sets the main drawing area2.
 		/// </summary>
 		/// <value>The main drawing area2.</value>
@@ -65,11 +89,9 @@ namespace AquaControl
 		{
 
 			SwipeLenght = 0;
-
-			SwipeAmount = SwipeAmount;
+		
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
-
 
 			GraphPosition = (int)SECTIONS.BOT;
 
@@ -89,6 +111,10 @@ namespace AquaControl
 			MainDrawingArea = context2;
 			ContentHeight = height;
 			ContentWidth = width; 
+			FrameAreaWidth = (int)ContentWidth;
+			FrameAreaHeight = (int)ContentHeight / _frameHeight;
+			FrameAreaMarginLEFT = ((int)ContentWidth / _frameSize/2);
+			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
 
 		}
 
@@ -122,9 +148,8 @@ namespace AquaControl
 
 						// Puts a coordinate into the FrameCoordinate array
 
-						//------- The array -------- Dimensions of drawing area -- Rows and coloums ------------------ Margin ------------------ //
-						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos +((int)ContentWidth / _frameSize/2);
-						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeight / _frameHeight  * xPos +((int)ContentHeight / _frameSize/2);
+						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos + FrameAreaMarginLEFT;
+						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeight / _frameHeight  * xPos + FrameAreaMarginTOP;
 					}
 				}
 			}
@@ -180,13 +205,14 @@ namespace AquaControl
 				using (Cairo.Context SurfaceGraph = Gdk.CairoHelper.Create (MainDrawingArea)) {
 
 					for (int i = 0; i < GraphContainer.TotalGraphCount; i++) {
-						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]-(int)(ContentHeight/7)); 
+						GraphContainer.graphArray [i].Draw (SurfaceGraph,  _frameCoordinates [Putgraph, 1, 0], _frameCoordinates [Putgraph, 1, 1]); 
 
 						// dynamic way of updating graph length and height
 
 						GraphContainer.graphArray [i].x_scale_ratio = ContentWidth/GraphContainer.graphArray [i]._totalDataPoints;
 						GraphContainer.graphArray [i].y_scale_ratio = (ContentHeight / _frameHeight) / (GraphContainer.graphArray [i]._maxValue
 						- GraphContainer.graphArray [i]._minValue);
+							
 					}
 				}
 
