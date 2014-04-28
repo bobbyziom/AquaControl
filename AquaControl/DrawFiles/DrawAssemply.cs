@@ -135,6 +135,7 @@ namespace AquaControl
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
 			WidgetMarginTOP = FrameAreaMarginLEFT - GlobalRadius;
 			WidgetMarginTOP = FrameAreaMarginTOP - GlobalRadius;
+			GlobalRadius = 50;
 
 		}
 
