@@ -92,7 +92,7 @@
     <Compile Include="DataGathering\CurrentData.cs" />
     <Compile Include="Networking\Connection.cs" />
     <Compile Include="Widgets\WaterTemp.cs" />
-    <Compile Include="gtk-gui\AquaControl.bobby.cs" />
+    <Compile Include="gtk-gui\AquaControl.PointDot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

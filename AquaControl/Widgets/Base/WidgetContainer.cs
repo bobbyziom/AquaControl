@@ -26,7 +26,7 @@ namespace AquaControl
 		public static void AssignWidgetSpace (int amount)
 		{
 		
-
+			//	widgetArray = new List<BaseObject> ();
 
 			TotalWidgetCount = amount;
 
@@ -49,6 +49,10 @@ namespace AquaControl
 		public static void PutWidget(BaseObject o) 
 		{
 
+//			TotalWidgetCount++;
+//
+//			widgetArray.Add (o);
+
 			int putIndex = 0;
 
 			while (putIndex < TotalWidgetCount) {
@@ -68,15 +72,7 @@ namespace AquaControl
 			}
 
 		}
-
-		public static void AddWidget() 
-		{
-
-
-
-
-		}
-
+			
 
 		/// <summary>
 		/// Removes widget by index.

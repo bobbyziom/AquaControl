@@ -126,8 +126,7 @@ namespace AquaControl
 
 			using (Cairo.Context surface1 = Gdk.CairoHelper.Create (MainDrawingArea)) {
 				// Background color (Created from a rectangle covering the background)
-				surface1.SetSourceRGB (r
-					, g, b);
+				surface1.SetSourceRGB (r, g, b);
 				surface1.Rectangle (0, 0, ContentWidth, ContentHeight);
 				surface1.Fill ();
 			}

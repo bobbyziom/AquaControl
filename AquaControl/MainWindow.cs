@@ -66,6 +66,7 @@ public partial class MainWindow : Gtk.Window
 		// Instantiate widgets from widget construct
 		WidgetConstruct.ConstructWidgets ();
 
+
 		// initiate user settings
 		UserSettings.Initiate ();
 

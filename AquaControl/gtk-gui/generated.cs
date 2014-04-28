@@ -27,7 +27,7 @@ namespace Stetic
 		{
 			if ((name == "AquaControl.PointDot")) {
 				if ((global::Stetic.ActionGroups.group1 == null)) {
-					//global::Stetic.ActionGroups.group1 = new AquaControl.bobby ();
+					//global::Stetic.ActionGroups.group1 = new AquaControl.PointDot ();
 				}
 				return global::Stetic.ActionGroups.group1;
 			} else {
