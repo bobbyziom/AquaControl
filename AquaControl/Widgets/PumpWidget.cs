@@ -27,6 +27,11 @@ namespace AquaControl
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
+			surface.SetSourceRGB (0.3, 0.3, 0.3);
+			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
+			surface.Stroke ();
+			surface.Fill ();
+
 			surface.SetSourceRGB (0.5, 0.5, 0.5);
 			surface.Rectangle (X-(Radius/2), Y-(Radius/2), rectSideLenght, rectSideLenght); 				// Middle
 			surface.Fill ();

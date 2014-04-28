@@ -8,7 +8,7 @@ namespace AquaControl
 		float WaterTemperature = 15.0f;
 		float[] colorWater = new float[3];
 		float alphaChannel = 0.0f;
-		private const string XIVELY_DATA_STREAM_ID = "AIR_TEMP";
+		private const string XIVELY_DATA_STREAM_ID = "AIR_TEMPERATURE";
 
 		public WaterTemp () 
 		{
@@ -32,9 +32,15 @@ namespace AquaControl
 
 			WaterTemperature = CurrentData.GetCurrentValueByIdFloat (XIVELY_DATA_STREAM_ID);
 
+			Console.WriteLine (WaterTemperature);
+
 			// CIRCLE
-			surface.SetSourceRGBA (1, 1, 1, 0.1);
+			surface.SetSourceRGBA (1, 1, 1, 0.3);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
+			surface.Fill ();
+
+			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
+			surface.Stroke ();
 			surface.Fill ();
 
 			// WAVEFORMED CIRCLE

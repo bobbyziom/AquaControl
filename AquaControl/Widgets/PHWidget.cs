@@ -39,8 +39,12 @@ namespace AquaControl
 			int distanceOnBar = X-((sectionSize * amountOfSections)/2)+(int)phSelect;
 
 			// CIRCLE
-			surface.SetSourceRGBA (1, 1, 1, 0.1);
+			surface.SetSourceRGBA (1, 1, 1, 0.3);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
+			surface.Fill ();
+
+			surface.Arc (X, Y, Radius+5, 0, Math.PI * 2);
+			surface.Stroke ();
 			surface.Fill ();
 
 			// WAVEFORMED CIRCLE
