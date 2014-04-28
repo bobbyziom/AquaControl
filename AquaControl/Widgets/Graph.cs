@@ -12,6 +12,7 @@ namespace AquaControl
 	
 		public double _minValue { get; set;}
 		public double _maxValue { get; set;}
+		dotGraphContainer dots;
 
 		private PointD _p1,_p2;
 
@@ -56,7 +57,7 @@ namespace AquaControl
 		/// </summary>
 		public Graph ()
 		{
-
+			dots = new dotGraphContainer ();
 			GraphLineWidth = 1;
 
 
@@ -82,7 +83,7 @@ namespace AquaControl
 			FindSmallestValue(_graphData);
 			FindMaxValue (_graphData);
 
-			dotGraphContainer dots = new dotGraphContainer ();
+
 			dots.creatingGraphDots (_totalDataPoints, _graphData);
 
 	
@@ -106,7 +107,7 @@ namespace AquaControl
 				surface.MoveTo (_p1);
 				surface.LineTo (_p2);
 
-				dots.arrayofDots[i].Draw (surface, (int)_p1.X, (int)_p1.Y);
+				//dots.arrayofDots[i].Draw (surface, (int)_p1.X, (int)_p1.Y);
 
 			}
 
