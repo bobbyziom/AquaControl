@@ -19,7 +19,8 @@ namespace AquaControl
 
 		}
 
-		public override void Draw (Cairo.Context surface, int x, int y){
+		public override void Draw (Cairo.Context surface, int x, int y)
+		{
 
 			X = x;
 			Y = y;
@@ -43,15 +44,38 @@ namespace AquaControl
 
 		}
 
-		public override void OnWidgetClickActionButtomLeft () {
+		public override void OnWidgetClickActionButtomRight ()
+		{
+			base.OnWidgetClickActionButtomRight ();
+		}
+
+		public override void OnWidgetClickActionTopLeft ()
+		{
+			base.OnWidgetClickActionTopLeft ();
+		}
+
+		public override void OnWidgetClickActionTopRight ()
+		{
+			base.OnWidgetClickActionTopRight ();
+		}
+
+		public override void OnWidgetClickActionButtomLeft () 
+		{
+			base.OnWidgetClickActionButtomLeft ();
+		}
+
+		public override void OnAllClick ()
+		{
 			DrawAssembly._SwipeLenght = 0;
 		}
 
-		public override void OnHoverAction () {
+		public override void OnHoverAction () 
+		{
 
 			SwipeBackColorR = 0.6f;
 		}
-		public override void OnNoHoverAction () {
+		public override void OnNoHoverAction () 
+		{
 
 			SwipeBackColorR = 0.3f;
 		}

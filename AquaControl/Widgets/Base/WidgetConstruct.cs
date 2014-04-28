@@ -26,14 +26,30 @@ namespace AquaControl
 			BaseObject hum = new HumidityWidget ();
 			WidgetContainer.PutWidget (hum);
 
+			// Fixed position
 			BaseObject Swipe = new Swipe ();
 			WidgetContainer.PutWidget (Swipe);
 
 			BaseObject bulb = new lightIntensity ();
 			WidgetContainer.PutWidget (bulb);
 
+			// Fixed position
 			BaseObject swipeback = new SwipeBack ();
 			WidgetContainer.PutWidget (swipeback);
+
+			BaseObject test = new ClockWidget ();
+			WidgetContainer.PutWidget (test);
+
+//			BaseObject test2 = new ClockWidget ();
+//			WidgetContainer.PutWidget (test2);
+//
+//			BaseObject test3 = new ClockWidget ();
+//			WidgetContainer.PutWidget (test3);
+//
+//			BaseObject test4 = new ClockWidget ();
+//			WidgetContainer.PutWidget (test4);
+
+
 
 		}
 
