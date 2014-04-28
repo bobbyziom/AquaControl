@@ -2,14 +2,14 @@
 
 namespace AquaControl
 {
-	public class PHWidget : BaseObject
+	public class WaterTemp : BaseObject
 	{
-
-		float PHValue = 3.0f;
+	
+		float WaterTemperature = 30.0f;
 		float[] colorWater = new float[3];
 		float alphaChannel = 0.0f;
 
-		public PHWidget () 
+		public WaterTemp () 
 		{
 
 			Console.WriteLine ("Test Object construcT");
@@ -29,8 +29,7 @@ namespace AquaControl
 			int waveBottoms = Radius / 2;
 			int waveDepths = Radius / 6;
 
-
-			PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+			WaterTemperature = CurrentData.GetCurrentValueByIdFloat("Air");
 
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
@@ -49,7 +48,7 @@ namespace AquaControl
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.MoveTo (X, Y);
 			surface.SetFontSize (Radius/2);
-			string widgetText = Convert.ToString("PH");
+			string widgetText = Convert.ToString(WaterTemperature);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
 			surface.ShowText (widgetText);
@@ -59,12 +58,27 @@ namespace AquaControl
 
 		public override void OnHoverAction ()
 		{
+			// SPECIFIC COLOR	
+			if (WaterTemperature > 20.0f) {
+				colorWater [0] = 0.6f;
+				colorWater [1] = 0.0f;
+				colorWater [2] = 0.0f;
+			} else {
+				colorWater[0] = 0.0f;
+				colorWater[1] = 0.0f;
+				colorWater[2] = 0.6f;
+			}
 
+			if (alphaChannel < 0.8f) {
+				alphaChannel += 0.1f;
+			}
 		}
 
 		public override void OnNoHoverAction()
 		{
-
+			if (alphaChannel > 0.0f) {
+				alphaChannel -= 0.1f;
+			}
 		}
 
 	}

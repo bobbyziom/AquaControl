@@ -92,6 +92,7 @@
     <Compile Include="Widgets\SwipeBack.cs" />
     <Compile Include="Widgets\graphDot.cs" />
     <Compile Include="Widgets\Base\dotGraphContainer.cs" />
+    <Compile Include="Widgets\WaterTemp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
