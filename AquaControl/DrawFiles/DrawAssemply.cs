@@ -229,9 +229,7 @@ namespace AquaControl
 
 						// dynamic way of updating graph length and height
 
-						GraphContainer.graphArray [i].x_scale_ratio = ContentWidth/GraphContainer.graphArray [i]._totalDataPoints;
-						GraphContainer.graphArray [i].y_scale_ratio = FrameAreaHeight / (GraphContainer.graphArray [i]._maxValue
-						- GraphContainer.graphArray [i]._minValue);
+
 							
 					}
 				}
