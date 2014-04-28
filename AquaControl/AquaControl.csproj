@@ -92,6 +92,7 @@
     <Compile Include="DataGathering\XivelyData.cs" />
     <Compile Include="DataGathering\CurrentData.cs" />
     <Compile Include="Networking\Connection.cs" />
+    <Compile Include="Widgets\WaterTemp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

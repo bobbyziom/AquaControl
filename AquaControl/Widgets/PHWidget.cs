@@ -5,9 +5,9 @@ namespace AquaControl
 	public class PHWidget : BaseObject
 	{
 
-		float PHValue = 3.0f;
-		float[] colorWater = new float[3];
-		float alphaChannel = 0.0f;
+		float PHValue = 7.0f;
+		private string temp;
+		private const string XIVELY_DATA_STREAM_ID = "HUMIDITY"; // NEEDS TO BE CHANGED
 
 		public PHWidget () 
 		{
@@ -15,22 +15,32 @@ namespace AquaControl
 			Console.WriteLine ("Test Object construcT");
 
 			X = 300;
-			colorWater[0] = 0.2f;
-			colorWater[1] = 0.2f;
-			colorWater[2] = 0.2f;
 
 		}
 
 		public override void Draw (Cairo.Context surface, int x, int y){
+		
+			//PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+
+			temp = CurrentData.GetCurrentValueByIdString (XIVELY_DATA_STREAM_ID);
+			PHValue = (float)Convert.ToDouble(temp)%14;
 
 			X = x;
 			Y = y;
-			int waveTops = Radius / 3;
-			int waveBottoms = Radius / 2;
-			int waveDepths = Radius / 6;
+			int barHeight = Radius / 2;
+			//int barLength = Radius + (Radius / 2);
+			int sectionSize = Radius / 5;
+			int pushLength = sectionSize+1;
+			int amountOfSections = 8;
 
+			int selectwidth = Radius / 10;
+			int selectHeight = Radius / 2;
 
-			PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+			float phSelect = (((float)sectionSize * (float)amountOfSections) / 14.0f) * PHValue;
+			int distanceOnBar = X-((sectionSize * amountOfSections)/2)+(int)phSelect;
+
+			Console.WriteLine (distanceOnBar);
+			Console.WriteLine (X);
 
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
@@ -38,33 +48,53 @@ namespace AquaControl
 			surface.Fill ();
 
 			// WAVEFORMED CIRCLE
-			surface.CurveTo(X-Radius, Y-waveDepths, X-waveBottoms, Y+waveDepths, X-waveTops, Y-waveDepths);
-			surface.CurveTo(X-waveTops, Y-waveDepths, X, Y+waveDepths, X+waveTops, Y-waveDepths);
-			surface.CurveTo(X+waveTops, Y-waveDepths, X+waveBottoms, Y+waveDepths, X+Radius, Y-waveDepths);
-			surface.SetSourceRGBA (colorWater[0], colorWater[1], colorWater[2], alphaChannel);
-			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
+			surface.SetSourceRGB (0.8, 0.0, 0.0);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.6, 0.0, 0.0);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.4, 0.0, 0.0);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*2), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.3, 0.0, 0.0);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*3), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.0, 0.0, 0.3);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*4), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.0, 0.0, 0.4);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*5), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.0, 0.0, 0.6);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*6), Y - (barHeight/2), (sectionSize), barHeight);
+			surface.Fill ();
+
+			surface.SetSourceRGB (0.0, 0.0, 0.8);
+			surface.Rectangle (X - ((1+sectionSize)*amountOfSections / 2)+(pushLength*7), Y - (barHeight/2), (sectionSize), barHeight);
 			surface.Fill ();
 
 			// TEXT
-			surface.SetSourceRGBA (1, 1, 1, 0.1);
+			surface.SetSourceRGBA (1, 1, 1, 0.5);
 			surface.MoveTo (X, Y);
 			surface.SetFontSize (Radius/2);
-			string widgetText = Convert.ToString("PH");
+			string widgetText = Convert.ToString(PHValue);
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
-			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
+			surface.MoveTo(distanceOnBar-(text.Width/2), Y + (text.Height/2)-barHeight);
 			surface.ShowText (widgetText);
 			surface.Fill();
 
-		}
-
-		public override void OnHoverAction ()
-		{
-
-		}
-
-		public override void OnNoHoverAction()
-		{
-
+			surface.SetSourceRGB (1, 1, 1);
+			surface.Rectangle (distanceOnBar-(selectwidth/2), Y-barHeight/2, selectwidth, selectHeight);
+			surface.Stroke ();
+			surface.Fill ();
+		
 		}
 
 	}
