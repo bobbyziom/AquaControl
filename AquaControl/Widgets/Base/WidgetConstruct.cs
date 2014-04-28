@@ -29,20 +29,6 @@ namespace AquaControl
 			WidgetContainer.PutWidget (new WaterTemp ());
 		
 
-//			BaseObject test = new ClockWidget ();
-//			WidgetContainer.PutWidget (test);
-//
-//			BaseObject test2 = new ClockWidget ();
-//			WidgetContainer.PutWidget (test2);
-//
-//			BaseObject test3 = new ClockWidget ();
-//			WidgetContainer.PutWidget (test3);
-//
-//			BaseObject test4 = new ClockWidget ();
-//			WidgetContainer.PutWidget (test4);
-
-
-
 		}
 
 	}
