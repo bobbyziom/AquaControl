@@ -160,7 +160,7 @@ namespace AquaControl
 			CountWidgets = 0;
 
 			// SWIPE TIMES
-			for(int swipes = 0; swipes != 2; swipes++){
+			for(int swipes = 0; swipes <= SwipeAmount; swipes++){
 
 				// LOOP FOR WIDGETS
 				DrawWidgets (swipes);
