@@ -22,9 +22,6 @@ namespace AquaControl
 		private static int Putgraph = 0;
 		private static int CountWidgets = 0;
 
-		public static int WidgetGraphSpace { get; set; }
-		public static int WidgetWidgetSpace { get; set; }
-
 		/// <summary>
 		/// Gets or sets the lenght of swipe.
 		/// </summary>
@@ -142,7 +139,7 @@ namespace AquaControl
 		}
 
 		/// <summary>
-		/// Finds the coordinates for the entire frame and posts it into "FrameCoordinates", followed by the posting process of surface objects, dependent on those coordinates generated.
+		/// Framework for drawing Widgets, Graph and setting coordinates
 		/// </summary>
 		public static void DrawFramework ()
 		{
