@@ -14,7 +14,6 @@ namespace AquaControl
 
 			Console.WriteLine ("Test Object construcT");
 
-			Radius = 100;
 			X = 300;
 
 		}
