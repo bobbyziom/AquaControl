@@ -38,9 +38,6 @@ namespace AquaControl
 			float phSelect = (((float)sectionSize * (float)amountOfSections) / 14.0f) * PHValue;
 			int distanceOnBar = X-((sectionSize * amountOfSections)/2)+(int)phSelect;
 
-			Console.WriteLine (distanceOnBar);
-			Console.WriteLine (X);
-
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);

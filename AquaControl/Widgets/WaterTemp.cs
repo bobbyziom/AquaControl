@@ -5,9 +5,10 @@ namespace AquaControl
 	public class WaterTemp : BaseObject
 	{
 	
-		float WaterTemperature = 30.0f;
+		float WaterTemperature = 15.0f;
 		float[] colorWater = new float[3];
 		float alphaChannel = 0.0f;
+		private const string XIVELY_DATA_STREAM_ID = "AIR_TEMP";
 
 		public WaterTemp () 
 		{
@@ -29,7 +30,7 @@ namespace AquaControl
 			int waveBottoms = Radius / 2;
 			int waveDepths = Radius / 6;
 
-			WaterTemperature = CurrentData.GetCurrentValueByIdFloat("Air");
+			WaterTemperature = CurrentData.GetCurrentValueByIdFloat (XIVELY_DATA_STREAM_ID);
 
 			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
