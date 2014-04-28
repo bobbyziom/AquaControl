@@ -116,7 +116,7 @@ namespace AquaControl
 		public override void OnAllClick ()
 		{
 
-			CurrentData.ForceUpdateData ();
+
 
 			if (_showText) {
 				_showText = false;
@@ -128,6 +128,7 @@ namespace AquaControl
 				GraphContainer.HideGraphById (_graphId);
 			} else {
 				GraphContainer.ShowGraphById (_graphId);
+				CurrentData.ForceUpdateData ();
 			}
 
 		}

@@ -51,16 +51,16 @@ namespace AquaControl
 			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
 			surface.ShowText (widgetText);
 
+
 			if (!UserSettings.UserSetupCompleted) { 
 				widgetText = "Settings Incomplete";
 				surface.SetFontSize (10);
 				text = surface.TextExtents (widgetText);
 				surface.SetSourceRGBA (0, 0, 0, Alpha);
-				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+10);
+				surface.MoveTo (X - (text.Width / 2), Y + (text.Height));
 				surface.ShowText (widgetText);
-
 			}
-			if (!UserSettings.CorrectKey) { 
+			if (!UserSettings.CorrectKey && UserSettings.UserSetupCompleted) { 
 				widgetText = "Settings Incomplete";
 				surface.SetFontSize (10);
 				text = surface.TextExtents (widgetText);
@@ -74,10 +74,15 @@ namespace AquaControl
 				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+(text.Height)+10);
 				surface.ShowText (widgetText);
 			}
-
-
-
-
+			if (UserSettings.CorrectKey && UserSettings.UserSetupCompleted) { 
+				widgetText = "Settings OK!";
+				surface.SetFontSize (10);
+				text = surface.TextExtents (widgetText);
+				surface.SetSourceRGBA (0, 0, 0, _textAlpha);
+				surface.MoveTo (X - (text.Width / 2), Y + (text.Height)+10);
+				surface.ShowText (widgetText);
+			}
+				
 		}
 
 		public override void OnHoverAction ()
@@ -114,7 +119,7 @@ namespace AquaControl
 			OnAllClick ();
 		}
 
-		private void OnAllClick ()
+		public override void OnAllClick ()
 		{
 
 
