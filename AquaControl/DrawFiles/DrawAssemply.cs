@@ -38,7 +38,7 @@ namespace AquaControl
 		/// Gets or sets the frame area margin LEF.
 		/// </summary>
 		/// <value>The frame area margin LEF.</value>
-		public static int WidgetRadius { get; set; }
+		public static int GlobalRadius { get; set; }
 
 		/// <summary>
 		/// Gets or sets the content heigth.
@@ -111,6 +111,7 @@ namespace AquaControl
 			_frameSize = frameSize;
 			_frameHeight = frameHeigh;
 
+
 			GraphPosition = (int)SECTIONS.BOT;
 
 			_frameCoordinates = new int[_frameHeight,_frameSize,_coordinatesNum];
@@ -125,7 +126,6 @@ namespace AquaControl
 		/// <param name="height">Height.</param>
 		public static void UpdateDrawingContext(Gdk.Window context2, float width, float height)
 		{
-
 			MainDrawingArea = context2;
 			ContentHeight = height;
 			ContentWidth = width; 
@@ -133,8 +133,8 @@ namespace AquaControl
 			FrameAreaHeight = (int)ContentHeight / _frameHeight;
 			FrameAreaMarginLEFT = ((int)ContentWidth / _frameSize/2);
 			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
-			WidgetMarginTOP = FrameAreaMarginLEFT - WidgetRadius;
-			WidgetMarginTOP = FrameAreaMarginTOP - WidgetRadius;
+			WidgetMarginTOP = FrameAreaMarginLEFT - GlobalRadius;
+			WidgetMarginTOP = FrameAreaMarginTOP - GlobalRadius;
 
 		}
 

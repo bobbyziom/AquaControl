@@ -56,7 +56,7 @@ namespace AquaControl
 
 			Console.WriteLine ("Base Object Construct");
 
-			Radius = 50;
+			Radius = DrawAssembly.GlobalRadius;
 
 			Alpha = 1;
 

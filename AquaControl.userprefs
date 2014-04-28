@@ -1,10 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/Widgets/PumpWidget.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AquaControl/gtk-gui/generated.cs">
     <Files>
-      <File FileName="AquaControl/Widgets/PumpWidget.cs" Line="51" Column="74" />
-      <File FileName="AquaControl/Widgets/WaterTemp.cs" Line="34" Column="4" />
-      <File FileName="AquaControl/Widgets/PHWidget.cs" Line="15" Column="4" />
+      <File FileName="AquaControl/DrawFiles/DrawAssemply.cs" Line="128" Column="4" />
+      <File FileName="AquaControl/Widgets/Base/BaseObject.cs" Line="59" Column="31" />
+      <File FileName="AquaControl/MainWindow.cs" Line="68" Column="3" />
+      <File FileName="AquaControl/gtk-gui/generated.cs" Line="30" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
