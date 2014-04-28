@@ -6,9 +6,9 @@ namespace AquaControl
 	{
 
 		float PHValue = 3.0f;
-		float WaterTemp = 0.0f;
+		float WaterTemp = 30.0f;
 		float[] colorWater = new float[3];
-		float _alphaChannel = 0.2f;
+		float alphaChannel = 0.0f;
 		float topBottomDifference = 0.4f;
 
 		public PHWidget () 
@@ -17,9 +17,9 @@ namespace AquaControl
 			Console.WriteLine ("Test Object construcT");
 
 			X = 300;
-			colorWater[0] = 0.6f;
-			colorWater[1] = 0.6f;
-			colorWater[2] = 0.6f;
+			colorWater[0] = 0.2f;
+			colorWater[1] = 0.2f;
+			colorWater[2] = 0.2f;
 
 		}
 
@@ -32,75 +32,57 @@ namespace AquaControl
 			int waveDepths = Radius / 6;
 
 
-			PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
-			WaterTemp = CurrentData.GetCurrentValueByIdFloat("temp");
+			//PHValue = CurrentData.GetCurrentValueByIdFloat("ph");
+			WaterTemp = CurrentData.GetCurrentValueByIdFloat("Air");
 
+			// CIRCLE
 			surface.SetSourceRGBA (1, 1, 1, 0.1);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 2);
 			surface.Fill ();
 
+			// WAVEFORMED CIRCLE
 			surface.CurveTo(X-Radius, Y-waveDepths, X-waveBottoms, Y+waveDepths, X-waveTops, Y-waveDepths);
 			surface.CurveTo(X-waveTops, Y-waveDepths, X, Y+waveDepths, X+waveTops, Y-waveDepths);
 			surface.CurveTo(X+waveTops, Y-waveDepths, X+waveBottoms, Y+waveDepths, X+Radius, Y-waveDepths);
-
-			surface.SetSourceRGB (0.4, 0.4, 0.4);
+			surface.SetSourceRGBA (colorWater[0], colorWater[1], colorWater[2], alphaChannel);
 			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
 			surface.Fill ();
 
-			//			surface.SetSourceRGBA (1, 1, 1, 0.1);
-			//			surface.MoveTo (X, Y);
-			//
-			//			surface.SetFontSize (50);
-			//			string widgetText = "TEMP";
-			//			Cairo.TextExtents text = surface.TextExtents (widgetText);
-			//			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
-			//			surface.ShowText (widgetText);
-			//
-			//			surface.Fill();
-			//
-			//			surface.CurveTo(X-100, Y-10, X-60, Y+10, X-30, Y-10);
-			//			surface.CurveTo(X-30, Y-10, X, Y+10, X+30, Y-10);
-			//			surface.CurveTo(X+30, Y-10, X+60, Y+10, X+100, Y-10);
-			//			surface.SetSourceRGBA (colorWater[0], colorWater[1], colorWater[2], _alphaChannel);
-			//			surface.Arc (X, Y, Radius, 0, Math.PI * 1);
-			//			surface.Fill ();
+			// TEXT
+			surface.SetSourceRGBA (1, 1, 1, 0.1);
+			surface.MoveTo (X, Y);
+			surface.SetFontSize (Radius/2);
+			string widgetText = Convert.ToString(WaterTemp);
+			Cairo.TextExtents text = surface.TextExtents (widgetText);
+			surface.MoveTo(X - (text.Width/2), Y + (text.Height/2));
+			surface.ShowText (widgetText);
+			surface.Fill();
 
 		}
 
 		public override void OnHoverAction ()
 		{
-			// MOVE TO ALIGN NUMBER
-			//if (WaterTemp < 20) {
-
-			//} else{
-
-			//}
-
 			// SPECIFIC COLOR	
-
-			//PHcolorR = WaterTemp/40;
-			//PHcolorB = WaterTemp/40;	
-
-			// FADE IN
-			if (_alphaChannel < 0.6) {	
-				_alphaChannel += 0.01f; 
-				//phTextShow =  Convert.ToString(WaterTemp/100);
+			if (WaterTemp > 20.0f) {
+				colorWater [0] = 0.6f;
+				colorWater [1] = 0.0f;
+				colorWater [2] = 0.0f;
+			} else {
+				colorWater[0] = 0.0f;
+				colorWater[1] = 0.0f;
+				colorWater[2] = 0.6f;
 			}
 
+			if (alphaChannel < 0.8f) {
+				alphaChannel += 0.1f;
+			}
 		}
 
 		public override void OnNoHoverAction()
 		{
-			if (_alphaChannel > 0) {
-				_alphaChannel -= 0.01f;
-			} else {
-
+			if (alphaChannel > 0.0f) {
+				alphaChannel -= 0.1f;
 			}
-
-			//phTextShow = "";
-			//textMoveX = -55;
-			//textMoveY = 30;
-
 		}
 
 	}
