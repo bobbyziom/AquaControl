@@ -14,7 +14,7 @@ namespace AquaControl
 		// FRAME GENERATION
 		private const int _coordinatesNum = 2;
 		private static int[,,] _frameCoordinates;
-		private static int _frameSize;
+		private static int _frameWidth;
 		private static int _frameHeight;
 		private static int RowStart = 0;
 		private static int RowJump = 0;
@@ -112,12 +112,11 @@ namespace AquaControl
 		public static void Setup(int frameSize, int frameHeigh, int SwipeAmountSend) {
 			SwipeLenght = 0;
 			SwipeAmount = SwipeAmountSend;
-			_frameSize = frameSize;
+			_frameWidth = frameSize;
 			_frameHeight = frameHeigh;
 			GlobalRadius = 50;
-			WidgetGraphSpace = 100;
 			GraphPosition = (int)SECTIONS.BOT;
-			_frameCoordinates = new int[_frameHeight,_frameSize,_coordinatesNum];
+			_frameCoordinates = new int[_frameHeight,_frameWidth,_coordinatesNum];
 		}
 
 		/// <summary>
@@ -132,8 +131,8 @@ namespace AquaControl
 			ContentWidth = width; 
 			FrameAreaWidth = (int)ContentWidth;
 			FrameAreaHeight = (int)ContentHeight / _frameHeight;
-			FrameAreaMarginLEFT = ((int)ContentWidth / _frameSize/2);
-			FrameAreaMarginTOP = ((int)ContentHeight / _frameSize /2);
+			FrameAreaMarginLEFT = ((int)ContentWidth / _frameWidth/2);
+			FrameAreaMarginTOP = ((int)ContentHeight / _frameWidth /2);
 			WidgetMarginTOP = (int)FrameAreaMarginTOP - (int)GlobalRadius;
 			WidgetMarginLEFT = (int)FrameAreaMarginLEFT - (int)GlobalRadius;
 		}
@@ -176,7 +175,7 @@ namespace AquaControl
 		/// <param name="swipes">Swipes.</param>
 		public static void DrawWidgets (int swipes){
 
-			for (int Xframes = 0; Xframes < _frameSize; Xframes++) {
+			for (int Xframes = 0; Xframes < _frameWidth; Xframes++) {
 				for (int Yframes = 0 + RowStart; Yframes < _frameHeight-RowStop; Yframes += (1+RowJump)) {
 
 					using (Cairo.Context SurfaceWidget = Gdk.CairoHelper.Create (MainDrawingArea)) {
@@ -211,11 +210,11 @@ namespace AquaControl
 
 				for (int xPos = 0; xPos < _frameHeight; xPos++) {
 
-					for (int yPos = 0; yPos < _frameSize; yPos++) {
+					for (int yPos = 0; yPos < _frameWidth; yPos++) {
 
 						// Puts a coordinate into the FrameCoordinate array
 
-						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameSize * yPos + FrameAreaMarginLEFT;
+						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameWidth * yPos + FrameAreaMarginLEFT;
 						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeight / _frameHeight  * xPos + FrameAreaMarginTOP;
 					}
 				}
