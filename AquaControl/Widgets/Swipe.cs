@@ -64,8 +64,8 @@ namespace AquaControl
 
 		public override void OnAllClick ()
 		{
-			if (DrawAssembly.ContentWidth > DrawAssembly.SwipeLenght) {
-				DrawAssembly.SwipeLenght += DrawAssembly.ContentWidth;
+			if (DrawAssembly.ContentWidth > DrawAssembly.SwipeLength) {
+				DrawAssembly.SwipeLength += DrawAssembly.ContentWidth;
 			} 
 		}
 

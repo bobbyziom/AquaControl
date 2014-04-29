@@ -65,7 +65,7 @@ namespace AquaControl
 
 		public override void OnAllClick ()
 		{
-			DrawAssembly.SwipeLenght = 0;
+			DrawAssembly.SwipeLength = 0;
 		}
 
 		public override void OnHoverAction () 
