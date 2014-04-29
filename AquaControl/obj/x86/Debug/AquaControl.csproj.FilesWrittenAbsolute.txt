@@ -12,3 +12,10 @@
 /Users/Toretty/AquaControl/AquaControl/obj/x86/Debug/AquaControl.exe
 /Users/Toretty/AquaControl/AquaControl/obj/x86/Debug/AquaControl.exe.mdb
 /Users/Toretty/AquaControl/AquaControl/bin/Debug/Newtonsoft.Json.dll
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Debug/AquaControl.gtk-gui.gui.stetic
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/bin/Debug/AquaControl.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/bin/Debug/AquaControl.exe
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Debug/AquaControl.exe
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Debug/AquaControl.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/bin/Debug/Newtonsoft.Json.dll

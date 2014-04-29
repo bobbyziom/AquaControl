@@ -9,7 +9,7 @@ namespace AquaControl
 		/// <summary>
 		/// The widget array.
 		/// </summary>
-		public static List<Graph> graphArray;
+		public static List<Graph> GraphBucket;
 
 		/// <summary>
 		/// Gets or sets the total widget count.
@@ -38,12 +38,12 @@ namespace AquaControl
 		public static void CreateGraphs()
 		{
 
-			graphArray = new List<Graph> ();
+			GraphBucket = new List<Graph> ();
 
 			for (int i = 0; i < TotalGraphCount; i++) {
 
-				graphArray.Add(new Graph ());
-				graphArray [i].Id = i;
+				GraphBucket.Add(new Graph ());
+				GraphBucket [i].Id = i;
 
 			}
 
@@ -57,16 +57,16 @@ namespace AquaControl
 		public static void AssignXivelyDatastreamStringById(int id, string xivelyStringId)
 		{
 
-			graphArray [id].DataStreamId = xivelyStringId;
+			GraphBucket [id].DataStreamId = xivelyStringId;
 
 		}
 
 		public static void SetGraphColorById(int id, float r, float g, float b)
 		{
 
-			graphArray [id].R = r;
-			graphArray [id].G = g;
-			graphArray [id].B = b;
+			GraphBucket [id].R = r;
+			GraphBucket [id].G = g;
+			GraphBucket [id].B = b;
 
 		}
 
@@ -77,7 +77,7 @@ namespace AquaControl
 		public static void ShowGraphById(int id) 
 		{
 
-			graphArray [id].Alpha = 1;
+			GraphBucket [id].Alpha = 1;
 
 
 		}
@@ -89,7 +89,7 @@ namespace AquaControl
 		public static void HideGraphById(int id) 
 		{
 
-			graphArray [id].Alpha = 0;
+			GraphBucket [id].Alpha = 0;
 
 		}
 
@@ -101,7 +101,7 @@ namespace AquaControl
 		/// <param name="id">Identifier.</param>
 		public static bool IsShownById(int id) {
 
-			if (graphArray [id].Alpha == 1) {
+			if (GraphBucket [id].Alpha == 1) {
 
 				return true;
 
