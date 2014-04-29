@@ -6,6 +6,7 @@ namespace AquaControl
 	{
 		float pumpLight = 0.3f;
 		bool pumpON = false;
+
 		private const string XIVELY_DATA_STREAM_ID = "PUMP";
 
 		public PumpWidget () 

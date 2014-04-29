@@ -108,7 +108,6 @@ namespace AquaControl
 				int k = i + 1;
 
 
-
 				_p1 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (i * (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [i] - _minValue) * (y_scale_ratio*0.5));
 				_p2 = new PointD (X - DrawAssembly.FrameAreaMarginLEFT  + (k *  (x_scale_ratio*0.5)), Y + DrawAssembly.FrameAreaMarginTOP - (_graphData [k] - _minValue) * (y_scale_ratio*0.5));
 
@@ -118,7 +117,6 @@ namespace AquaControl
 
 				p1Xcoordinates [i] = _p1.X;
 				p1Ycoordinates [i] = _p1.Y;
-
 
 
 			}
@@ -133,14 +131,14 @@ namespace AquaControl
 			Cairo.TextExtents text = surface.TextExtents (widgetText);
 
 			surface.SetSourceRGBA (R, G, B, Alpha);
-			surface.MoveTo(DrawAssembly.FrameAreaWidth - text.Width - DrawAssembly.FrameAreaMarginLEFT, DrawAssembly.FrameAreaHeight - (text.Height*Id));
+			surface.MoveTo(DrawAssembly.FrameAreaMarginLEFT, Y + (text.Height*Id));
 
 			surface.ShowText (widgetText);
-
+			/*
 			surface.SetSourceRGBA (1, 1, 1, 0.5);
 			surface.Rectangle (DrawAssembly.FrameAreaMarginLEFT, 0, DrawAssembly.FrameAreaWidth, DrawAssembly.FrameAreaHeight);
 			surface.Stroke ();
-
+*/
 
 		}
 
@@ -168,7 +166,8 @@ namespace AquaControl
 			}
 
 		}
-		public double FindMaxValue(Double[] value){
+		public double FindMaxValue(Double[] value)
+		{
 
 			if (CurrentData.HistoricDataStored) {
 				_maxValue = value [1];
@@ -256,7 +255,7 @@ namespace AquaControl
 
 			if (Alpha > 0.8) {
 
-				Console.WriteLine (0.20 *ydifference);
+				//Console.WriteLine (0.20 *ydifference);
 				surface.MoveTo (X - DrawAssembly.FrameAreaMarginLEFT -10, 
 					Y + DrawAssembly.FrameAreaMarginTOP);
 				surface.LineTo (X - DrawAssembly.FrameAreaMarginLEFT -10, 
@@ -269,6 +268,8 @@ namespace AquaControl
 //				}
 			}
 		}
+
+
 
 
 			

@@ -61,6 +61,13 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Sets the graph color by identifier.
+		/// </summary>
+		/// <param name="id">Identifier.</param>
+		/// <param name="r">The red component.</param>
+		/// <param name="g">The green component.</param>
+		/// <param name="b">The blue component.</param>
 		public static void SetGraphColorById(int id, float r, float g, float b)
 		{
 

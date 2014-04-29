@@ -9,13 +9,13 @@ namespace AquaControl
 		float WaterTemperature = 15.0f;
 		float[] colorWater = new float[3];
 		float alphaChannel = 0.0f;
+	
 		private const string XIVELY_DATA_STREAM_ID = "AIR_TEMPERATURE";
 
 		public WaterTemp () 
 		{
 
-			Console.WriteLine ("Test Object construcT");
-
+		
 			X = 300;
 			colorWater[0] = 0.2f;
 			colorWater[1] = 0.2f;
@@ -32,7 +32,7 @@ namespace AquaControl
 			int waveDepths = Radius / 6;
 
 			WaterTemperature = CurrentData.GetCurrentValueByIdFloat (XIVELY_DATA_STREAM_ID);
-			WaterTemperature = WaterTemperature / 100;
+			//WaterTemperature = WaterTemperature / 100;
 
 
 			// CIRCLE

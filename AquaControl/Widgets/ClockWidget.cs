@@ -89,16 +89,16 @@ namespace AquaControl
 			surface.LineTo (PositionX-(Radius/2)*Math.Cos(angleHour+Math.PI/2),PositionY-(Radius/2)*Math.Sin(angleHour+Math.PI/2));
 			surface.Stroke ();
 
-			if (_showText) {
-
-				// name
-				surface.SetFontSize(30);
-				text = surface.TextExtents("Kevins Mom");
-				surface.MoveTo(PositionX - text.Width/2, PositionY + text.Height/2 + Radius/2);
-				surface.SetSourceRGBA (1,0,1, 1);
-				surface.ShowText ("Kevins Mom");
-
-			}
+//			if (_showText) {
+//
+//				// name
+//				surface.SetFontSize(30);
+//				text = surface.TextExtents("Kevins Mom");
+//				surface.MoveTo(PositionX - text.Width/2, PositionY + text.Height/2 + Radius/2);
+//				surface.SetSourceRGBA (1,0,1, 1);
+//				surface.ShowText ("Kevins Mom");
+//
+//			}
 		}
 
 		public override void OnHoverAction ()
