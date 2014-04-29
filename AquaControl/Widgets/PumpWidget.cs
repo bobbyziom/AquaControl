@@ -13,8 +13,6 @@ namespace AquaControl
 
 			Console.WriteLine ("Pumpwidget Up!");
 
-			X = 300;
-
 		}
 
 		public override void Draw (Cairo.Context surface, int x, int y){

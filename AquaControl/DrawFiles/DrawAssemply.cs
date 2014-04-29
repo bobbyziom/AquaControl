@@ -150,6 +150,25 @@ namespace AquaControl
 
 		}
 
+		/// <summary>
+		/// Sets the coordinates.
+		/// </summary>
+		public static void SetCoordinates ()
+		{
+			for (int NewCordi = 1; NewCordi < (_frameCoordinates.Length/2); NewCordi++) {
+
+				for (int xPos = 0; xPos < _frameHeight; xPos++) {
+
+					for (int yPos = 0; yPos < _frameWidth; yPos++) {
+
+						// Puts a coordinate into the FrameCoordinate array
+
+						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameWidth * yPos + FrameAreaMarginLEFT;
+						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeight / _frameHeight  * xPos + FrameAreaMarginTOP;
+					}
+				}
+			}
+		}
 
 		public static void DrawElements (){
 
@@ -199,26 +218,6 @@ namespace AquaControl
 				}
 			}
 
-		}
-
-		/// <summary>
-		/// Sets the coordinates.
-		/// </summary>
-		public static void SetCoordinates ()
-		{
-			for (int NewCordi = 1; NewCordi < (_frameCoordinates.Length/2); NewCordi++) {
-
-				for (int xPos = 0; xPos < _frameHeight; xPos++) {
-
-					for (int yPos = 0; yPos < _frameWidth; yPos++) {
-
-						// Puts a coordinate into the FrameCoordinate array
-
-						_frameCoordinates [xPos, yPos, 0] = (int)ContentWidth / _frameWidth * yPos + FrameAreaMarginLEFT;
-						_frameCoordinates [xPos, yPos, 1] = (int)ContentHeight / _frameHeight  * xPos + FrameAreaMarginTOP;
-					}
-				}
-			}
 		}
 
 		/// <summary>
