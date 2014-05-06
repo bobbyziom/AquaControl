@@ -215,9 +215,21 @@ namespace AquaControl
 
 								for (int j = 0; j < _totalDataPoints; j++) {
 
-									_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
+									double d;
+									string str = newData.datastreams [i].datapoints [j].value.ToString();
+									if (Double.TryParse(str, out d)) // if done, then is a number
+									{
+										_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
+									}
 
-									//Console.Write (" " + GraphData [j]);
+
+//									if (newData.datastreams [i].datapoints [j].value.ToString() != "nan"){
+//
+//										_graphData [j] = Convert.ToDouble (newData.datastreams [i].datapoints [j].value);
+//
+//									} else {
+//										_graphData [j] = 0;
+//									}
 	
 								}
 							} else {

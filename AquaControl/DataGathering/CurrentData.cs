@@ -192,7 +192,12 @@ namespace AquaControl
 				for (int i = 0; i < Data.datastreams.Count; i++) {
 					if (Data.datastreams [i].id == id) {
 
-						value = (float)Convert.ToDouble(Data.datastreams [i].current_value);
+						double d;
+						string str = Data.datastreams [i].current_value.ToString();
+						if (Double.TryParse(str, out d)) // if done, then is a number
+						{
+							value = (float)Convert.ToDouble(Data.datastreams [i].current_value);
+						}
 
 					}
 				}
@@ -216,7 +221,14 @@ namespace AquaControl
 				for (int i = 0; i < Data.datastreams.Count; i++) {
 					if (Data.datastreams [i].id == id) {
 
-						value = Convert.ToInt32(Data.datastreams [i].current_value);
+						int d;
+						string str = Data.datastreams [i].current_value.ToString();
+						if (Int32.TryParse(str, out d)) // if done, then is a number
+						{
+							value = Convert.ToInt32(Data.datastreams [i].current_value);
+						}
+
+
 
 					}
 				}
