@@ -1,0 +1,7 @@
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Release/AquaControl.gtk-gui.gui.stetic
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/bin/Release/AquaControl.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/bin/Release/AquaControl.exe
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Release/AquaControl.exe
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/obj/x86/Release/AquaControl.exe.mdb
+/Users/Bobby/Documents/AAU MED4/AquaControl/AquaControl/AquaControl/bin/Release/Newtonsoft.Json.dll
